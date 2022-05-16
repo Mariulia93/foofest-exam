@@ -1,3 +1,30 @@
+@use "base";
+
 body {
-  background-color: aqua;
+  background: base.$background-gradient;
+  background-repeat: no-repeat;
+  margin: 2rem;
+  color: base.$logo-color;
+  font-family: base.$paragraph-font;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  #navLogo * {
+    font-family: base.$logo-font;
+    text-decoration: none;
+    font-size: 4rem;
+    color: base.$logo-color;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    * {
+      text-decoration: none;
+    }
+  }
 }
