@@ -3,7 +3,6 @@
 body {
   background: base.$background-gradient;
   background-repeat: no-repeat;
-  margin: 2rem;
   color: base.$logo-color;
   font-family: base.$paragraph-font;
 }
@@ -11,20 +10,33 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-
-  #navLogo * {
-    font-family: base.$logo-font;
-    text-decoration: none;
-    font-size: 4rem;
-    color: base.$logo-color;
-  }
-
+  padding: 2rem;
   ul {
     list-style: none;
     display: flex;
     gap: 1rem;
     * {
       text-decoration: none;
+      font-family: base.$headers-font;
     }
+  }
+}
+
+#welcomeImageBackground {
+  background-image: url("./temp-beach.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.logo {
+  font-family: base.$logo-font;
+  color: base.$logo-color;
+  text-decoration: none;
+  font-size: 4rem;
+}
+
+#landingHeader {
+  h1 {
+    padding: 15rem 30rem 25rem;
   }
 }

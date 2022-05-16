@@ -1,7 +1,9 @@
-import React from "react";
+import Nav from "../components/Nav";
 
-function Schedule() {
-  return <div>Schedule</div>;
+export default function Schedule() {
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
 }
-
-export default Schedule;

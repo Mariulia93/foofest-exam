@@ -1,5 +1,11 @@
-function Home() {
-  return <div>Home</div>;
-}
+import Header from "../components/Header";
+import Nav from "../components/Nav";
 
-export default Home;
+export default function Home() {
+  return (
+    <div id="welcomeImageBackground">
+      <Nav />
+      <Header />
+    </div>
+  );
+}

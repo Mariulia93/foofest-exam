@@ -1,7 +1,9 @@
-import React from "react";
+import Nav from "../components/Nav";
 
-function Info() {
-  return <div>Info</div>;
+export default function Info() {
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
 }
-
-export default Info;

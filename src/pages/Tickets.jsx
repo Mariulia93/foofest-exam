@@ -1,7 +1,9 @@
-import React from "react";
+import Nav from "../components/Nav";
 
-function Tickets() {
-  return <div>Tickets</div>;
+export default function Tickets() {
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
 }
-
-export default Tickets;
