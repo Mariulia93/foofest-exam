@@ -80,3 +80,19 @@ h2 {
     color: #fff;
   }
 }
+#countdownContainer {
+  padding: 10rem;
+  text-align: center;
+  *:first-child {
+    font-size: 6rem;
+    word-spacing: 30px;
+  }
+  h3 {
+    word-spacing: 50px;
+    padding-left: 1rem;
+  }
+  * {
+    font-size: 1.5rem;
+    font-family: base.$headers-font;
+  }
+}
