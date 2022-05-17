@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Cuprum:wght@700&family=Lato:wght@300;400&display=swap");
 
+// reset
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
 $background-gradient: linear-gradient(
   25deg,
   rgba(255, 216, 152, 0.5270483193277311) 0%,

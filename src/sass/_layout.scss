@@ -16,7 +16,6 @@ nav {
     display: flex;
     gap: 1rem;
     * {
-      text-decoration: none;
       font-family: base.$headers-font;
     }
   }
@@ -25,19 +24,20 @@ nav {
 #welcomeImageBackground {
   background-image: url("./beach-header.jpg");
   background-repeat: no-repeat;
-  background-position: center;
+  // background-position: center;
   background-size: 100%;
+  height: 100vh;
 }
 
 .logo {
   font-family: base.$logo-font;
   color: base.$logo-color;
-  text-decoration: none;
+  text-align: center;
   font-size: 4rem;
 }
 
 #landingHeader {
   h1 {
-    padding: 15rem 30rem 25rem;
+    // padding: 15rem 30rem 25rem;
   }
 }
