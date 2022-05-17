@@ -3,8 +3,14 @@
 body {
   background: base.$background-gradient;
   background-repeat: no-repeat;
-  color: base.$logo-color;
+  color: base.$primary-color;
   font-family: base.$paragraph-font;
+}
+
+a,
+li {
+  color: base.$primary-color;
+  font-family: base.$headers-font;
 }
 
 nav {
@@ -15,9 +21,9 @@ nav {
     list-style: none;
     display: flex;
     gap: 1rem;
-    * {
-      font-family: base.$headers-font;
-    }
+    // * {
+    //   font-family: base.$headers-font;
+    // }
   }
 }
 
@@ -29,17 +35,26 @@ nav {
   height: 100vh;
 }
 
+.opacityContainer {
+  height: 100vh;
+  background-color: #ffffff7d;
+  // background: base.$background-gradient;
+}
+h1 {
+  padding: 4rem 0;
+}
 .logo {
   font-family: base.$logo-font;
-  color: base.$logo-color;
-  text-align: center;
+  color: base.$primary-color;
   font-size: 4rem;
 }
+.landingHeader,
+h2 {
+  text-align: center;
+}
 
-#landingHeader {
-  h1 {
-    // padding: 15rem 30rem 25rem;
-  }
+h2 {
+  padding: 2rem 0;
 }
 
 #countdownContainer {

@@ -11,6 +11,7 @@ export default function Header() {
         ></CountDownTimer>
         <h3> DAYS HOURS MINUTES SECONDS</h3>
       </div>
+      <p>BARCELONA || 10-17 JUL</p>
     </div>
   );
 }
