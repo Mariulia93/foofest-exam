@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Nav from "../components/Nav";
+import Banner from "../components/Banner";
 
 export default function Home() {
   return (
@@ -11,6 +12,8 @@ export default function Home() {
         </div>
       </div>
       <h2>THE BIGGEST FESTIVAL IN EUROPE 2022</h2>
+      <Banner title="Buy tickets" name="/tickets" />
+      <Banner title="See schedule" name="/schedule" />
     </>
   );
 }
