@@ -49,6 +49,11 @@ h1 {
   color: base.$primary-color;
   font-size: 4rem;
 }
-.landingHeader {
+.landingHeader,
+h2 {
   text-align: center;
+}
+
+h2 {
+  padding: 2rem;
 }
