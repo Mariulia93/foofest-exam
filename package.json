@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "@inlightmedia/react-countdown-timer": "^1.1.2",
     "react-router-dom": "^6.3.0",
     "sass": "^1.51.0"
   }
