@@ -12,7 +12,7 @@ export default function Home() {
         </div>
       </div>
       <h2>THE BIGGEST FESTIVAL IN EUROPE 2022</h2>
-      <Banner title="Buy tickets" name="/tickets" />
+      <Banner title="Buy tickets" name="/tickets" style={{ backgroundPosition: "top" }} />
       <Banner title="See schedule" name="/schedule" />
     </>
   );

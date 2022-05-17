@@ -6,6 +6,9 @@ body {
   color: base.$primary-color;
   font-family: base.$paragraph-font;
 }
+button {
+  all: unset;
+}
 
 a,
 li {
@@ -21,16 +24,12 @@ nav {
     list-style: none;
     display: flex;
     gap: 1rem;
-    // * {
-    //   font-family: base.$headers-font;
-    // }
   }
 }
 
 #welcomeImageBackground {
   background-image: url("./beach-header.jpg");
   background-repeat: no-repeat;
-  // background-position: center;
   background-size: 100%;
   height: 100vh;
 }
@@ -38,7 +37,6 @@ nav {
 .opacityContainer {
   height: 100vh;
   background-color: #ffffff7d;
-  // background: base.$background-gradient;
 }
 h1 {
   padding: 4rem 0;
@@ -55,4 +53,30 @@ h2 {
 
 h2 {
   padding: 2rem 0;
+}
+
+.bannerImage {
+  background-image: url("./banner.webp");
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+  height: 40vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 45%;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-size: 3rem;
+  opacity: 0.7;
+  border-radius: 25px;
+  border: none;
+  button {
+    position: relative;
+  }
+  a {
+    position: absolute;
+    left: 5rem;
+    color: #fff;
+  }
 }
