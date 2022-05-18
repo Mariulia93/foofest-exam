@@ -54,14 +54,16 @@ h2 {
 h2 {
   padding: 2rem 0;
 }
-
+.container button {
+  position: relative;
+}
 .bannerImage {
   background-image: url("./banner.webp");
   width: 90%;
   max-width: 100%;
   margin: 0 auto;
   display: block;
-  height: 40vh;
+  height: 30vh;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 45%;
@@ -71,13 +73,16 @@ h2 {
   opacity: 0.7;
   border-radius: 25px;
   border: none;
-  button {
-    position: relative;
-  }
+
   a {
     position: absolute;
-    left: 5rem;
+    left: 0;
+    bottom: 0;
     color: #fff;
+    width: 100%;
+    padding-top: 23vh;
+    padding-left: 2rem;
+    padding-bottom: 2vh;
   }
 }
 #countdownContainer {
