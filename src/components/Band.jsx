@@ -1,11 +1,7 @@
 import React from "react";
 
 function Band(props) {
-  return (
-    <article>
-      <p>{props.band.name}</p>
-    </article>
-  );
+  return <p>{props.band.name} *</p>;
 }
 
 export default Band;

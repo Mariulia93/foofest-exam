@@ -15,13 +15,18 @@ export default function Home(props) {
       <h2>THE BIGGEST FESTIVAL IN EUROPE 2022</h2>
       <Banner title="Buy tickets" name="/tickets" style={{ backgroundPosition: "top" }} />
       <Banner title="See schedule" name="/schedule" />
-      <section>
-        <h2>Line up</h2>
-        <p>Default bands</p>
-        {props.bands.map((band) => (
-          <Band band={band} />
-        ))}
+      <section className="lineupContainer">
+        <h2>Line-up</h2>
 
+        <p className="defaultLineup">
+          TERMINALIST * LED ZEPPELIN * THE BEATLES * PINK FLOYD * QUEEN * METALLICA * AC/DC * THE
+          ROLLING STONES * GUNS N' ROSES * NIRVANA
+        </p>
+        <div className="lineupBand">
+          {props.bands.map((band) => (
+            <Band band={band} />
+          ))}
+        </div>
       </section>
     </>
   );
