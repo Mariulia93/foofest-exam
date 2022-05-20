@@ -1,3 +1,27 @@
+@use "base";
+
+// PRIMARY CTA
+.primaryCTA {
+  background-color: base.$accent-color;
+  padding: 5px 10px;
+  border-radius: 3px;
+  a {
+    color: #fff;
+  }
+}
+
+// NAV COMPONENT
+.navComponent {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+}
+
 // BANNER
 .bannerContainer button {
   position: relative;
