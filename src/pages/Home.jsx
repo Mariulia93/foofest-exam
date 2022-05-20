@@ -14,8 +14,8 @@ export default function Home(props) {
         </div>
       </div>
       <h2>THE BIGGEST FESTIVAL IN EUROPE 2022</h2>
-      <Banner title="Buy tickets" name="/tickets" style={{ backgroundPosition: "top" }} />
-      <Banner title="See schedule" name="/schedule" />
+      <Banner title="Get your ticket now!" name="/tickets" style={{ backgroundPosition: "top" }} />
+      <Banner title="Check out the artists playing!" name="/schedule" />
       <section className="lineupContainer">
         <h2>Line-up</h2>
 

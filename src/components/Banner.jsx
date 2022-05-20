@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Banner(props) {
   return (
-    <div className="container">
+    <div className="bannerContainer">
       <button className="bannerImage" style={props.style}>
         <Link to={props.name}>{props.title}</Link>
       </button>
