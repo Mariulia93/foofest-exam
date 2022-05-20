@@ -36,8 +36,18 @@ export default function Home(props) {
         </div>
       </div>
       <h2>THE BIGGEST FESTIVAL IN EUROPE 2022</h2>
-      <Banner title="Get your ticket now!" name="/tickets" style={{ backgroundPosition: "top" }} />
-      <Banner title="Check out the artists playing!" name="/schedule" />
+      <Banner
+        title="Get your ticket now!"
+        name="/tickets"
+        buttonText="Buy Tickets"
+        style={{ backgroundPosition: "top" }}
+      />
+      <Banner
+        title="Check out the artists playing!"
+        name="/schedule"
+        buttonText="Schedule"
+        bgColor={{ backgroundColor: "#2F5061" }}
+      />
       <section className="lineupContainer">
         <h2>Line-up</h2>
 

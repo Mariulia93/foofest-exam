@@ -1,13 +1,24 @@
 @use "base";
 
 // PRIMARY CTA
-.primaryCTA {
+.primaryCTA,
+.secondaryCTA {
   background-color: base.$accent-color;
   padding: 5px 10px;
   border-radius: 3px;
   a {
     color: #fff;
   }
+}
+.secondaryCTA {
+  background-color: base.$primary-color;
+}
+.primaryCTA:hover {
+  background-color: lighten(base.$accent-color, 7%);
+}
+
+.secondaryCTA:hover {
+  background-color: lighten(base.$primary-color, 7%);
 }
 
 // NAV COMPONENT
@@ -23,7 +34,7 @@
 }
 
 // BANNER
-.bannerContainer button {
+.bannerContainer .bannerImage {
   position: relative;
 }
 .bannerImage {
@@ -39,9 +50,14 @@
   margin-bottom: 2rem;
   text-transform: uppercase;
   font-size: 3rem;
-  opacity: 0.7;
+  //   opacity: 0.7;
   border-radius: 25px;
   border: none;
+  .bgBannerFadeOut {
+    background-color: rgba(161, 161, 161, 0.495);
+    width: 100%;
+    height: 100%;
+  }
 
   a {
     position: absolute;
@@ -51,6 +67,15 @@
     width: 100%;
     height: 30vh;
     padding: 1rem;
+  }
+  .primaryCTA,
+  .secondaryCTA {
+    width: 150px;
+    text-align: center;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
   }
 }
 

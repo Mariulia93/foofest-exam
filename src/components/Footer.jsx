@@ -6,14 +6,11 @@ function Footer() {
   return (
     <div className="footerContainer">
       <div className="bgImageFadeOut">
-          <ul>
-            <li>
-              <Contact />
-            </li>
-            <li>
-              <Address />
-            </li>
-          </ul>
+        <ul>
+          <Contact />
+
+          <Address />
+        </ul>
       </div>
     </div>
   );
