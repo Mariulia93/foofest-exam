@@ -11,11 +11,12 @@ function App() {
   const [bands, setBands] = useState([]);
   useEffect(() => {
     async function getData() {
-      const res = await fetch("https://foofest2022.herokuapp.com/bands?skip=12");
+      const res = await fetch("https://foofest2022.herokuapp.com/bands");
       const data = await res.json();
       setBands(data);
     }
     getData();
+
   }, []);
   return (
     <BrowserRouter>

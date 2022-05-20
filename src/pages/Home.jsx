@@ -23,8 +23,10 @@ export default function Home(props) {
           ROLLING STONES * GUNS N' ROSES * NIRVANA
         </p>
         <div className="lineupBand">
+         
           {props.bands.map((band) => (
-            <Band band={band} />
+          
+            <Band key={band.name} band={band} />
           ))}
         </div>
       </section>
