@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Banner from "../components/Banner";
 import Band from "../components/Band";
+import Footer from "../components/Footer";
 
 export default function Home(props) {
   return (
@@ -23,13 +24,12 @@ export default function Home(props) {
           ROLLING STONES * GUNS N' ROSES * NIRVANA
         </p>
         <div className="lineupBand">
-         
           {props.bands.map((band) => (
-          
             <Band key={band.name} band={band} />
           ))}
         </div>
       </section>
+      <Footer />
     </>
   );
 }
