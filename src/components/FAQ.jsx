@@ -4,6 +4,7 @@ import Question from "./Question";
 export default function FAQ() {
   return (
     <div class="questionsContainer">
+      <h2>Frequently asked questions</h2>
       <hr />
       <Question
         question={"Can I return a ticket?"}
