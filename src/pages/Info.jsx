@@ -17,9 +17,6 @@ export default function Info() {
       <h2>Information</h2>
       <Toggle toggleSwitchFunction={toggleSwitch} />
       {!hidden ? <AccomodationInfo /> : <FAQ />}
-      {/* toggle questions accomodation */}
-      {/* <AccomodationInfo />
-      <FAQ /> */}
     </div>
   );
 }

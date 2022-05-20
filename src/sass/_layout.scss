@@ -109,14 +109,14 @@ h2 {
   font-family: sans-serif;
 
   .switch-button {
-    background: rgba(255, 255, 255, 0.56);
+    background: #2f506188;
     border-radius: 30px;
     overflow: hidden;
     width: 400px;
     text-align: center;
     font-size: 18px;
     letter-spacing: 1px;
-    color: #155fff;
+    color: white;
     position: relative;
     padding-right: 200px;
     position: relative;
@@ -160,7 +160,7 @@ h2 {
 
         &:before {
           content: "";
-          background: #fff;
+          background: base.$primary-color;
           height: 100%;
           width: 100%;
           position: absolute;
@@ -177,4 +177,38 @@ h2 {
       }
     }
   }
+}
+
+.questionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.singleQuestion {
+  width: 60%;
+  button {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    p {
+      padding: 1rem 0;
+    }
+  }
+  p {
+    padding-bottom: 1rem;
+  }
+}
+
+.openedQuestion {
+  font-weight: 900;
+}
+
+.rotateArrow {
+  transform: rotate(180deg);
+  transition-duration: 0.3s;
+  animation-fill-mode: forwards;
 }
