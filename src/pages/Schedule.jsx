@@ -8,6 +8,9 @@ export default function Schedule() {
   const [displayedJ, setDisplayedJ] = useState([]);
   const [displayedM, setDisplayedM] = useState([]);
   const [displayedV, setDisplayedV] = useState([]);
+  const [hideM, setHideM] = useState(false);
+  const [hideV, setHideV] = useState(false);
+  const [hideJ, setHideJ] = useState(false);
   useEffect(() => {
     fetch("https://foofest2022.herokuapp.com/schedule")
       .then((response) => response.json())
@@ -24,7 +27,6 @@ export default function Schedule() {
   function filterByDay(day) {
     if (day === "all") {
       let alldays = [];
-      console.log(Array.isArray(alldays));
       Object.keys(midgard).map((key) => midgard[key].map((item) => alldays.push(item)));
       setDisplayedM(alldays);
       alldays = [];
@@ -37,14 +39,33 @@ export default function Schedule() {
       setDisplayedJ(jotunheim[day]);
       setDisplayedM(midgard[day]);
       setDisplayedV(vanaheim[day]);
-      console.log(displayedM);
+    }
+  }
+
+  function filterByStage(stage) {
+    if (stage === "midgard") {
+      setHideM(false);
+      setHideV(true);
+      setHideJ(true);
+    } else if (stage === "vanaheim") {
+      setHideM(true);
+      setHideV(false);
+      setHideJ(true);
+    } else if (stage === "jotunheim") {
+      setHideM(true);
+      setHideV(true);
+      setHideJ(false);
+    } else {
+      setHideM(false);
+      setHideV(false);
+      setHideJ(false);
     }
   }
 
   return (
     <div>
       <Nav />
-      <input type="radio" id="alldays" name="day" value="alldays" onChange={() => filterByDay("all")} checked />
+      <input type="radio" id="alldays" name="day" value="alldays" onChange={() => filterByDay("all")} />
       <label htmlFor="alldays">All days</label>
       <br />
       <input type="radio" id="day1" name="day" value="mon" onChange={() => filterByDay("mon")} />
@@ -69,31 +90,36 @@ export default function Schedule() {
       <label htmlFor="day7">Day 7 (16/07)</label>
       <br />
 
-      <input type="radio" id="allstages" name="stage" value="allstages" />
+      <input type="radio" id="allstages" name="stage" value="allstages" onChange={() => filterByStage("all")} />
       <label htmlFor="allstages">All stages</label>
       <br />
-      <input type="radio" id="stage1" name="stage" value="midgard" />
+      <input type="radio" id="stage1" name="stage" value="midgard" onChange={() => filterByStage("midgard")} />
       <label htmlFor="stage1">Stage 1 MIDGARD</label>
       <br />
-      <input type="radio" id="stage2" name="stage" value="vanaheim" />
+      <input type="radio" id="stage2" name="stage" value="vanaheim" onChange={() => filterByStage("vanaheim")} />
       <label htmlFor="stage2">Stage 2 VANAHEIM</label>
       <br />
-      <input type="radio" id="stage3" name="stage" value="jotunheim" />
+      <input type="radio" id="stage3" name="stage" value="jotunheim" onChange={() => filterByStage("jotunheim")} />
       <label htmlFor="stage3">Stage 3 JOTUNHEIM</label>
       <br />
-      <p>migdard</p>
-      <ul>{displayedM.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
-      <p>vanaheim</p>
-      <ul>{displayedV.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
-      <p>jotunheim</p>
-      <ul>{displayedJ.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
-
-      {/* {Object.keys(midgard).map((array) => array.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null)))} */}
-      {/* <ul>{Object.keys(midgard).map((key) => midgard[key].map((item) => <p> {item.act} </p>))}</ul> */}
-      {/* Object.keys(myObject).map(function(key, index) {
-  myObject[key] *= 2;
-}); */}
-      {/* <ul>{midgard.mon.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul> */}
+      {!hideM && (
+        <div>
+          <p>migdard</p>
+          <ul>{displayedM.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
+        </div>
+      )}
+      {!hideV && (
+        <div>
+          <p>vanaheim</p>
+          <ul>{displayedV.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
+        </div>
+      )}
+      {!hideJ && (
+        <div>
+          <p>jotunheim</p>
+          <ul>{displayedJ.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
+        </div>
+      )}
     </div>
   );
 }
