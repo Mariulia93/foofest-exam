@@ -77,3 +77,8 @@ h2 {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 }
+
+.artistsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+}

@@ -1,5 +1,7 @@
 import Nav from "../components/Nav";
 import { useState, useEffect } from "react";
+import BandCard from "../components/BandCard";
+import Band from "../components/Band";
 
 export default function Schedule(props) {
   const [midgard, setMidgard] = useState({});
@@ -108,7 +110,7 @@ export default function Schedule(props) {
       <label htmlFor="stage3">Stage 3 JOTUNHEIM</label>
       <br />
 
-      <div class="schedules">
+      <div className="schedules">
         {!hideM && !hideSchedules && (
           <div>
             <p>migdard</p>
@@ -152,28 +154,29 @@ export default function Schedule(props) {
       </div>
 
       {/* artists list */}
-      {!hideM && (
-        <div>
-          <p>migdard</p>
-          <ul>
+      <div className="artistsList">
+        {!hideM && (
+          <>
             {displayedM.map((item) =>
-              item.act !== "break" ? <li> {props.bands.find((band) => band.name === item.act).genre} </li> : null
+              item.act !== "break" ? <BandCard band={props.bands.find((band) => band.name === item.act)} /> : null
             )}
-          </ul>
-        </div>
-      )}
-      {!hideV && (
-        <div>
-          <p>vanaheim</p>
-          <ul>{displayedV.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
-        </div>
-      )}
-      {!hideJ && (
-        <div>
-          <p>jotunheim</p>
-          <ul>{displayedJ.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
-        </div>
-      )}
+          </>
+        )}
+        {!hideV && (
+          <>
+            {displayedV.map((item) =>
+              item.act !== "break" ? <BandCard band={props.bands.find((band) => band.name === item.act)} /> : null
+            )}
+          </>
+        )}
+        {!hideJ && (
+          <>
+            {displayedJ.map((item) =>
+              item.act !== "break" ? <BandCard band={props.bands.find((band) => band.name === item.act)} /> : null
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
