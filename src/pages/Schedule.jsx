@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 import { useState, useEffect } from "react";
 
-export default function Schedule() {
+export default function Schedule(props) {
   const [midgard, setMidgard] = useState({});
   const [vanaheim, setVanaheim] = useState({});
   const [jotunheim, setJotunheim] = useState({});
@@ -20,6 +20,7 @@ export default function Schedule() {
         setMidgard(data.Midgard);
         setVanaheim(data.Vanaheim);
         setJotunheim(data.Jotunheim);
+        console.log(props.bands.find((band) => band.name === "Tool"));
         // console.log(midgard.mon[0].act);
         // console.log(vanaheim.fri);
         // Object.keys(jotunheim).map((key) => jotunheim[key].map((item) => console.log(item.act)));
@@ -154,7 +155,11 @@ export default function Schedule() {
       {!hideM && (
         <div>
           <p>migdard</p>
-          <ul>{displayedM.map((item) => (item.act !== "break" ? <li> {item.act} </li> : null))}</ul>
+          <ul>
+            {displayedM.map((item) =>
+              item.act !== "break" ? <li> {props.bands.find((band) => band.name === item.act).genre} </li> : null
+            )}
+          </ul>
         </div>
       )}
       {!hideV && (

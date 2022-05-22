@@ -16,14 +16,13 @@ function App() {
       setBands(data);
     }
     getData();
-
   }, []);
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Home bands={bands} />} />
         <Route path="/tickets" element={<Tickets />} />
-        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/schedule" element={<Schedule bands={bands} />} />
         <Route path="/info" element={<Info />} />
       </Routes>
     </BrowserRouter>
