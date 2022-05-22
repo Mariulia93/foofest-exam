@@ -11,6 +11,8 @@ export default function Schedule() {
   const [hideM, setHideM] = useState(false);
   const [hideV, setHideV] = useState(false);
   const [hideJ, setHideJ] = useState(false);
+  const [hideSchedules, setHideSchedules] = useState(false);
+
   useEffect(() => {
     fetch("https://foofest2022.herokuapp.com/schedule")
       .then((response) => response.json())
@@ -26,6 +28,7 @@ export default function Schedule() {
 
   function filterByDay(day) {
     if (day === "all") {
+      setHideSchedules(true);
       let alldays = [];
       Object.keys(midgard).map((key) => midgard[key].map((item) => alldays.push(item)));
       setDisplayedM(alldays);
@@ -36,6 +39,7 @@ export default function Schedule() {
       Object.keys(jotunheim).map((key) => jotunheim[key].map((item) => alldays.push(item)));
       setDisplayedJ(alldays);
     } else {
+      setHideSchedules(false);
       setDisplayedJ(jotunheim[day]);
       setDisplayedM(midgard[day]);
       setDisplayedV(vanaheim[day]);
@@ -102,6 +106,51 @@ export default function Schedule() {
       <input type="radio" id="stage3" name="stage" value="jotunheim" onChange={() => filterByStage("jotunheim")} />
       <label htmlFor="stage3">Stage 3 JOTUNHEIM</label>
       <br />
+
+      <div class="schedules">
+        {!hideM && !hideSchedules && (
+          <div>
+            <p>migdard</p>
+            <ul>
+              {displayedM.map((item) => (
+                <li>
+                  {" "}
+                  {item.start} {item.act}{" "}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {!hideV && !hideSchedules && (
+          <div>
+            <p>vanaheim</p>
+            <ul>
+              {displayedV.map((item) => (
+                <li>
+                  {" "}
+                  {item.start} {item.act}{" "}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {!hideJ && !hideSchedules && (
+          <div>
+            <p>jotunheim</p>
+            <ul>
+              {displayedJ.map((item) => (
+                <li>
+                  {" "}
+                  {item.start} {item.act}{" "}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* artists list */}
       {!hideM && (
         <div>
           <p>migdard</p>

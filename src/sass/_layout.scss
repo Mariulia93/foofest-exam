@@ -71,3 +71,9 @@ h2 {
     font-family: base.$headers-font;
   }
 }
+
+.schedules {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
