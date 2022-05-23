@@ -13,7 +13,7 @@ export default function BandCard(props) {
   logoUrl = handleLogo(props.band.logo);
 
   return (
-    <button className="bandCard" href="">
+    <button className={`bandCard ${props.stage}`} href="">
       <img src={logoUrl} alt={props.band.name} />
       <h4>{props.band.name}</h4>
     </button>

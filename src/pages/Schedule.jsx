@@ -1,7 +1,6 @@
 import Nav from "../components/Nav";
 import { useState, useEffect } from "react";
 import BandCard from "../components/BandCard";
-import Band from "../components/Band";
 
 export default function Schedule(props) {
   const [midgard, setMidgard] = useState({});
@@ -22,7 +21,6 @@ export default function Schedule(props) {
         setMidgard(data.Midgard);
         setVanaheim(data.Vanaheim);
         setJotunheim(data.Jotunheim);
-        console.log(props.bands.find((band) => band.name === "Tool"));
         // console.log(midgard.mon[0].act);
         // console.log(vanaheim.fri);
         // Object.keys(jotunheim).map((key) => jotunheim[key].map((item) => console.log(item.act)));
@@ -158,21 +156,27 @@ export default function Schedule(props) {
         {!hideM && (
           <>
             {displayedM.map((item) =>
-              item.act !== "break" ? <BandCard band={props.bands.find((band) => band.name === item.act)} /> : null
+              item.act !== "break" ? (
+                <BandCard stage={"midgard"} band={props.bands.find((band) => band.name === item.act)} />
+              ) : null
             )}
           </>
         )}
         {!hideV && (
           <>
             {displayedV.map((item) =>
-              item.act !== "break" ? <BandCard band={props.bands.find((band) => band.name === item.act)} /> : null
+              item.act !== "break" ? (
+                <BandCard stage={"vanaheim"} band={props.bands.find((band) => band.name === item.act)} />
+              ) : null
             )}
           </>
         )}
         {!hideJ && (
           <>
             {displayedJ.map((item) =>
-              item.act !== "break" ? <BandCard band={props.bands.find((band) => band.name === item.act)} /> : null
+              item.act !== "break" ? (
+                <BandCard stage={"jotunheim"} band={props.bands.find((band) => band.name === item.act)} />
+              ) : null
             )}
           </>
         )}

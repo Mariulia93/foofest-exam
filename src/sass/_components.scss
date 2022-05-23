@@ -114,6 +114,24 @@
     top: -3rem;
     left: 1rem;
   }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 105px;
+  }
+}
+
+.midgard::before {
+  background-color: base.$midgard-color;
+}
+
+.vanaheim::before {
+  background-color: base.$vanaheim-color;
+}
+
+.jotunheim::before {
+  background-color: base.$jotunheim-color;
 }
 
 // FOOTER
