@@ -105,6 +105,7 @@
 //BAND CARD
 
 .bandCard {
+  cursor: pointer;
   img {
     width: 40%;
   }
@@ -132,6 +133,33 @@
 
 .jotunheim::before {
   background-color: base.$jotunheim-color;
+}
+
+//POPUP
+
+.popUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  min-width: 30%;
+  /* background-image: url("images/background.jpg"); */
+  background-color: aqua;
+  overflow: hidden;
+
+  .closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5%;
+    height: 7%;
+    cursor: pointer;
+  }
+
+  div {
+    padding: 2rem;
+  }
 }
 
 // FOOTER

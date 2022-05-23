@@ -1,6 +1,7 @@
 import Nav from "../components/Nav";
 import { useState, useEffect } from "react";
 import BandCard from "../components/BandCard";
+import BandPopUp from "../components/BandPopUp";
 
 export default function Schedule(props) {
   const [midgard, setMidgard] = useState({});
@@ -13,6 +14,8 @@ export default function Schedule(props) {
   const [hideV, setHideV] = useState(false);
   const [hideJ, setHideJ] = useState(false);
   const [hideSchedules, setHideSchedules] = useState(false);
+  const [hiddenPopUp, setHiddenPopUp] = useState(true);
+  const [popUpBand, setPopUpBand] = useState({});
 
   useEffect(() => {
     fetch("https://foofest2022.herokuapp.com/schedule")
@@ -65,6 +68,15 @@ export default function Schedule(props) {
       setHideV(false);
       setHideJ(false);
     }
+  }
+
+  function showPopup(props) {
+    setHiddenPopUp(false);
+    setPopUpBand(props);
+  }
+
+  function hidePopUp() {
+    setHiddenPopUp(true);
   }
 
   return (
@@ -157,7 +169,11 @@ export default function Schedule(props) {
           <>
             {displayedM.map((item) =>
               item.act !== "break" ? (
-                <BandCard stage={"midgard"} band={props.bands.find((band) => band.name === item.act)} />
+                <BandCard
+                  stage={"midgard"}
+                  showPopUpFunction={showPopup}
+                  band={props.bands.find((band) => band.name === item.act)}
+                />
               ) : null
             )}
           </>
@@ -166,7 +182,11 @@ export default function Schedule(props) {
           <>
             {displayedV.map((item) =>
               item.act !== "break" ? (
-                <BandCard stage={"vanaheim"} band={props.bands.find((band) => band.name === item.act)} />
+                <BandCard
+                  stage={"vanaheim"}
+                  showPopUpFunction={showPopup}
+                  band={props.bands.find((band) => band.name === item.act)}
+                />
               ) : null
             )}
           </>
@@ -175,12 +195,17 @@ export default function Schedule(props) {
           <>
             {displayedJ.map((item) =>
               item.act !== "break" ? (
-                <BandCard stage={"jotunheim"} band={props.bands.find((band) => band.name === item.act)} />
+                <BandCard
+                  stage={"jotunheim"}
+                  showPopUpFunction={showPopup}
+                  band={props.bands.find((band) => band.name === item.act)}
+                />
               ) : null
             )}
           </>
         )}
       </div>
+      {!hiddenPopUp && <BandPopUp band={popUpBand} hidePopUp={hidePopUp} />}
     </div>
   );
 }
