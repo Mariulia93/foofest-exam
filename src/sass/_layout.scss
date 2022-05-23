@@ -97,4 +97,7 @@ h2 {
     background-color: orange;
     cursor: pointer;
   }
+  button:disabled {
+    background-color: grey;
+  }
 }

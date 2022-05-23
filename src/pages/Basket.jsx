@@ -8,16 +8,19 @@ import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { useState } from "react";
 function Basket() {
-  // const [step, setStep] = useState(StepTickets);
+  //   const [step, setStep] = useState(StepTickets);
+  const [isDisabled, setIsDisabled] = useState(false);
   const [count, setCount] = useState(1);
   function showNextStep() {
     setCount((old) => old + 1);
     console.log(count);
-    if (count === 2) {
-      //   show step accomodation
-      console.log("step accomodation");
-      // console.log("step", step);
-    }
+
+    count === 4 ? setIsDisabled(true) : setIsDisabled(false);
+  }
+
+  function resetCount() {
+    setCount(1);
+    setIsDisabled(false);
   }
   return (
     <div>
@@ -31,17 +34,37 @@ function Basket() {
         </ul>
         <section>
           <div>
+            {/* {!hideM && !hideSchedules && (
+              <div>
+                <p>migdard</p>
+                <ul>
+                  {displayedM.map((item) => (
+                    <li>
+                      {" "}
+                      {item.start} {item.act}{" "}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )} */}
             <p>THIS CONTENT CHANGES</p>
-            <StepTickets count={count} selected={true} />
-            <StepAccomodation />
-            <StepPersonalData />
-            <StepPayment />
+
+            {/* <StepTickets count={count} />
+            <StepAccomodation setStep={setStep} /> */}
+            {count === 1 ? <StepTickets count={count} /> : null}
+            {count === 2 ? <StepAccomodation count={count} /> : null}
+            {count === 3 ? <StepPersonalData count={count} /> : null}
+            {count === 4 ? <StepPayment count={count} /> : null}
           </div>
           <aside>
             <Summary />
           </aside>
         </section>
-        <button onClick={showNextStep}>Next Step</button>
+        {/* {count === 5 ? (setDisabled = true) : (setDisabled = false)} */}
+        <button onClick={showNextStep} disabled={isDisabled}>
+          Next Step
+        </button>
+        <button onClick={resetCount}>Reset Count</button>
       </main>
       <Footer />
     </div>
