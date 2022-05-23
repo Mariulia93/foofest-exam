@@ -107,7 +107,9 @@
 .bandCard {
   cursor: pointer;
   img {
-    width: 40%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
   }
   h4 {
     position: relative;
@@ -119,7 +121,7 @@
     content: "";
     display: inline-block;
     width: 10px;
-    height: 105px;
+    height: 200px;
   }
 }
 
@@ -143,10 +145,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;
-  min-width: 30%;
-  /* background-image: url("images/background.jpg"); */
-  background-color: aqua;
+  background-color: white;
   overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    max-height: 500px;
+  }
 
   .closeButton {
     position: absolute;
@@ -157,8 +165,21 @@
     cursor: pointer;
   }
 
-  div {
-    padding: 2rem;
+  > div {
+    padding: 0 3rem 2rem;
+    .popUpName {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      h4 {
+        padding-bottom: 0;
+      }
+    }
+    h2,
+    .members {
+      padding-bottom: 1rem;
+    }
   }
 }
 

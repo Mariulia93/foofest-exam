@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import { useState, useEffect } from "react";
 import BandCard from "../components/BandCard";
 import BandPopUp from "../components/BandPopUp";
+import Footer from "../components/Footer";
 
 export default function Schedule(props) {
   const [midgard, setMidgard] = useState({});
@@ -72,6 +73,7 @@ export default function Schedule(props) {
 
   function showPopup(props) {
     setHiddenPopUp(false);
+    console.log(props);
     setPopUpBand(props);
   }
 
@@ -171,6 +173,7 @@ export default function Schedule(props) {
               item.act !== "break" ? (
                 <BandCard
                   stage={"midgard"}
+                  time={item.start}
                   showPopUpFunction={showPopup}
                   band={props.bands.find((band) => band.name === item.act)}
                 />
@@ -184,6 +187,7 @@ export default function Schedule(props) {
               item.act !== "break" ? (
                 <BandCard
                   stage={"vanaheim"}
+                  time={item.start}
                   showPopUpFunction={showPopup}
                   band={props.bands.find((band) => band.name === item.act)}
                 />
@@ -197,6 +201,7 @@ export default function Schedule(props) {
               item.act !== "break" ? (
                 <BandCard
                   stage={"jotunheim"}
+                  time={item.start}
                   showPopUpFunction={showPopup}
                   band={props.bands.find((band) => band.name === item.act)}
                 />
@@ -206,6 +211,7 @@ export default function Schedule(props) {
         )}
       </div>
       {!hiddenPopUp && <BandPopUp band={popUpBand} hidePopUp={hidePopUp} />}
+      <Footer />
     </div>
   );
 }
