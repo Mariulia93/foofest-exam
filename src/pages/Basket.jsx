@@ -1,4 +1,5 @@
 import Nav from "../components/Nav";
+import StepItem from "../components/StepItem";
 import StepTickets from "../components/StepTickets";
 import StepAccomodation from "../components/StepAccomodation";
 import StepPersonalData from "../components/StepPersonalData";
@@ -7,7 +8,7 @@ import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { useState } from "react";
 function Basket() {
-  //   const [step, setStep] = useState(StepTickets);
+  // const [step, setStep] = useState(StepTickets);
   const [count, setCount] = useState(1);
   function showNextStep() {
     setCount((old) => old + 1);
@@ -15,6 +16,7 @@ function Basket() {
     if (count === 2) {
       //   show step accomodation
       console.log("step accomodation");
+      // console.log("step", step);
     }
   }
   return (
@@ -22,13 +24,19 @@ function Basket() {
       <Nav />
       <main className="basketContainer">
         <ul>
-          <StepTickets count={count} selected={true} />
-          <StepAccomodation />
-          <StepPersonalData />
-          <StepPayment />
+          <StepItem name="1. Tickets" />
+          <StepItem name="2. Accomodation" />
+          <StepItem name="3. Personal Data" />
+          <StepItem name="4. Payment" />
         </ul>
         <section>
-          <p>THIS CONTENT CHANGES</p>
+          <div>
+            <p>THIS CONTENT CHANGES</p>
+            <StepTickets count={count} selected={true} />
+            <StepAccomodation />
+            <StepPersonalData />
+            <StepPayment />
+          </div>
           <aside>
             <Summary />
           </aside>
