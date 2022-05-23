@@ -1,4 +1,5 @@
 import React from "react";
+import CountTicket from "./CountTicket";
 
 function TicketCard(props) {
   return (
@@ -14,6 +15,7 @@ function TicketCard(props) {
       <h4>{props.price}
       </h4>
       <p>{props.amount}</p>
+      <CountTicket/>
     </div>
   );
 }
