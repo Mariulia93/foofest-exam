@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Tickets from "./pages/Tickets";
 import Schedule from "./pages/Schedule";
 import Info from "./pages/Info";
+import Basket from "./pages/Basket";
 
 function App() {
   const [bands, setBands] = useState([]);
@@ -16,7 +17,6 @@ function App() {
       setBands(data);
     }
     getData();
-
   }, []);
   return (
     <BrowserRouter>
@@ -25,6 +25,7 @@ function App() {
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/info" element={<Info />} />
+        <Route path="/basket" element={<Basket />} />
       </Routes>
     </BrowserRouter>
   );
