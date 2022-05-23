@@ -11,10 +11,10 @@ function Basket() {
   //   const [step, setStep] = useState(StepTickets);
   const [isDisabled, setIsDisabled] = useState(false);
   const [count, setCount] = useState(1);
+  console.log(count);
   function showNextStep() {
     setCount((old) => old + 1);
     console.log(count);
-
     count === 4 ? setIsDisabled(true) : setIsDisabled(false);
   }
 
@@ -27,10 +27,10 @@ function Basket() {
       <Nav />
       <main className="basketContainer">
         <ul>
-          <StepItem name="1. Tickets" />
-          <StepItem name="2. Accomodation" />
-          <StepItem name="3. Personal Data" />
-          <StepItem name="4. Payment" />
+          <StepItem name="1. Tickets" stepNumber={1} count={count} />
+          <StepItem name="2. Accomodation" stepNumber={2} count={count} />
+          <StepItem name="3. Personal Data" stepNumber={3} count={count} />
+          <StepItem name="4. Payment" stepNumber={4} count={count} />
         </ul>
         <section>
           <div>

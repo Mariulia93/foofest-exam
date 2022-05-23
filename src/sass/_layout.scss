@@ -100,4 +100,12 @@ h2 {
   button:disabled {
     background-color: grey;
   }
+  .selected {
+    font-weight: 600;
+    background-color: red;
+  }
+
+  .notSelected {
+    opacity: 0.5;
+  }
 }
