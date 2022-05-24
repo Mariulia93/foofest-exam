@@ -1,6 +1,6 @@
 import React from "react";
 
-function Summary() {
+function Summary(props) {
   return <>Summary</>;
 }
 

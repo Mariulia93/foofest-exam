@@ -3,6 +3,8 @@ import Nav from "../components/Nav";
 import TicketCard from "../components/TicketCard";
 
 export default function Tickets(props) {
+  const vip = 1299;
+  const regular = 799;
   return (
     <>
       <div>
@@ -13,26 +15,26 @@ export default function Tickets(props) {
         <TicketCard
           title="VIP"
           description="Camping spot;All stages;7 days;VIP backstage entrance;Breakfast"
-          price="1299kr."
+          price={vip + "kr"}
           amount="choose the amount of VIP tickets"
         />
         <TicketCard
           title="REGULAR"
           description="Camping spot;All stages;7 days"
-          price="799kr."
+          price={regular + "kr"}
           amount="choose the amount of Regular tickets"
         />
-          <table> 
-        <tr>
+        <table>
+          <tr>
             <th>Camping Site</th>
             <th>Total spots</th>
             <th>Spots available</th>
-        </tr>
-        
-        {props.availableSpots.map((availableSpot) => (
-          <AvailableSpots availableSpot={availableSpot} />
-        ))}
-    </table>
+          </tr>
+
+          {props.availableSpots.map((availableSpot) => (
+            <AvailableSpots availableSpot={availableSpot} />
+          ))}
+        </table>
       </div>
     </>
   );
