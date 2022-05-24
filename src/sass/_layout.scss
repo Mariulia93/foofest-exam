@@ -126,3 +126,138 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
 }
+
+// INFO PAGE
+//source: https://codepen.io/nikkk-me/pen/abvPjeG
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+
+  .switch-button {
+    background: #2f506188;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 400px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: white;
+    position: relative;
+    padding-right: 200px;
+    position: relative;
+
+    &:before {
+      content: "Accomodation";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    &-checkbox {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+
+      &:checked + .switch-button-label:before {
+        transform: translateX(200px);
+        transition: transform 300ms linear;
+      }
+
+      & + .switch-button-label {
+        position: relative;
+        padding: 15px 0;
+        display: block;
+        user-select: none;
+        pointer-events: none;
+
+        &:before {
+          content: "";
+          background: base.$primary-color;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          border-radius: 30px;
+          transform: translateX(0);
+          transition: transform 300ms;
+        }
+
+        .switch-button-label-span {
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.questionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.singleQuestion {
+  width: 60%;
+  button {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    p {
+      padding: 1rem 0;
+    }
+  }
+  p {
+    padding-bottom: 1rem;
+  }
+}
+
+.openedQuestion {
+  font-weight: 900;
+}
+
+.rotateArrow {
+  transform: rotate(180deg);
+  transition-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.campsiteContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 20rem;
+  h3 {
+    padding: 0.5rem 0;
+  }
+  .campsiteInfo {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    img {
+      width: 20%;
+    }
+    ul * {
+      list-style-type: disc;
+      padding-bottom: 0.2rem;
+      font-family: base.$paragraph-font;
+    }
+  }
+}
