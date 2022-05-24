@@ -15,6 +15,7 @@ function TicketCard(props) {
       <h4>{props.price}</h4>
       <p>{props.amount}</p>
       <CountTicket
+        title={props.title}
         count={props.count}
         incrementCount={props.incrementCount}
         decrementCount={props.decrementCount}

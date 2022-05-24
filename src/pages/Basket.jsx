@@ -35,34 +35,19 @@ function Basket(props) {
         </ul>
         <section>
           <div>
-            {/* {!hideM && !hideSchedules && (
-              <div>
-                <p>migdard</p>
-                <ul>
-                  {displayedM.map((item) => (
-                    <li>
-                      {" "}
-                      {item.start} {item.act}{" "}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )} */}
-
-            {/* <StepTickets count={count} />
-            <StepAccomodation setStep={setStep} /> */}
             {stepCounter === 1 ? (
               <StepTickets
-                count={stepCounter}
                 vipCount={props.vipCount}
                 regularCount={props.regularCount}
                 vipPrice={props.vipPrice}
                 regularPrice={props.regularPrice}
+                incrementCount={props.incrementCount}
+                decrementCount={props.decrementCount}
               />
             ) : null}
-            {stepCounter === 2 ? <StepAccomodation count={stepCounter} /> : null}
-            {stepCounter === 3 ? <StepPersonalData count={stepCounter} /> : null}
-            {stepCounter === 4 ? <StepPayment count={stepCounter} /> : null}
+            {stepCounter === 2 ? <StepAccomodation stepCounter={stepCounter} /> : null}
+            {stepCounter === 3 ? <StepPersonalData stepCounter={stepCounter} /> : null}
+            {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
           </div>
           <aside>
             <Summary

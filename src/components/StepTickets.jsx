@@ -1,4 +1,5 @@
 import React from "react";
+import CountTicket from "./CountTicket";
 
 function StepTickets(props) {
   return (
@@ -7,14 +8,20 @@ function StepTickets(props) {
       {/* VIP */}
       <div className="cartRow" style={props.vipCount < 1 ? { display: "none" } : null}>
         <p>name</p>
-        <p>plus/minus</p>
+        <CountTicket
+          title="VIP"
+          count={props.vipCount}
+          price={props.vipPrice}
+          incrementCount={props.incrementCount}
+          decrementCount={props.decrementCount}
+        />
         <p>{props.vipPrice}kr</p>
         <p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
-            fill="red"
+            fillRule="red"
             className="bi bi-trash"
             viewBox="0 0 16 16"
           >
@@ -29,14 +36,20 @@ function StepTickets(props) {
       {/* REGULAR */}
       <div className="cartRow" style={props.regularCount < 1 ? { display: "none" } : null}>
         <p>name</p>
-        <p>plus/minus</p>
+        <CountTicket
+          title="REGULAR"
+          count={props.regularCount}
+          price={props.regularPrice}
+          incrementCount={props.incrementCount}
+          decrementCount={props.decrementCount}
+        />
         <p>{props.regularPrice}kr</p>
         <p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
-            fill="red"
+            fillRule="red"
             className="bi bi-trash"
             viewBox="0 0 16 16"
           >
