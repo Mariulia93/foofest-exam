@@ -71,3 +71,41 @@ h2 {
     font-family: base.$headers-font;
   }
 }
+
+// BASKET
+.basketContainer {
+  padding: 2rem;
+  ul {
+    display: flex;
+    background-color: azure;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10rem;
+    align-items: center;
+    justify-content: center;
+    * {
+      place-self: center;
+    }
+  }
+  button {
+    background-color: orange;
+    cursor: pointer;
+  }
+  button:disabled {
+    background-color: grey;
+  }
+  .selected {
+    font-weight: 600;
+    background-color: red;
+  }
+
+  .notSelected {
+    opacity: 0.5;
+  }
+}
