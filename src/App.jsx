@@ -27,20 +27,30 @@ function App() {
   const regularPrice = 799;
   let [vipCount, setVipCount] = useState(0);
   let [regularCount, setRegularCount] = useState(0);
+  const [twoPeopleTent, setTwoPeopleTent] = useState(0);
+  const [threePeopleTent, setThreePeopleTent] = useState(0);
 
-  function incrementCount(ticketType) {
-    if (ticketType === "VIP") {
+  function incrementCount(countType) {
+    if (countType === "VIP") {
       setVipCount((old) => old + 1);
-    } else {
+    } else if(countType === "REGULAR"){
       setRegularCount((old) => old + 1);
+    }else if (countType ==="TWOTENT"){
+      setTwoPeopleTent((old) => old +1);
+    }else if (countType ==="THREETENT"){
+      setThreePeopleTent((old) => old +1);
     }
   }
-  function decrementCount(ticketType) {
-    if (ticketType === "VIP") {
+  function decrementCount(countType) {
+    if (countType === "VIP") {
       setVipCount((old) => old - 1);
-    } else {
-      setRegularCount((old) => old - 1);
-    }
+    } else if(countType === "REGULAR"){
+        setRegularCount((old) => old - 1);
+      }else if (countType ==="TWOTENT"){
+        setTwoPeopleTent((old) => old - 1);
+      }else if (countType ==="THREETENT"){
+        setThreePeopleTent((old) => old - 1);
+      }
   }
   // function incrementRegularCount() {
   //   setRegularCount((old) => old + 1);
@@ -77,12 +87,15 @@ function App() {
           path="/basket"
           element={
             <Basket
+              availableSpots={availableSpots}
               vipCount={vipCount}
               regularCount={regularCount}
               vipPrice={vipPrice}
               regularPrice={regularPrice}
               incrementCount={incrementCount}
               decrementCount={decrementCount}
+              twoPeopleTent={twoPeopleTent}
+              threePeopleTent={threePeopleTent}
             />
           }
         />
