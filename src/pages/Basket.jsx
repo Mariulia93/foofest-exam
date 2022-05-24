@@ -7,19 +7,20 @@ import StepPayment from "../components/StepPayment";
 import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { useState } from "react";
-function Basket() {
+
+function Basket(props) {
   //   const [step, setStep] = useState(StepTickets);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [count, setCount] = useState(1);
-  console.log(count);
+  const [stepCounter, setStepCounter] = useState(1);
+  console.log(stepCounter);
   function showNextStep() {
-    setCount((old) => old + 1);
-    console.log(count);
-    count === 4 ? setIsDisabled(true) : setIsDisabled(false);
+    setStepCounter((old) => old + 1);
+    console.log(stepCounter);
+    stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
   }
 
   function resetCount() {
-    setCount(1);
+    setStepCounter(1);
     setIsDisabled(false);
   }
   return (
@@ -27,10 +28,10 @@ function Basket() {
       <Nav />
       <main className="basketContainer">
         <ul>
-          <StepItem name="1. Tickets" stepNumber={1} count={count} />
-          <StepItem name="2. Accomodation" stepNumber={2} count={count} />
-          <StepItem name="3. Personal Data" stepNumber={3} count={count} />
-          <StepItem name="4. Payment" stepNumber={4} count={count} />
+          <StepItem name="1. Tickets" stepNumber={1} count={stepCounter} />
+          <StepItem name="2. Accomodation" stepNumber={2} count={stepCounter} />
+          <StepItem name="3. Personal Data" stepNumber={3} count={stepCounter} />
+          <StepItem name="4. Payment" stepNumber={4} count={stepCounter} />
         </ul>
         <section>
           <div>
@@ -51,13 +52,18 @@ function Basket() {
 
             {/* <StepTickets count={count} />
             <StepAccomodation setStep={setStep} /> */}
-            {count === 1 ? <StepTickets count={count} /> : null}
-            {count === 2 ? <StepAccomodation count={count} /> : null}
-            {count === 3 ? <StepPersonalData count={count} /> : null}
-            {count === 4 ? <StepPayment count={count} /> : null}
+            {stepCounter === 1 ? <StepTickets count={stepCounter} /> : null}
+            {stepCounter === 2 ? <StepAccomodation count={stepCounter} /> : null}
+            {stepCounter === 3 ? <StepPersonalData count={stepCounter} /> : null}
+            {stepCounter === 4 ? <StepPayment count={stepCounter} /> : null}
           </div>
           <aside>
-            <Summary />
+            <Summary
+              vipCount={props.vipCount}
+              regularCount={props.regularCount}
+              vipPrice={props.vipPrice}
+              regularPrice={props.regularPrice}
+            />
           </aside>
         </section>
         {/* {count === 5 ? (setDisabled = true) : (setDisabled = false)} */}

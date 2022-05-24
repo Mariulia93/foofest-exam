@@ -2,28 +2,8 @@ import AvailableSpots from "../components/AvailableSpots";
 import Nav from "../components/Nav";
 import TicketCard from "../components/TicketCard";
 import Summary from "../components/Summary";
-import { useState } from "react";
 
 export default function Tickets(props) {
-  const vip = 1299;
-  const regular = 799;
-  let [vipCount, setVipCount] = useState(0);
-  let [regularCount, setRegularCount] = useState(0);
-
-  function incrementVipCount() {
-    setVipCount((old) => old + 1);
-  }
-  function incrementRegularCount() {
-    setRegularCount((old) => old + 1);
-  }
-
-  function decrementVipCount() {
-    setVipCount((old) => old - 1);
-  }
-
-  function decrementRegularCount() {
-    setRegularCount((old) => old - 1);
-  }
   return (
     <>
       <div>
@@ -34,27 +14,27 @@ export default function Tickets(props) {
         <TicketCard
           title="VIP"
           description="Camping spot;All stages;7 days;VIP backstage entrance;Breakfast"
-          price={vip + "kr"}
+          price={props.vipPrice + "kr"}
           amount="choose the amount of VIP tickets"
-          count={vipCount}
-          incrementCount={incrementVipCount}
-          decrementCount={decrementVipCount}
+          count={props.vipCount}
+          incrementCount={props.incrementVipCount}
+          decrementCount={props.decrementVipCount}
         />
         <TicketCard
           title="REGULAR"
           description="Camping spot;All stages;7 days"
-          price={regular + "kr"}
+          price={props.regularPrice + "kr"}
           amount="choose the amount of Regular tickets"
-          count={regularCount}
-          incrementCount={incrementRegularCount}
-          decrementCount={decrementRegularCount}
+          count={props.regularCount}
+          incrementCount={props.incrementRegularCount}
+          decrementCount={props.decrementRegularCount}
         />
 
         <Summary
-          vipCount={vipCount}
-          regularCount={regularCount}
-          vipPrice={vip}
-          regularPrice={regular}
+          vipCount={props.vipCount}
+          regularCount={props.regularCount}
+          vipPrice={props.vipPrice}
+          regularPrice={props.regularPrice}
         />
         <table>
           <tr>
