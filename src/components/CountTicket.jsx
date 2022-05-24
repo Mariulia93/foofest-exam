@@ -1,25 +1,20 @@
 import React from "react";
-import { useState } from "react";
 
-function CountTicket() {
-  let [count, setCount] = useState(0);
-  let [isDisabled, setIsDisabled] = useState(true);
+function CountTicket(props) {
+  function handleDecrement() {
+    props.decrementCount();
+  }
+  function handleIncrement() {
+    props.incrementCount();
+  }
 
-  function incrementCount() {
-    setCount((old) => old + 1);
-    setIsDisabled(false);
-  }
-  function decrementCount() {
-    setCount((old) => old - 1);
-    if (count > 1) {
-      setIsDisabled(false);
-    } else {
-      setIsDisabled(true);
-    }
-  }
   return (
     <div className="counter">
-      <button className="plusminus" onClick={decrementCount} disabled={isDisabled}>
+      <button
+        className="plusminus"
+        onClick={handleDecrement}
+        disabled={props.count < 1 ? "disabled" : null}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -31,8 +26,8 @@ function CountTicket() {
           <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
         </svg>
       </button>
-      <div>{count}</div>
-      <button className="plusminus" onClick={incrementCount}>
+      <div>{props.count}</div>
+      <button className="plusminus" onClick={handleIncrement}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

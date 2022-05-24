@@ -1,7 +1,8 @@
 import React from "react";
 
 function Summary(props) {
-  return <>Summary</>;
+  let sumCount = props.vipCount + props.regularCount;
+  return <div>{sumCount}</div>;
 }
 
 export default Summary;

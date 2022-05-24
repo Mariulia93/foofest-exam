@@ -127,18 +127,22 @@ h1 {
     letter-spacing: 0.2rem;
   }
 }
-.counter{
+.counter {
   display: flex;
   align-self: center;
   justify-content: space-between;
   font-size: 1.2rem;
   margin: 1rem;
 }
-.plusminus{
+.plusminus {
   padding: 0 0.5rem;
-  background-color: #E57812;
+  background-color: #e57812;
   color: white;
   font-weight: 500;
   margin: 0 0.5rem;
   cursor: pointer;
+}
+
+.plusminus:disabled {
+  color: blue;
 }
