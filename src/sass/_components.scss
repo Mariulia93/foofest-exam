@@ -33,6 +33,34 @@
   }
 }
 
+// FOOTER
+.footerContainer {
+  background-image: url(./beach-footer.jpg);
+  background-position: 25% 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 3rem;
+  h4 {
+    font-size: 1.3rem;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    line-height: 1.4rem;
+  }
+  .contactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem;
+  }
+  .bgImageFadeOut {
+    background-color: rgba(216, 216, 216, 0.553);
+  }
+}
+
+// HOME PAGE
 // BANNER
 .bannerContainer .bannerImage {
   position: relative;
@@ -102,6 +130,7 @@
   margin-bottom: 1rem;
 }
 
+// SCHEDULE PAGE
 // RADIO BUTTONS
 // source: https://codepen.io/phusum/pen/VQrQqy
 .radioButton {
@@ -226,33 +255,7 @@
   }
 }
 
-// FOOTER
-.footerContainer {
-  background-image: url(./beach-footer.jpg);
-  background-position: 25% 30%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-top: 3rem;
-  h4 {
-    font-size: 1.3rem;
-  }
-  ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    line-height: 1.4rem;
-  }
-  .contactContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 5rem;
-  }
-  .bgImageFadeOut {
-    background-color: rgba(216, 216, 216, 0.553);
-  }
-}
-//tickets-page styling
+//TICKETS PAGE
 h1 {
   text-align: center;
   font-family: base.$headers-font;
@@ -317,4 +320,37 @@ h1 {
 
 .plusminus:disabled {
   opacity: 0.7;
+}
+
+// INFO PAGE
+// CAMPSITE
+.campsiteContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 20rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 25px;
+  padding: 1rem;
+
+  img {
+    min-width: 250px;
+    max-width: 250px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .campsiteInfo {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 0.5rem;
+    padding: 2rem;
+
+    ul * {
+      list-style-position: inside;
+      list-style-type: disc;
+      padding-bottom: 0.2rem;
+      font-family: base.$paragraph-font;
+    }
+  }
 }

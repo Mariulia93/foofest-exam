@@ -3,12 +3,13 @@ import Nav from "../components/Nav";
 import Toggle from "../components/Toggle";
 import FAQ from "../components/FAQ";
 import AccomodationInfo from "../components/AccomodationInfo";
+import Footer from "../components/Footer";
 
 export default function Info() {
-  const [hidden, setHidden] = useState(true);
+  const [toggle, setToggle] = useState(true);
 
   function toggleSwitch() {
-    setHidden((state) => !state);
+    setToggle((state) => !state);
   }
 
   return (
@@ -16,7 +17,8 @@ export default function Info() {
       <Nav />
       <h2>Information</h2>
       <Toggle toggleSwitchFunction={toggleSwitch} />
-      {!hidden ? <AccomodationInfo /> : <FAQ />}
+      {!toggle ? <AccomodationInfo /> : <FAQ />}
+      <Footer />
     </div>
   );
 }
