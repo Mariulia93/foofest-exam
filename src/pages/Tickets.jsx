@@ -50,7 +50,12 @@ export default function Tickets(props) {
           decrementCount={decrementRegularCount}
         />
 
-        <Summary vipCount={vipCount} regularCount={regularCount} />
+        <Summary
+          vipCount={vipCount}
+          regularCount={regularCount}
+          vipPrice={vip}
+          regularPrice={regular}
+        />
         <table>
           <tr>
             <th>Camping Site</th>
