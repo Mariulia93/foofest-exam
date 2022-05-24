@@ -62,7 +62,7 @@ function App() {
             />
           }
         />
-        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/schedule" element={<Schedule bands={bands} />} />
         <Route path="/info" element={<Info />} />
         <Route
           path="/basket"

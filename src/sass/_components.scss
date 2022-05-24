@@ -102,6 +102,130 @@
   margin-bottom: 1rem;
 }
 
+// RADIO BUTTONS
+// source: https://codepen.io/phusum/pen/VQrQqy
+.radioButton {
+  float: left;
+  margin: 1rem;
+  width: 120px;
+  height: 60px;
+  position: relative;
+  background-color: base.$primary-color;
+  color: white;
+  border-radius: 25px;
+}
+
+.radioButton label,
+.radioButton input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.radioButton input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.radioButton input[type="radio"]:checked + label {
+  background: #20b8be;
+  border-radius: 25px;
+}
+
+.radioButton label {
+  cursor: pointer;
+  z-index: 90;
+  line-height: 1.8em;
+  display: block;
+  // width: 8ch;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+//BAND CARD
+
+.bandCard {
+  cursor: pointer;
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  h4 {
+    position: relative;
+    color: white;
+    top: -3rem;
+    left: 1rem;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 200px;
+  }
+}
+
+.midgard::before {
+  background-color: base.$midgard-color;
+}
+
+.vanaheim::before {
+  background-color: base.$vanaheim-color;
+}
+
+.jotunheim::before {
+  background-color: base.$jotunheim-color;
+}
+
+//POPUP
+
+.popUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    max-height: 500px;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5%;
+    height: 7%;
+    cursor: pointer;
+  }
+
+  > div {
+    padding: 0 3rem 2rem;
+    .popUpName {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      h4 {
+        padding-bottom: 0;
+      }
+    }
+    h2,
+    .members {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
 // FOOTER
 .footerContainer {
   background-image: url(./beach-footer.jpg);
