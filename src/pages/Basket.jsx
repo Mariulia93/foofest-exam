@@ -7,6 +7,7 @@ import StepPayment from "../components/StepPayment";
 import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 function Basket(props) {
   //   const [step, setStep] = useState(StepTickets);
@@ -23,6 +24,19 @@ function Basket(props) {
     setStepCounter(1);
     setIsDisabled(false);
   }
+  const renderTime = ({ remainingTime }) => {
+    if (remainingTime === 0) {
+      return <div className="timer">Too late...</div>;
+    }
+
+    return (
+      <div className="timer">
+        <div className="text">Remaining</div>
+        <div className="value">{remainingTime}</div>
+        <div className="text">seconds</div>
+      </div>
+    );
+  };
   return (
     <div>
       <Nav />
@@ -33,6 +47,18 @@ function Basket(props) {
           <StepItem name="3. Personal Data" stepNumber={3} count={stepCounter} />
           <StepItem name="4. Payment" stepNumber={4} count={stepCounter} />
         </ul>
+        <div className="timer-wrapper">
+          <CountdownCircleTimer
+            isPlaying
+            duration={20}
+            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+            colorsTime={[15, 10, 5, 0]}
+            onComplete={() => ({ shouldRepeat: false })}
+          >
+            {renderTime}
+          </CountdownCircleTimer>
+        </div>
+
         <section>
           <div>
             {stepCounter === 1 ? (
