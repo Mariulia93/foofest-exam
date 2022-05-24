@@ -72,6 +72,11 @@ h2 {
   }
 }
 
+.scheduleButtons {
+  display: flex;
+  flex-direction: column;
+}
+
 .schedules {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

@@ -1,4 +1,4 @@
-import SShareComponent from "coffeekraken-s-share-component";
+// import SShareComponent from "coffeekraken-s-share-component";
 export default function BandPopUp(props) {
   let logoUrl = "";
   function handleClose() {

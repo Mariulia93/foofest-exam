@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import BandCard from "../components/BandCard";
 import BandPopUp from "../components/BandPopUp";
 import Footer from "../components/Footer";
+import RadioButton from "../components/RadioButton";
 
 export default function Schedule(props) {
   const [midgard, setMidgard] = useState({});
@@ -84,51 +85,125 @@ export default function Schedule(props) {
   return (
     <div>
       <Nav />
-      <input type="radio" id="alldays" name="day" value="alldays" onChange={() => filterByDay("all")} />
-      <label htmlFor="alldays">All days</label>
-      <br />
-      <input type="radio" id="day1" name="day" value="mon" onChange={() => filterByDay("mon")} />
-      <label htmlFor="day1">Day 1 (10/07)</label>
-      <br />
-      <input type="radio" id="day2" name="day" value="tue" onChange={() => filterByDay("tue")} />
-      <label htmlFor="day2">Day 2 (11/07)</label>
-      <br />
-      <input type="radio" id="day3" name="day" value="wed" onChange={() => filterByDay("wed")} />
-      <label htmlFor="day3">Day 3 (12/07)</label>
-      <br />
-      <input type="radio" id="day4" name="day" value="thu" onChange={() => filterByDay("thu")} />
-      <label htmlFor="day4">Day 4 (13/07)</label>
-      <br />
-      <input type="radio" id="day5" name="day" value="fri" onChange={() => filterByDay("fri")} />
-      <label htmlFor="day5">Day 5 (14/07)</label>
-      <br />
-      <input type="radio" id="day6" name="day" value="sat" onChange={() => filterByDay("sat")} />
-      <label htmlFor="day6">Day 6 (15/07)</label>
-      <br />
-      <input type="radio" id="day7" name="day" value="sun" onChange={() => filterByDay("sun")} />
-      <label htmlFor="day7">Day 7 (16/07)</label>
-      <br />
-
-      <input type="radio" id="allstages" name="stage" value="allstages" onChange={() => filterByStage("all")} />
-      <label htmlFor="allstages">All stages</label>
-      <br />
-      <input type="radio" id="stage1" name="stage" value="midgard" onChange={() => filterByStage("midgard")} />
-      <label htmlFor="stage1">Stage 1 MIDGARD</label>
-      <br />
-      <input type="radio" id="stage2" name="stage" value="vanaheim" onChange={() => filterByStage("vanaheim")} />
-      <label htmlFor="stage2">Stage 2 VANAHEIM</label>
-      <br />
-      <input type="radio" id="stage3" name="stage" value="jotunheim" onChange={() => filterByStage("jotunheim")} />
-      <label htmlFor="stage3">Stage 3 JOTUNHEIM</label>
-      <br />
-
+      <div className="scheduleButtons">
+        <div className="daysButtons">
+          <RadioButton
+            number={"all"}
+            name={"day"}
+            value={"all"}
+            filterFunction={filterByDay}
+            labelTop={"All"}
+            labelBottom={"days"}
+          />
+          <RadioButton
+            number={"1"}
+            name={"day"}
+            value={"mon"}
+            filterFunction={filterByDay}
+            labelTop={"Day 1"}
+            labelBottom={"(10/07)"}
+          />
+          <RadioButton
+            number={"2"}
+            name={"day"}
+            value={"tue"}
+            filterFunction={filterByDay}
+            labelTop={"Day 2"}
+            labelBottom={"(11/07)"}
+          />
+          <RadioButton
+            number={"3"}
+            name={"day"}
+            value={"wed"}
+            filterFunction={filterByDay}
+            labelTop={"Day 3"}
+            labelBottom={"(12/07)"}
+          />
+          <RadioButton
+            number={"4"}
+            name={"day"}
+            value={"thu"}
+            filterFunction={filterByDay}
+            labelTop={"Day 4"}
+            labelBottom={"(13/07)"}
+          />
+          <RadioButton
+            number={"5"}
+            name={"day"}
+            value={"fri"}
+            filterFunction={filterByDay}
+            labelTop={"Day 5"}
+            labelBottom={"(14/07)"}
+          />
+          <RadioButton
+            number={"6"}
+            name={"day"}
+            value={"sat"}
+            filterFunction={filterByDay}
+            labelTop={"Day 6"}
+            labelBottom={"(15/07)"}
+          />
+          <RadioButton
+            number={"7"}
+            name={"day"}
+            value={"sun"}
+            filterFunction={filterByDay}
+            labelTop={"Day 7"}
+            labelBottom={"(16/07)"}
+          />
+        </div>
+        <div className="stagesButtons">
+          <RadioButton
+            number={"all"}
+            name={"stage"}
+            value={"all"}
+            filterFunction={filterByStage}
+            labelTop={"All"}
+            labelBottom={"stages"}
+          />
+          <RadioButton
+            number={"1"}
+            name={"stage"}
+            value={"midgard"}
+            filterFunction={filterByStage}
+            labelTop={"Stage 1"}
+            labelBottom={"MIDGARD"}
+          />
+          <RadioButton
+            number={"2"}
+            name={"stage"}
+            value={"vanaheim"}
+            filterFunction={filterByStage}
+            labelTop={"Stage 2"}
+            labelBottom={"VANAHEIM"}
+          />
+          <RadioButton
+            number={"3"}
+            name={"stage"}
+            value={"jotunheim"}
+            filterFunction={filterByStage}
+            labelTop={"Stage 3"}
+            labelBottom={"JOTUNHEIM"}
+          />
+        </div>
+      </div>
       <div className="schedules">
         {!hideM && !hideSchedules && (
           <div>
             <p>migdard</p>
             <ul>
               {displayedM.map((item) => (
-                <li>
+                <li
+                  key={item.act + item.start}
+                  style={item.act !== "break" ? { cursor: "pointer" } : null}
+                  onClick={
+                    item.act !== "break"
+                      ? () => {
+                          showPopup(props.bands.find((band) => band.name === item.act));
+                        }
+                      : null
+                  }
+                >
                   {" "}
                   {item.start} {item.act}{" "}
                 </li>
@@ -142,7 +217,17 @@ export default function Schedule(props) {
             <p>vanaheim</p>
             <ul>
               {displayedV.map((item) => (
-                <li>
+                <li
+                  key={item.act + item.start}
+                  style={item.act !== "break" ? { cursor: "pointer" } : null}
+                  onClick={
+                    item.act !== "break"
+                      ? () => {
+                          showPopup(props.bands.find((band) => band.name === item.act));
+                        }
+                      : null
+                  }
+                >
                   {" "}
                   {item.start} {item.act}{" "}
                 </li>
@@ -155,7 +240,17 @@ export default function Schedule(props) {
             <p>jotunheim</p>
             <ul>
               {displayedJ.map((item) => (
-                <li>
+                <li
+                  key={item.act + item.start}
+                  style={item.act !== "break" ? { cursor: "pointer" } : null}
+                  onClick={
+                    item.act !== "break"
+                      ? () => {
+                          showPopup(props.bands.find((band) => band.name === item.act));
+                        }
+                      : null
+                  }
+                >
                   {" "}
                   {item.start} {item.act}{" "}
                 </li>
@@ -172,6 +267,7 @@ export default function Schedule(props) {
             {displayedM.map((item) =>
               item.act !== "break" ? (
                 <BandCard
+                  key={item.act}
                   stage={"midgard"}
                   time={item.start}
                   showPopUpFunction={showPopup}
@@ -186,6 +282,7 @@ export default function Schedule(props) {
             {displayedV.map((item) =>
               item.act !== "break" ? (
                 <BandCard
+                  key={item.act}
                   stage={"vanaheim"}
                   time={item.start}
                   showPopUpFunction={showPopup}
@@ -200,6 +297,7 @@ export default function Schedule(props) {
             {displayedJ.map((item) =>
               item.act !== "break" ? (
                 <BandCard
+                  key={item.act}
                   stage={"jotunheim"}
                   time={item.start}
                   showPopUpFunction={showPopup}
