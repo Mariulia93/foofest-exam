@@ -15,7 +15,7 @@ export default function Info() {
   return (
     <div>
       <Nav />
-      <h2>Information</h2>
+      <h1>INFORMATION</h1>
       <Toggle toggleSwitchFunction={toggleSwitch} />
       {!toggle ? <AccomodationInfo /> : <FAQ />}
       <Footer />

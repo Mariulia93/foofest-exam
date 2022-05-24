@@ -8,8 +8,8 @@ export default function Question(props) {
   }
   return (
     <div class="singleQuestion">
-      <button onClick={openQuestion}>
-        <p className={isOpened ? "openedQuestion" : null}>{props.question}</p>
+      <button onClick={openQuestion} className={isOpened ? "openedQuestion" : null}>
+        <p>{props.question}</p>
         <svg
           className={isOpened ? "rotateArrow" : null}
           xmlns="http://www.w3.org/2000/svg"
