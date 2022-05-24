@@ -48,11 +48,18 @@ function Basket(props) {
                 </ul>
               </div>
             )} */}
-            <p>THIS CONTENT CHANGES</p>
 
             {/* <StepTickets count={count} />
             <StepAccomodation setStep={setStep} /> */}
-            {stepCounter === 1 ? <StepTickets count={stepCounter} /> : null}
+            {stepCounter === 1 ? (
+              <StepTickets
+                count={stepCounter}
+                vipCount={props.vipCount}
+                regularCount={props.regularCount}
+                vipPrice={props.vipPrice}
+                regularPrice={props.regularPrice}
+              />
+            ) : null}
             {stepCounter === 2 ? <StepAccomodation count={stepCounter} /> : null}
             {stepCounter === 3 ? <StepPersonalData count={stepCounter} /> : null}
             {stepCounter === 4 ? <StepPayment count={stepCounter} /> : null}
