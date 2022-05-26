@@ -44,7 +44,7 @@ export default function Tickets(props) {
           </tr>
 
           {props.availableSpots.map((availableSpot) => (
-            <AvailableSpots availableSpot={availableSpot} />
+            <tr> <AvailableSpots availableSpot={availableSpot} /></tr>
           ))}
         </table>
       </div>

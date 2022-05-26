@@ -23,7 +23,7 @@ function Summary(props) {
         <p>{props.twoPeopleTent * props.twoPeopleTentPrice}kr</p>
       </div>
       <div className="cartRow" style={props.threePeopleTent < 1 ? { display: "none" } : null}>
-        <p>{props.threePeopleTent} x Two people tent</p>
+        <p>{props.threePeopleTent} x Three people tent</p>
         <p>{props.threePeopleTent * props.threePeopleTentPrice}kr</p>
       </div>
       <p>Total {sumPrice}kr</p>
