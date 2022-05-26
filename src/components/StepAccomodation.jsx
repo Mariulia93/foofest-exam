@@ -3,6 +3,7 @@ import AvailableSpots from "./AvailableSpots";
 import CountTicket from "./CountTicket";
 
 function StepAccomodation(props) {
+ 
   return (
     <>
       <h3>Choose accomodation{props.count}</h3>
@@ -43,6 +44,10 @@ function StepAccomodation(props) {
         />
         <p>{props.threePeopleTentPrice}</p>
         </div>
+      </div>
+      <div>
+        <input type="radio"></input>
+        <label>I have my own tent</label>
       </div>
     </>
   );
