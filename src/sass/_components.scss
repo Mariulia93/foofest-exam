@@ -6,6 +6,8 @@
   background-color: base.$accent-color;
   padding: 5px 10px;
   border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
   a {
     color: #fff;
   }
@@ -372,6 +374,9 @@ h1 {
   .contactContainer {
     padding: 2rem;
   }
+  .timer-wrapper {
+    top: 50px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -393,6 +398,7 @@ h1 {
   .defaultLineup {
     font-size: 1.5rem;
   }
+
 }
 
 @media screen and (max-width: 400px) {

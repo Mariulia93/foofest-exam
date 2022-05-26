@@ -50,9 +50,9 @@ function App() {
   //   setVipCount((old) => old - 1);
   // }
 
-  // function decrementRegularCount() {
-  //   setRegularCount((old) => old - 1);
-  // }
+  function ticketType(type) {
+    console.log(type);
+  }
   return (
     <BrowserRouter>
       <Routes>
@@ -68,6 +68,7 @@ function App() {
               regularCount={regularCount}
               incrementCount={incrementCount}
               decrementCount={decrementCount}
+              ticketType={ticketType}
             />
           }
         />
@@ -83,6 +84,7 @@ function App() {
               regularPrice={regularPrice}
               incrementCount={incrementCount}
               decrementCount={decrementCount}
+              ticketType={ticketType}
             />
           }
         />

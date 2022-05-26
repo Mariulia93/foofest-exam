@@ -13,17 +13,17 @@ function Basket(props) {
   //   const [step, setStep] = useState(StepTickets);
   const [isDisabled, setIsDisabled] = useState(false);
   const [stepCounter, setStepCounter] = useState(1);
-  console.log(stepCounter);
+  // console.log("here", props, "title?", props.title);
   function showNextStep() {
     setStepCounter((old) => old + 1);
     console.log(stepCounter);
     stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
   }
 
-  function resetCount() {
-    setStepCounter(1);
-    setIsDisabled(false);
-  }
+  // function resetCount() {
+  //   setStepCounter(1);
+  //   setIsDisabled(false);
+  // }
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
       return <div className="timer">Too late...</div>;
@@ -75,6 +75,9 @@ function Basket(props) {
             {stepCounter === 2 ? <StepAccomodation stepCounter={stepCounter} /> : null}
             {stepCounter === 3 ? <StepPersonalData stepCounter={stepCounter} /> : null}
             {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
+            <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
+              Next Step
+            </button>
           </div>
           <aside>
             <Summary
@@ -85,11 +88,6 @@ function Basket(props) {
             />
           </aside>
         </section>
-        {/* {count === 5 ? (setDisabled = true) : (setDisabled = false)} */}
-        <button onClick={showNextStep} disabled={isDisabled}>
-          Next Step
-        </button>
-        <button onClick={resetCount}>Reset Count</button>
       </main>
       <Footer />
     </div>

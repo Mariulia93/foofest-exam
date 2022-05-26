@@ -81,6 +81,7 @@ h2 {
   padding: 2rem;
   ul {
     display: flex;
+    flex-wrap: wrap;
     padding: 1rem;
     gap: 1rem;
     align-items: center;
@@ -111,11 +112,11 @@ h2 {
     * {
       place-self: center;
     }
+    .primaryCTA {
+      margin-top: 2rem;
+    }
   }
-  button {
-    background-color: orange;
-    cursor: pointer;
-  }
+
   button:disabled {
     background-color: grey;
   }
@@ -318,6 +319,28 @@ h4 {
 
 .basketPageContainer {
   position: relative;
+  span {
+    opacity: 0.8;
+    place-self: start;
+    margin-top: 2rem;
+  }
+  article {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff75;
+    border-radius: 5px;
+    padding: 1rem;
+
+    div {
+      display: flex;
+      gap: 3rem;
+      padding: 0 1rem 1rem;
+    }
+    button {
+      place-self: end;
+    }
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -335,6 +358,14 @@ h4 {
     h3 {
       word-spacing: 20px;
     }
+  }
+  .basketContainer {
+    padding: 0;
+    margin-top: 100px;
+  }
+  ul {
+    transform: scale(0.8);
+    padding: 0;
   }
 }
 
@@ -365,5 +396,8 @@ h4 {
   }
   .opacityContainer {
     height: fit-content;
+  }
+  .basketContainer ul {
+    justify-content: start;
   }
 }
