@@ -28,19 +28,30 @@ function App() {
   let [vipCount, setVipCount] = useState(0);
   let [regularCount, setRegularCount] = useState(0);
 
-  function incrementVipCount() {
-    setVipCount((old) => old + 1);
+  function incrementCount(ticketType) {
+    if (ticketType === "VIP") {
+      setVipCount((old) => old + 1);
+    } else {
+      setRegularCount((old) => old + 1);
+    }
   }
-  function incrementRegularCount() {
-    setRegularCount((old) => old + 1);
+  function decrementCount(ticketType) {
+    if (ticketType === "VIP") {
+      setVipCount((old) => old - 1);
+    } else {
+      setRegularCount((old) => old - 1);
+    }
   }
+  // function incrementRegularCount() {
+  //   setRegularCount((old) => old + 1);
+  // }
 
-  function decrementVipCount() {
-    setVipCount((old) => old - 1);
-  }
+  // function decrementVipCount() {
+  //   setVipCount((old) => old - 1);
+  // }
 
-  function decrementRegularCount() {
-    setRegularCount((old) => old - 1);
+  function ticketType(type) {
+    console.log(type);
   }
   return (
     <BrowserRouter>
@@ -55,14 +66,13 @@ function App() {
               regularPrice={regularPrice}
               vipCount={vipCount}
               regularCount={regularCount}
-              incrementVipCount={incrementVipCount}
-              incrementRegularCount={incrementRegularCount}
-              decrementVipCount={decrementVipCount}
-              decrementRegularCount={decrementRegularCount}
+              incrementCount={incrementCount}
+              decrementCount={decrementCount}
+              ticketType={ticketType}
             />
           }
         />
-        <Route path="/schedule" element={<Schedule bands={bands} />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="/info" element={<Info />} />
         <Route
           path="/basket"
@@ -72,10 +82,9 @@ function App() {
               regularCount={regularCount}
               vipPrice={vipPrice}
               regularPrice={regularPrice}
-              incrementVipCount={incrementVipCount}
-              incrementRegularCount={incrementRegularCount}
-              decrementVipCount={decrementVipCount}
-              decrementRegularCount={decrementRegularCount}
+              incrementCount={incrementCount}
+              decrementCount={decrementCount}
+              ticketType={ticketType}
             />
           }
         />

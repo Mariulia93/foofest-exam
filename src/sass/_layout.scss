@@ -38,22 +38,25 @@ nav ul {
   height: 100vh;
   background-color: #ffffff7d;
 }
-h1 {
-  padding: 4rem 0;
-}
+
 .logo {
   font-family: base.$logo-font;
   color: base.$primary-color;
-  font-size: 4rem;
+  font-size: 3rem;
 }
-.landingHeader,
-h2 {
+span.logo {
+  font-size: 6rem;
+}
+
+.landingHeader {
+  padding: 4rem 0;
   text-align: center;
 }
 
 h2 {
   padding: 2rem 0;
   font-size: 2rem;
+  text-align: center;
 }
 
 #countdownContainer {
@@ -74,35 +77,51 @@ h2 {
 
 // BASKET
 .basketContainer {
+  margin-top: 80px;
   padding: 2rem;
   ul {
     display: flex;
-    background-color: azure;
+    flex-wrap: wrap;
     padding: 1rem;
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    li {
+      font-family: base.$paragraph-font;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        background-color: base.$primary-color;
+        color: #fff;
+        font-size: 1.5rem;
+        border-radius: 50px;
+        padding: 0.4rem 0.9rem;
+      }
+    }
   }
   section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 10rem;
+    padding: 2rem;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     * {
       place-self: center;
     }
+    .primaryCTA {
+      margin-top: 2rem;
+    }
   }
-  button {
-    background-color: orange;
-    cursor: pointer;
-  }
+
   button:disabled {
     background-color: grey;
   }
   .selected {
     font-weight: 600;
-    background-color: red;
   }
 
   .notSelected {
@@ -211,4 +230,174 @@ h2 {
   flex-direction: column;
   align-items: center;
   margin: 1rem;
+}
+
+.singleQuestion {
+  width: 60%;
+  button {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    p {
+      padding: 1rem 0;
+    }
+  }
+  p {
+    padding-bottom: 1rem;
+  }
+}
+
+.openedQuestion {
+  font-weight: 900;
+}
+
+.rotateArrow {
+  transform: rotate(180deg);
+  transition-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.campsiteContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 20rem;
+  h3 {
+    padding: 0.5rem 0;
+  }
+  .campsiteInfo {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    img {
+      width: 20%;
+    }
+    ul * {
+      list-style-type: disc;
+      padding-bottom: 0.2rem;
+      font-family: base.$paragraph-font;
+    }
+  }
+}
+
+// BASKET _TICKETS
+h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.sumCartRow {
+  display: flex;
+  gap: 1rem;
+  p {
+    width: 80px;
+    padding: 0.5rem 0;
+  }
+  svg {
+    width: fit-content;
+  }
+}
+.sumTotal {
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+  border-top: 1px solid #2f506177;
+  padding-top: 0.5rem;
+  span {
+    width: 80px;
+  }
+}
+
+.cartRow {
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid #2f506177;
+  p {
+    width: 98px;
+  }
+}
+
+.basketPageContainer {
+  position: relative;
+  span {
+    opacity: 0.8;
+    place-self: start;
+    margin-top: 2rem;
+  }
+  article {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff75;
+    border-radius: 5px;
+    padding: 1rem;
+
+    div {
+      display: flex;
+      gap: 3rem;
+      padding: 0 1rem 1rem;
+    }
+    button {
+      place-self: end;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    font-size: 2rem;
+  }
+  span.logo {
+    font-size: 4rem;
+  }
+  #welcomeImageBackground {
+    background-size: cover;
+    #countdownContainer *:first-child {
+      font-size: 4rem;
+    }
+    h3 {
+      word-spacing: 20px;
+    }
+  }
+  .basketContainer {
+    padding: 0;
+    margin-top: 100px;
+  }
+  ul {
+    transform: scale(0.8);
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .landingHeader {
+    padding: 3rem 0;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  span.logo {
+    font-size: 3rem;
+  }
+  #welcomeImageBackground {
+    height: fit-content;
+    #countdownContainer *:first-child {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+  }
+  .opacityContainer {
+    height: fit-content;
+  }
+  .basketContainer ul {
+    justify-content: start;
+  }
 }

@@ -2,10 +2,10 @@ import React from "react";
 
 function CountTicket(props) {
   function handleDecrement() {
-    props.decrementCount();
+    props.decrementCount(props.title);
   }
   function handleIncrement() {
-    props.incrementCount();
+    props.incrementCount(props.title);
   }
 
   return (
@@ -19,7 +19,7 @@ function CountTicket(props) {
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="currentColor"
+          fillRule="currentColor"
           className="bi bi-dash"
           viewBox="0 0 16 16"
         >
@@ -32,7 +32,7 @@ function CountTicket(props) {
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="currentColor"
+          fillRule="currentColor"
           className="bi bi-plus"
           viewBox="0 0 16 16"
         >

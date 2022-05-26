@@ -2,6 +2,7 @@ import AvailableSpots from "../components/AvailableSpots";
 import Nav from "../components/Nav";
 import TicketCard from "../components/TicketCard";
 import Summary from "../components/Summary";
+import Footer from "../components/Footer";
 
 export default function Tickets(props) {
   return (
@@ -17,8 +18,8 @@ export default function Tickets(props) {
           price={props.vipPrice + "kr"}
           amount="choose the amount of VIP tickets"
           count={props.vipCount}
-          incrementCount={props.incrementVipCount}
-          decrementCount={props.decrementVipCount}
+          incrementCount={props.incrementCount}
+          decrementCount={props.decrementCount}
         />
         <TicketCard
           title="REGULAR"
@@ -26,8 +27,8 @@ export default function Tickets(props) {
           price={props.regularPrice + "kr"}
           amount="choose the amount of Regular tickets"
           count={props.regularCount}
-          incrementCount={props.incrementRegularCount}
-          decrementCount={props.decrementRegularCount}
+          incrementCount={props.incrementCount}
+          decrementCount={props.decrementCount}
         />
 
         <Summary
@@ -48,6 +49,7 @@ export default function Tickets(props) {
           ))}
         </table>
       </div>
+      <Footer />
     </>
   );
 }

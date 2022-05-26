@@ -6,6 +6,8 @@
   background-color: base.$accent-color;
   padding: 5px 10px;
   border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
   a {
     color: #fff;
   }
@@ -25,6 +27,7 @@
 .navComponent {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2rem;
   ul {
     list-style: none;
@@ -255,7 +258,34 @@
   }
 }
 
-//TICKETS PAGE
+// FOOTER
+.footerContainer {
+  background-image: url(./beach-footer.jpg);
+  background-position: 25% 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 3rem;
+  h4 {
+    font-size: 1.3rem;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    line-height: 1.4rem;
+  }
+  .contactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem 0;
+  }
+  .bgImageFadeOut {
+    background-color: rgba(216, 216, 216, 0.553);
+  }
+}
+//tickets-page styling
 h1 {
   text-align: center;
   font-family: base.$headers-font;
@@ -305,7 +335,7 @@ h1 {
 .counter {
   display: flex;
   align-self: center;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 1.2rem;
   margin: 1rem;
 }
@@ -390,4 +420,89 @@ h1 {
 
 .ReactCollapse--collapse {
   transition: 0.5s;
+}
+
+.timer-wrapper {
+  position: absolute;
+  right: -100px;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  transform: scale(0.5);
+  font-size: 2rem;
+  div {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  h1 {
+    padding: 2rem;
+  }
+  .navComponent {
+    flex-wrap: wrap;
+    gap: 1rem;
+    ul {
+      padding: 0;
+    }
+  }
+  .bannerImage a {
+    font-size: 2.5rem;
+  }
+  .ticketsBox {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    padding: 0;
+
+    .ticketContainer {
+      width: 284px;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 300px;
+    }
+  }
+  .sumTotal {
+    margin-bottom: 2rem;
+  }
+  .contactContainer {
+    padding: 2rem;
+  }
+  .timer-wrapper {
+    top: 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .bannerImage {
+    height: 20vh;
+    .primaryCTA,
+    .secondaryCTA {
+      bottom: 10px;
+      font-size: 1rem;
+    }
+    a {
+      height: 20vh;
+      font-size: 1.5rem;
+    }
+  }
+  .defaultLineup {
+    font-size: 1.5rem;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .navComponent {
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
 }
