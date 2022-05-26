@@ -118,6 +118,46 @@ h2 {
     .primaryCTA {
       margin-top: 2rem;
     }
+
+    .personalData div,
+    fieldset {
+      all: unset;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+
+      * {
+        place-self: flex-start;
+      }
+
+      label {
+        font-size: 0.8rem;
+      }
+      input {
+        margin-bottom: 0.5rem;
+        border: 1px solid #81818175;
+        border-radius: 5px;
+        padding: 0.3rem 0.5rem;
+        width: 300px;
+      }
+      legend {
+        margin-bottom: 0.2rem;
+      }
+    }
+
+    .creditCard {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-bottom: 1rem;
+      div input {
+        margin: 0;
+        width: 145px;
+      }
+    }
   }
 
   button:disabled {
@@ -384,6 +424,15 @@ h4 {
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
+  }
+  .basketContainer section {
+    display: block;
+  }
+  .sumContainer {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    margin-top: 3rem;
   }
 }
 
