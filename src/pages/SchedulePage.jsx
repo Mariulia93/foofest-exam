@@ -4,8 +4,9 @@ import BandCard from "../components/BandCard";
 import BandPopUp from "../components/BandPopUp";
 import Footer from "../components/Footer";
 import RadioButton from "../components/RadioButton";
+import Schedule from "../components/Schedule";
 
-export default function Schedule(props) {
+export default function SchedulePage(props) {
   const [midgard, setMidgard] = useState({});
   const [vanaheim, setVanaheim] = useState({});
   const [jotunheim, setJotunheim] = useState({});
@@ -189,74 +190,13 @@ export default function Schedule(props) {
       </div>
       <div className="schedules">
         {!hideM && !hideSchedules && (
-          <div>
-            <p>migdard</p>
-            <ul>
-              {displayedM.map((item) => (
-                <li
-                  key={item.act + item.start}
-                  style={item.act !== "break" ? { cursor: "pointer" } : null}
-                  onClick={
-                    item.act !== "break"
-                      ? () => {
-                          showPopup(props.bands.find((band) => band.name === item.act));
-                        }
-                      : null
-                  }
-                >
-                  {" "}
-                  {item.start} {item.act}{" "}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Schedule bands={props.bands} displayedV={displayedM} showPopup={showPopup} stageName="midgard"></Schedule>
         )}
-
         {!hideV && !hideSchedules && (
-          <div>
-            <p>vanaheim</p>
-            <ul>
-              {displayedV.map((item) => (
-                <li
-                  key={item.act + item.start}
-                  style={item.act !== "break" ? { cursor: "pointer" } : null}
-                  onClick={
-                    item.act !== "break"
-                      ? () => {
-                          showPopup(props.bands.find((band) => band.name === item.act));
-                        }
-                      : null
-                  }
-                >
-                  {" "}
-                  {item.start} {item.act}{" "}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Schedule bands={props.bands} displayedV={displayedV} showPopup={showPopup} stageName="vanaheim"></Schedule>
         )}
         {!hideJ && !hideSchedules && (
-          <div>
-            <p>jotunheim</p>
-            <ul>
-              {displayedJ.map((item) => (
-                <li
-                  key={item.act + item.start}
-                  style={item.act !== "break" ? { cursor: "pointer" } : null}
-                  onClick={
-                    item.act !== "break"
-                      ? () => {
-                          showPopup(props.bands.find((band) => band.name === item.act));
-                        }
-                      : null
-                  }
-                >
-                  {" "}
-                  {item.start} {item.act}{" "}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Schedule bands={props.bands} displayedV={displayedJ} showPopup={showPopup} stageName="jotunheim"></Schedule>
         )}
       </div>
 
