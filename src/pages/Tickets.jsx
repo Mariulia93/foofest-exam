@@ -2,6 +2,7 @@ import AvailableSpots from "../components/AvailableSpots";
 import Nav from "../components/Nav";
 import TicketCard from "../components/TicketCard";
 import Summary from "../components/Summary";
+import Footer from "../components/Footer";
 
 export default function Tickets(props) {
   return (
@@ -48,6 +49,7 @@ export default function Tickets(props) {
           ))}
         </table>
       </div>
+      <Footer />
     </>
   );
 }
