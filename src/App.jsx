@@ -14,7 +14,9 @@ function App() {
   useEffect(() => {
     async function getData() {
       const res = await fetch("https://foofest2022.herokuapp.com/bands");
-      const res2 = await fetch("https://foofest2022.herokuapp.com/available-spots");
+      const res2 = await fetch(
+        "https://foofest2022.herokuapp.com/available-spots"
+      );
       const data = await res.json();
       const data2 = await res2.json();
       setBands(data);
@@ -33,24 +35,29 @@ function App() {
   function incrementCount(countType) {
     if (countType === "VIP") {
       setVipCount((old) => old + 1);
-    } else if(countType === "REGULAR"){
+    } else if (countType === "REGULAR") {
       setRegularCount((old) => old + 1);
-    }else if (countType ==="TWOTENT"){
-      setTwoPeopleTent((old) => old +1);
-    }else if (countType ==="THREETENT"){
-      setThreePeopleTent((old) => old +1);
+    } else if (countType === "TWOTENT") {
+      setTwoPeopleTent((old) => old + 1);
+    } else if (countType === "THREETENT") {
+      setThreePeopleTent((old) => old + 1);
     }
   }
   function decrementCount(countType) {
     if (countType === "VIP") {
       setVipCount((old) => old - 1);
-    } else if(countType === "REGULAR"){
-        setRegularCount((old) => old - 1);
-      }else if (countType ==="TWOTENT"){
-        setTwoPeopleTent((old) => old - 1);
-      }else if (countType ==="THREETENT"){
-        setThreePeopleTent((old) => old - 1);
-      }
+    } else if (countType === "REGULAR") {
+      setRegularCount((old) => old - 1);
+    } else if (countType === "TWOTENT") {
+      setTwoPeopleTent((old) => old - 1);
+    } else if (countType === "THREETENT") {
+      setThreePeopleTent((old) => old - 1);
+    }
+  }
+
+  function resetTents() {
+    setTwoPeopleTent(0);
+    setThreePeopleTent(0);
   }
   // function incrementRegularCount() {
   //   setRegularCount((old) => old + 1);
@@ -96,6 +103,8 @@ function App() {
               decrementCount={decrementCount}
               twoPeopleTent={twoPeopleTent}
               threePeopleTent={threePeopleTent}
+              resetTents={resetTents}
+              
             />
           }
         />

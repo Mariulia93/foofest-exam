@@ -1,8 +1,15 @@
 import React from "react";
 import AvailableSpots from "./AvailableSpots";
 import CountTicket from "./CountTicket";
+import { useState } from "react";
 
 function StepAccomodation(props) {
+  const [ownTent, setOwnTent] = useState(false);
+  function ownTentChange() {
+    setOwnTent((oldvalue) => !oldvalue);
+    props.resetTents();
+  }
+
   return (
     <>
       <h3>Choose accomodation{props.count}</h3>
@@ -34,6 +41,7 @@ function StepAccomodation(props) {
             incrementCount={props.incrementCount}
             decrementCount={props.decrementCount}
             title="TWOTENT"
+            ownTent={ownTent}
           />
           <p>{props.twoPeopleTentPrice}</p>
         </div>
@@ -44,13 +52,18 @@ function StepAccomodation(props) {
             decrementCount={props.decrementCount}
             title="THREETENT"
             priceThreeTent={props.threePeopleTentPrice}
+            ownTent={ownTent}
           />
           <p>{props.threePeopleTentPrice}</p>
         </div>
       </div>
       <div>
-        <input type="radio"></input>
+        <input type="checkbox" onChange={ownTentChange}></input>
         <label>I have my own tent</label>
+      </div>
+      <div>
+        <input type="checkbox" onChange={props.greenCampChange}></input>
+        <label>Green Camping Option 249</label>
       </div>
     </>
   );
