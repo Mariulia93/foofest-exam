@@ -25,6 +25,7 @@
 .navComponent {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2rem;
   ul {
     list-style: none;
@@ -238,6 +239,7 @@
   }
   ul {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     line-height: 1.4rem;
@@ -246,7 +248,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5rem;
+    padding: 5rem 0;
   }
   .bgImageFadeOut {
     background-color: rgba(216, 216, 216, 0.553);
@@ -336,12 +338,17 @@ h1 {
 
 @media screen and (max-width: 1000px) {
   h1 {
-    padding: 1rem;
+    padding: 2rem;
   }
   .navComponent {
     flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 0;
+    gap: 1rem;
+    ul {
+      padding: 0;
+    }
+  }
+  .bannerImage a {
+    font-size: 2.5rem;
   }
   .ticketsBox {
     display: block;
@@ -361,5 +368,36 @@ h1 {
   }
   .sumTotal {
     margin-bottom: 2rem;
+  }
+  .contactContainer {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .bannerImage {
+    height: 20vh;
+    .primaryCTA,
+    .secondaryCTA {
+      bottom: 10px;
+      font-size: 1rem;
+    }
+    a {
+      height: 20vh;
+      font-size: 1.5rem;
+    }
+  }
+  .defaultLineup {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navComponent {
+    justify-content: center;
+    padding: 1rem 2rem;
   }
 }

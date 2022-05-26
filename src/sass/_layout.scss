@@ -38,22 +38,25 @@ nav ul {
   height: 100vh;
   background-color: #ffffff7d;
 }
-h1 {
-  padding: 4rem 0;
-}
+
 .logo {
   font-family: base.$logo-font;
   color: base.$primary-color;
-  font-size: 4rem;
+  font-size: 3rem;
 }
-.landingHeader,
-h2 {
+span.logo {
+  font-size: 6rem;
+}
+
+.landingHeader {
+  padding: 4rem 0;
   text-align: center;
 }
 
 h2 {
   padding: 2rem 0;
   font-size: 2rem;
+  text-align: center;
 }
 
 #countdownContainer {
@@ -315,4 +318,52 @@ h4 {
 
 .basketPageContainer {
   position: relative;
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    font-size: 2rem;
+  }
+  span.logo {
+    font-size: 4rem;
+  }
+  #welcomeImageBackground {
+    background-size: cover;
+    #countdownContainer *:first-child {
+      font-size: 4rem;
+    }
+    h3 {
+      word-spacing: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .landingHeader {
+    padding: 3rem 0;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  span.logo {
+    font-size: 3rem;
+  }
+  #welcomeImageBackground {
+    height: fit-content;
+    #countdownContainer *:first-child {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+  }
+  .opacityContainer {
+    height: fit-content;
+  }
 }

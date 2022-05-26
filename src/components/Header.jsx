@@ -2,7 +2,7 @@ import CountDownTimer from "@inlightmedia/react-countdown-timer";
 export default function Header() {
   return (
     <div className="landingHeader">
-      <h1 className="logo">FOOFEST</h1>
+      <span className="logo">FOOFEST</span>
       <div id="countdownContainer">
         <CountDownTimer
           dateTime="2022-07-10T20:00:00+02:00"

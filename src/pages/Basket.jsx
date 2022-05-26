@@ -44,7 +44,7 @@ function Basket(props) {
         <p>Your purchase will expire in:</p>
         <CountdownCircleTimer
           isPlaying
-          duration={120}
+          duration={15}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[15, 10, 5, 0]}
           onComplete={() => ({ shouldRepeat: false })}

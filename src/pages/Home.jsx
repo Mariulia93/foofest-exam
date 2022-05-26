@@ -35,7 +35,7 @@ export default function Home(props) {
           <Header />
         </div>
       </div>
-      <h2>THE BIGGEST FESTIVAL IN EUROPE 2022</h2>
+      <h1>THE BIGGEST FESTIVAL IN EUROPE 2022</h1>
       <Banner
         title="Get your ticket now!"
         name="/tickets"
