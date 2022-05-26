@@ -65,6 +65,8 @@ function Basket(props) {
                 regularPrice={props.regularPrice}
                 incrementCount={props.incrementCount}
                 decrementCount={props.decrementCount}
+                resetVipTicket={props.resetVipTicket}
+                resetRegularTicket={props.resetRegularTicket}
               />
             ) : null}
             {stepCounter === 2 ? <StepAccomodation stepCounter={stepCounter} /> : null}

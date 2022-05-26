@@ -52,7 +52,15 @@ function App() {
   function resetTickets() {
     setVipCount(0);
     setRegularCount(0);
-}
+  }
+
+  function resetVipTicket() {
+    setVipCount(0);
+  }
+  function resetRegularTicket() {
+    setRegularCount(0);
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -84,6 +92,8 @@ function App() {
               incrementCount={incrementCount}
               decrementCount={decrementCount}
               resetTickets={resetTickets}
+              resetVipTicket={resetVipTicket}
+              resetRegularTicket={resetRegularTicket}
             />
           }
         />
