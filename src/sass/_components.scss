@@ -23,6 +23,13 @@
   background-color: lighten(base.$primary-color, 7%);
 }
 
+.addToCartBtn {
+  grid-column: 1/-1;
+  width: fit-content;
+  place-self: center;
+  margin-bottom: 2rem;
+}
+
 // NAV COMPONENT
 .navComponent {
   display: flex;
@@ -466,6 +473,10 @@ h1 {
     table {
       width: 300px;
     }
+  }
+  .addToCartBtn {
+    margin: 0 auto 2rem auto;
+    display: block;
   }
   .sumTotal {
     margin-bottom: 2rem;

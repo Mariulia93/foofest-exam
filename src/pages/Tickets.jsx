@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import TicketCard from "../components/TicketCard";
 import Summary from "../components/Summary";
 import Footer from "../components/Footer";
-
+import { Link } from "react-router-dom";
 export default function Tickets(props) {
   return (
     <>
@@ -30,6 +30,10 @@ export default function Tickets(props) {
           incrementCount={props.incrementCount}
           decrementCount={props.decrementCount}
         />
+
+        <Link to="/basket" className="primaryCTA addToCartBtn">
+          Add to cart
+        </Link>
 
         <Summary
           vipCount={props.vipCount}

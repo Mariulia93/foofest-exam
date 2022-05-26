@@ -16,17 +16,12 @@ function Basket(props) {
   // console.log("here", props, "title?", props.title);
   function showNextStep() {
     setStepCounter((old) => old + 1);
-    console.log(stepCounter);
     stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
   }
 
-  // function resetCount() {
-  //   setStepCounter(1);
-  //   setIsDisabled(false);
-  // }
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
-      return <div className="timer">Too late...</div>;
+      props.resetTickets();
     }
 
     return (
