@@ -1,15 +1,37 @@
 import React from "react";
 import AvailableSpots from "./AvailableSpots";
 import CountTicket from "./CountTicket";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function StepAccomodation(props) {
   const [ownTent, setOwnTent] = useState(false);
+  useEffect(() => {
+    props.disableNextStep(ownTent);
+  }, [ownTent]);
+  const [peopleEqual, setPeopleEqual] = useState(false);
   function ownTentChange() {
     setOwnTent((oldvalue) => !oldvalue);
     props.resetTents();
+    props.disableNextStep(ownTent);
   }
 
+  useEffect(() => {
+    if (
+      props.twoPeopleTent * 2 + props.threePeopleTent * 3 ===
+      props.vipCount + props.regularCount
+    ) {
+      console.log("hi");
+      props.disableNextStep(true);
+      setPeopleEqual(true);
+    } else {
+      setPeopleEqual(false);
+      props.disableNextStep(false);
+    }
+  }, [props.twoPeopleTent, props.threePeopleTent]);
+
+  function handleAreaChange(evt){
+    props.getArea(evt.target.value);
+  }
   return (
     <>
       <h3>Choose accomodation{props.count}</h3>
@@ -26,7 +48,7 @@ function StepAccomodation(props) {
           {props.availableSpots.map((availableSpot) => (
             <tr key={availableSpot.area}>
               <td>
-                <input type="radio" name="campsites"></input>
+                <input type="radio" name="campsites" value={availableSpot.area} onChange={handleAreaChange}></input>
               </td>
               <AvailableSpots availableSpot={availableSpot} />
             </tr>
@@ -57,6 +79,12 @@ function StepAccomodation(props) {
           <p>{props.threePeopleTentPrice}</p>
         </div>
       </div>
+      {!peopleEqual && (
+        <p>
+          Amount of people in the tents should be equal with the amount of
+          tickets!
+        </p>
+      )}
       <div>
         <input type="checkbox" onChange={ownTentChange}></input>
         <label>I have my own tent</label>

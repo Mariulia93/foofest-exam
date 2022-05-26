@@ -22,17 +22,39 @@ function Basket(props) {
       setGreenCampingPrice(0);
     }
   }
+  const [selectedArea, setSelectedArea] = useState("");
+  function getArea(area) {
+    setSelectedArea(area);
+  }
 
   console.log(stepCounter);
   function showNextStep() {
+    console.log(selectedArea);
     setStepCounter((old) => old + 1);
     console.log(stepCounter);
     stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
+    if (stepCounter === 2) {
+      let ticketTotal = props.vipCount + props.regularCount;
+      const obj = {
+        area: selectedArea,
+        amount: ticketTotal,
+      };
+
+      fetch("https://foofest2022.herokuapp.com/reserve-spot", {
+        method: "put",
+        body: JSON.stringify(obj),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
   }
 
   function resetCount() {
     setStepCounter(1);
     setIsDisabled(false);
+  }
+  function disableNextStep(iHaveTent) {
+    setIsDisabled(!iHaveTent);
   }
   return (
     <div>
@@ -62,6 +84,8 @@ function Basket(props) {
             ) : null}
             {stepCounter === 2 ? (
               <StepAccomodation
+                vipCount={props.vipCount}
+                regularCount={props.regularCount}
                 stepCounter={stepCounter}
                 availableSpots={props.availableSpots}
                 twoPeopleTent={props.twoPeopleTent}
@@ -72,6 +96,8 @@ function Basket(props) {
                 threePeopleTentPrice={threePeopleTentPrice}
                 resetTents={props.resetTents}
                 greenCampChange={greenCampChange}
+                disableNextStep={disableNextStep}
+                getArea={getArea}
               />
             ) : null}
             {stepCounter === 3 ? (
