@@ -174,6 +174,87 @@
   padding: 0 1rem;
 }
 
+//SCHEDULE
+
+.schedule {
+  background-color: #f4f3f2;
+  border-radius: 30px;
+  margin: 3rem 1rem;
+
+  svg {
+    position: relative;
+    top: -0.5rem;
+  }
+  .stageHeader {
+    position: relative;
+    top: -8rem;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  //source: https://codepen.io/TajShireen/pen/JjGvVzg
+  .sessions {
+    margin-top: 2rem;
+    border-radius: 12px;
+    position: relative;
+    top: -6rem;
+    padding: 2rem 4rem;
+    li {
+      padding-bottom: 1.5rem;
+      border-left: 4px solid #2f506173;
+      position: relative;
+      padding-left: 20px;
+      margin-left: 10px;
+      &:last-child {
+        border: 0px;
+        position: relative;
+        left: 4px;
+        //padding-bottom: 0;
+      }
+    }
+    .time {
+      font-weight: 100;
+    }
+    p {
+      line-height: 1.5;
+      margin: 0.4rem 1rem 0;
+      display: inline;
+      font-weight: 900;
+    }
+  }
+}
+
+.break {
+  p {
+    font-size: 1rem;
+  }
+  &::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    background: base.$primary-color;
+    border-radius: 50%;
+    position: absolute;
+    left: -0.6rem;
+    top: 0px;
+  }
+}
+
+.band {
+  p {
+    font-size: 1.5rem;
+  }
+  &::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background: base.$primary-color;
+    border-radius: 50%;
+    position: absolute;
+    left: -0.85rem;
+    top: 0px;
+  }
+}
 //BAND CARD
 
 .bandCard {

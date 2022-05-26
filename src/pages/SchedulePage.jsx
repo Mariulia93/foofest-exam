@@ -16,7 +16,7 @@ export default function SchedulePage(props) {
   const [hideM, setHideM] = useState(false);
   const [hideV, setHideV] = useState(false);
   const [hideJ, setHideJ] = useState(false);
-  const [hideSchedules, setHideSchedules] = useState(false);
+  const [hideSchedules, setHideSchedules] = useState(true);
   const [hiddenPopUp, setHiddenPopUp] = useState(true);
   const [popUpBand, setPopUpBand] = useState({});
 
@@ -190,13 +190,34 @@ export default function SchedulePage(props) {
       </div>
       <div className="schedules">
         {!hideM && !hideSchedules && (
-          <Schedule bands={props.bands} displayedV={displayedM} showPopup={showPopup} stageName="midgard"></Schedule>
+          <Schedule
+            bands={props.bands}
+            displayedV={displayedM}
+            showPopup={showPopup}
+            stageNumber="1"
+            stageName="MIDGARD"
+            color="#e4a3c8"
+          ></Schedule>
         )}
         {!hideV && !hideSchedules && (
-          <Schedule bands={props.bands} displayedV={displayedV} showPopup={showPopup} stageName="vanaheim"></Schedule>
+          <Schedule
+            bands={props.bands}
+            displayedV={displayedV}
+            showPopup={showPopup}
+            stageNumber="2"
+            stageName="VANAHEIM"
+            color="#7cc7cf"
+          ></Schedule>
         )}
         {!hideJ && !hideSchedules && (
-          <Schedule bands={props.bands} displayedV={displayedJ} showPopup={showPopup} stageName="jotunheim"></Schedule>
+          <Schedule
+            bands={props.bands}
+            displayedV={displayedJ}
+            showPopup={showPopup}
+            stageNumber="3"
+            stageName="JOTUNHEIM"
+            color="#ffad7d"
+          ></Schedule>
         )}
       </div>
 
