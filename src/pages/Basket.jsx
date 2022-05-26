@@ -31,33 +31,34 @@ function Basket(props) {
 
     return (
       <div className="timer">
-        <div className="text">Remaining</div>
+        {/* <div className="text">Remaining</div> */}
         <div className="value">{remainingTime}</div>
-        <div className="text">seconds</div>
+        <div className="text">sec</div>
       </div>
     );
   };
   return (
-    <div>
+    <div className="basketPageContainer">
       <Nav />
+      <div className="timer-wrapper">
+        <p>Your purchase will expire in:</p>
+        <CountdownCircleTimer
+          isPlaying
+          duration={120}
+          colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+          colorsTime={[15, 10, 5, 0]}
+          onComplete={() => ({ shouldRepeat: false })}
+        >
+          {renderTime}
+        </CountdownCircleTimer>
+      </div>
       <main className="basketContainer">
         <ul>
-          <StepItem name="1. Tickets" stepNumber={1} count={stepCounter} />
-          <StepItem name="2. Accomodation" stepNumber={2} count={stepCounter} />
-          <StepItem name="3. Personal Data" stepNumber={3} count={stepCounter} />
-          <StepItem name="4. Payment" stepNumber={4} count={stepCounter} />
+          <StepItem stepNumber={1} name="Tickets" count={stepCounter} />
+          <StepItem stepNumber={2} name="Accomodation" count={stepCounter} />
+          <StepItem stepNumber={3} name="Personal Data" count={stepCounter} />
+          <StepItem stepNumber={4} name="Payment" count={stepCounter} />
         </ul>
-        <div className="timer-wrapper">
-          <CountdownCircleTimer
-            isPlaying
-            duration={20}
-            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-            colorsTime={[15, 10, 5, 0]}
-            onComplete={() => ({ shouldRepeat: false })}
-          >
-            {renderTime}
-          </CountdownCircleTimer>
-        </div>
 
         <section>
           <div>
