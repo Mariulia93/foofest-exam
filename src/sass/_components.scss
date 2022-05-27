@@ -132,6 +132,12 @@
 
 // SCHEDULE PAGE
 // RADIO BUTTONS
+
+.daysContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 // source: https://codepen.io/phusum/pen/VQrQqy
 .radioButton {
   float: left;
@@ -142,6 +148,14 @@
   background-color: base.$primary-color;
   color: white;
   border-radius: 25px;
+
+  .labelTop {
+    font-size: 1rem;
+  }
+
+  .labelBottom {
+    font-size: 0.8rem;
+  }
 }
 
 .radioButton label,
@@ -156,7 +170,7 @@
 
 .radioButton input[type="radio"] {
   opacity: 0.011;
-  z-index: 100;
+  z-index: 10;
 }
 
 .radioButton input[type="radio"]:checked + label {
@@ -166,12 +180,25 @@
 
 .radioButton label {
   cursor: pointer;
-  z-index: 90;
-  line-height: 1.8em;
+  z-index: 11;
   display: block;
   // width: 8ch;
   text-align: center;
-  padding: 0 1rem;
+  padding: 0.8rem 1rem;
+}
+
+.daysButtons,
+.stagesButtons {
+  @media only screen and (max-width: 760px) {
+    display: none;
+  }
+}
+
+#daysDropdown,
+#stagesDropdown {
+  @media only screen and (min-width: 760px) {
+    display: none;
+  }
 }
 
 //SCHEDULE
@@ -190,6 +217,9 @@
     top: -8rem;
     text-align: center;
     font-size: 1.8rem;
+    * {
+      font-family: base.$paragraph-font;
+    }
   }
 
   //source: https://codepen.io/TajShireen/pen/JjGvVzg
@@ -304,6 +334,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 100;
 
   img {
     max-height: 500px;
