@@ -83,6 +83,14 @@ export default function SchedulePage(props) {
     setHiddenPopUp(true);
   }
 
+  function handleDaysDropdownChange(evt) {
+    filterByDay(evt.target.options[evt.target.selectedIndex].value);
+  }
+
+  function handleStagesDropdownChange(evt) {
+    filterByStage(evt.target.options[evt.target.selectedIndex].value);
+  }
+
   return (
     <div>
       <Nav />
@@ -193,7 +201,7 @@ export default function SchedulePage(props) {
           />
         </div>
 
-        <select name="day" id="daysDropdown">
+        <select name="day" id="daysDropdown" onChange={handleDaysDropdownChange}>
           <option value="all">All days</option>
           <option value="mon">Day 1 (10/07)</option>
           <option value="tue">Day 2 (11/07)</option>
@@ -203,7 +211,7 @@ export default function SchedulePage(props) {
           <option value="say">Day 6 (15/07)</option>
           <option value="sun">Day 7 (16/07)</option>
         </select>
-        <select name="stage" id="stagesDropdown">
+        <select name="stage" id="stagesDropdown" onChange={handleStagesDropdownChange}>
           <option value="all">All stages</option>
           <option value="midgard">Stage 1 MIDGARD</option>
           <option value="vanaheim">Stage 2 VANAHEIM</option>
