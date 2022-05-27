@@ -13,8 +13,8 @@ function Basket(props) {
   //   const [step, setStep] = useState(StepTickets);
   const [isDisabled, setIsDisabled] = useState(false);
   const [stepCounter, setStepCounter] = useState(1);
-  const twoPeopleTentPrice = 299;
-  const threePeopleTentPrice = 399;
+  // const twoPeopleTentPrice = 299;
+  // const threePeopleTentPrice = 399;
   // const [greenCampingPrice, setGreenCampingPrice] = useState(0);
 
   // function greenCampChange() {
@@ -114,8 +114,8 @@ function Basket(props) {
                 threePeopleTent={props.threePeopleTent}
                 incrementCount={props.incrementCount}
                 decrementCount={props.decrementCount}
-                twoPeopleTentPrice={twoPeopleTentPrice}
-                threePeopleTentPrice={threePeopleTentPrice}
+                twoPeopleTentPrice={props.twoPeopleTentPrice}
+                threePeopleTentPrice={props.threePeopleTentPrice}
                 resetTents={props.resetTents}
                 greenCampChange={props.greenCampChange}
                 greenCampingPrice={props.greenCampingPrice}
@@ -135,8 +135,8 @@ function Basket(props) {
               regularCount={props.regularCount}
               vipPrice={props.vipPrice}
               regularPrice={props.regularPrice}
-              twoPeopleTentPrice={twoPeopleTentPrice}
-              threePeopleTentPrice={threePeopleTentPrice}
+              twoPeopleTentPrice={props.twoPeopleTentPrice}
+              threePeopleTentPrice={props.threePeopleTentPrice}
               twoPeopleTent={props.twoPeopleTent}
               threePeopleTent={props.threePeopleTent}
               greenCampingPrice={props.greenCampingPrice}

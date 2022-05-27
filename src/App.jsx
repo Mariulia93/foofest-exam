@@ -30,7 +30,8 @@ function App() {
   const [twoPeopleTent, setTwoPeopleTent] = useState(0);
   const [threePeopleTent, setThreePeopleTent] = useState(0);
   const [greenCampingPrice, setGreenCampingPrice] = useState(0);
-
+  const twoPeopleTentPrice = 299;
+  const threePeopleTentPrice = 399;
   function incrementCount(countType) {
     if (countType === "VIP") {
       setVipCount((old) => old + 1);
@@ -102,6 +103,8 @@ function App() {
               threePeopleTent={threePeopleTent}
               greenCampingPrice={greenCampingPrice}
               greenCampChange={greenCampChange}
+              twoPeopleTentPrice={twoPeopleTentPrice}
+              threePeopleTentPrice={threePeopleTentPrice}
             />
           }
         />
@@ -126,6 +129,8 @@ function App() {
               resetTents={resetTents}
               greenCampingPrice={greenCampingPrice}
               greenCampChange={greenCampChange}
+              twoPeopleTentPrice={twoPeopleTentPrice}
+              threePeopleTentPrice={threePeopleTentPrice}
             />
           }
         />

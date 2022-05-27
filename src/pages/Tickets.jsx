@@ -31,21 +31,30 @@ export default function Tickets(props) {
           decrementCount={props.decrementCount}
         />
       </div>
-      <aside className="ticketsSummary">
-        <Summary
-          vipCount={props.vipCount}
-          regularCount={props.regularCount}
-          vipPrice={props.vipPrice}
-          regularPrice={props.regularPrice}
-          twoPeopleTent={props.twoPeopleTent}
-          threePeopleTent={props.threePeopleTent}
-          greenCampChange={props.greenCampChange}
-          greenCampingPrice={props.greenCampingPrice}
-        />
-        <Link to="/basket" className="primaryCTA">
-          Add to cart
-        </Link>
-      </aside>
+      {!(props.vipCount === 0 && props.regularCount === 0) && (
+        // !(props.vipCount === 0 && props.regularCount === 0)
+        // &&
+        <aside
+          className="ticketsSummary"
+          // style={props.vipCount || props.regularCount < 1 ? { display: "none" } : null}
+        >
+          <Summary
+            vipCount={props.vipCount}
+            regularCount={props.regularCount}
+            vipPrice={props.vipPrice}
+            regularPrice={props.regularPrice}
+            twoPeopleTent={props.twoPeopleTent}
+            threePeopleTent={props.threePeopleTent}
+            greenCampChange={props.greenCampChange}
+            greenCampingPrice={props.greenCampingPrice}
+            twoPeopleTentPrice={props.twoPeopleTentPrice}
+            threePeopleTentPrice={props.threePeopleTentPrice}
+          />
+          <Link to="/basket" className="primaryCTA">
+            Add to cart
+          </Link>
+        </aside>
+      )}
       <h3 className="campingAvailability">Check our camping availability</h3>
       <table>
         <tr>
