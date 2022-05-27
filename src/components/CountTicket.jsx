@@ -7,9 +7,7 @@ function CountTicket(props) {
   function handleIncrement() {
     props.incrementCount(props.title);
   }
-function handleChange(){
-  props.comparePeople();
-}
+
   return (
     <div className="counter">
       <button

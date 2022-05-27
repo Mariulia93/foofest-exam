@@ -30,29 +30,34 @@ export default function Tickets(props) {
           incrementCount={props.incrementCount}
           decrementCount={props.decrementCount}
         />
-
-        <Link to="/basket" className="primaryCTA addToCartBtn">
-          Add to cart
-        </Link>
-
+      </div>
+      <aside className="ticketsSummary">
         <Summary
           vipCount={props.vipCount}
           regularCount={props.regularCount}
           vipPrice={props.vipPrice}
           regularPrice={props.regularPrice}
         />
-        <table>
-          <tr>
-            <th>Camping Site</th>
-            <th>Total spots</th>
-            <th>Spots available</th>
-          </tr>
+        <Link to="/basket" className="primaryCTA">
+          Add to cart
+        </Link>
+      </aside>
+      <h3 className="campingAvailability">Check our camping availability</h3>
+      <table>
+        <tr>
+          <th>Camping Site</th>
+          <th>Total spots</th>
+          <th>Spots available</th>
+        </tr>
 
-          {props.availableSpots.map((availableSpot) => (
-            <tr> <AvailableSpots availableSpot={availableSpot} /></tr>
-          ))}
-        </table>
-      </div>
+        {props.availableSpots.map((availableSpot) => (
+          <tr>
+            {" "}
+            <AvailableSpots availableSpot={availableSpot} />
+          </tr>
+        ))}
+      </table>
+
       <Footer />
     </>
   );

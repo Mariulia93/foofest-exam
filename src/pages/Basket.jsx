@@ -63,10 +63,7 @@ function Basket(props) {
       </div>
     );
   };
-  function resetCount() {
-    setStepCounter(1);
-    setIsDisabled(false);
-  }
+
   function disableNextStep(iHaveTent) {
     setIsDisabled(!iHaveTent);
   }

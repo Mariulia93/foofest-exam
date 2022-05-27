@@ -12,6 +12,7 @@
     color: #fff;
   }
 }
+
 .secondaryCTA {
   background-color: base.$primary-color;
 }
@@ -21,13 +22,6 @@
 
 .secondaryCTA:hover {
   background-color: lighten(base.$primary-color, 7%);
-}
-
-.addToCartBtn {
-  grid-column: 1/-1;
-  width: fit-content;
-  place-self: center;
-  margin-bottom: 2rem;
 }
 
 // NAV COMPONENT
@@ -359,6 +353,18 @@ h1 {
   opacity: 0.7;
 }
 
+.ticketsSummary {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  .primaryCTA {
+    padding: 7px 14px;
+  }
+}
+
 // INFO PAGE
 // CAMPSITE
 .campsiteContainer {
@@ -481,7 +487,7 @@ h1 {
     display: block;
   }
   .sumTotal {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   .contactContainer {
     padding: 2rem;
