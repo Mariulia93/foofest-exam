@@ -16,7 +16,9 @@ li {
   color: base.$primary-color;
   font-family: base.$headers-font;
 }
-
+.homeTitle {
+  padding: 4rem 0 2rem 0;
+}
 nav ul {
   display: flex;
   align-items: center;
