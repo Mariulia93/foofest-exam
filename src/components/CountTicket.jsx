@@ -7,7 +7,9 @@ function CountTicket(props) {
   function handleIncrement() {
     props.incrementCount(props.title);
   }
-
+function handleChange(){
+  props.comparePeople();
+}
   return (
     <div className="counter">
       <button
@@ -27,7 +29,8 @@ function CountTicket(props) {
         </svg>
       </button>
       <div>{props.count}</div>
-      <button className="plusminus" onClick={handleIncrement}>
+      <button className="plusminus" onClick={handleIncrement} disabled=
+      {props.ownTent}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

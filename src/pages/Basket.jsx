@@ -13,10 +13,41 @@ function Basket(props) {
   //   const [step, setStep] = useState(StepTickets);
   const [isDisabled, setIsDisabled] = useState(false);
   const [stepCounter, setStepCounter] = useState(1);
-  // console.log("here", props, "title?", props.title);
+  const twoPeopleTentPrice = 299;
+  const threePeopleTentPrice = 399;
+  const [greenCampingPrice, setGreenCampingPrice] = useState(0);
+
+  function greenCampChange() {
+    if (greenCampingPrice === 0) setGreenCampingPrice(249);
+    else {
+      setGreenCampingPrice(0);
+    }
+  }
+  const [selectedArea, setSelectedArea] = useState("");
+  function getArea(area) {
+    setSelectedArea(area);
+  }
+
+  console.log(stepCounter);
   function showNextStep() {
+    console.log(selectedArea);
     setStepCounter((old) => old + 1);
     stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
+    if (stepCounter === 2) {
+      let ticketTotal = props.vipCount + props.regularCount;
+      const obj = {
+        area: selectedArea,
+        amount: ticketTotal,
+      };
+
+      fetch("https://foofest2022.herokuapp.com/reserve-spot", {
+        headers: { "Content-Type": "application/json" },
+        method: "put",
+        body: JSON.stringify(obj),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
   }
 
   const renderTime = ({ remainingTime }) => {
@@ -32,6 +63,13 @@ function Basket(props) {
       </div>
     );
   };
+  function resetCount() {
+    setStepCounter(1);
+    setIsDisabled(false);
+  }
+  function disableNextStep(iHaveTent) {
+    setIsDisabled(!iHaveTent);
+  }
   return (
     <div className="basketPageContainer">
       <Nav />
@@ -69,10 +107,35 @@ function Basket(props) {
                 resetRegularTicket={props.resetRegularTicket}
               />
             ) : null}
-            {stepCounter === 2 ? <StepAccomodation stepCounter={stepCounter} /> : null}
-            {stepCounter === 3 ? <StepPersonalData stepCounter={stepCounter} /> : null}
-            {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
-            <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
+            {stepCounter === 2 ? (
+              <StepAccomodation
+                vipCount={props.vipCount}
+                regularCount={props.regularCount}
+                stepCounter={stepCounter}
+                availableSpots={props.availableSpots}
+                twoPeopleTent={props.twoPeopleTent}
+                threePeopleTent={props.threePeopleTent}
+                incrementCount={props.incrementCount}
+                decrementCount={props.decrementCount}
+                twoPeopleTentPrice={twoPeopleTentPrice}
+                threePeopleTentPrice={threePeopleTentPrice}
+                resetTents={props.resetTents}
+                greenCampChange={greenCampChange}
+                disableNextStep={disableNextStep}
+                getArea={getArea}
+              />
+            ) : null}
+            {stepCounter === 3 ? (
+              <StepPersonalData stepCounter={stepCounter} />
+            ) : null}
+            {stepCounter === 4 ? (
+              <StepPayment stepCounter={stepCounter} />
+            ) : null}
+            <button
+              onClick={showNextStep}
+              disabled={isDisabled}
+              className="primaryCTA"
+            >
               Next Step
             </button>
           </div>
@@ -82,6 +145,11 @@ function Basket(props) {
               regularCount={props.regularCount}
               vipPrice={props.vipPrice}
               regularPrice={props.regularPrice}
+              twoPeopleTentPrice={twoPeopleTentPrice}
+              threePeopleTentPrice={threePeopleTentPrice}
+              twoPeopleTent={props.twoPeopleTent}
+              threePeopleTent={props.threePeopleTent}
+              greenCampingPrice={greenCampingPrice}
             />
           </aside>
         </section>

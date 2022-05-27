@@ -14,7 +14,9 @@ function App() {
   useEffect(() => {
     async function getData() {
       const res = await fetch("https://foofest2022.herokuapp.com/bands");
-      const res2 = await fetch("https://foofest2022.herokuapp.com/available-spots");
+      const res2 = await fetch(
+        "https://foofest2022.herokuapp.com/available-spots"
+      );
       const data = await res.json();
       const data2 = await res2.json();
       setBands(data);
@@ -27,20 +29,35 @@ function App() {
   const regularPrice = 799;
   let [vipCount, setVipCount] = useState(0);
   let [regularCount, setRegularCount] = useState(0);
+  const [twoPeopleTent, setTwoPeopleTent] = useState(0);
+  const [threePeopleTent, setThreePeopleTent] = useState(0);
 
-  function incrementCount(ticketType) {
-    if (ticketType === "VIP") {
+  function incrementCount(countType) {
+    if (countType === "VIP") {
       setVipCount((old) => old + 1);
-    } else {
+    } else if (countType === "REGULAR") {
       setRegularCount((old) => old + 1);
+    } else if (countType === "TWOTENT") {
+      setTwoPeopleTent((old) => old + 1);
+    } else if (countType === "THREETENT") {
+      setThreePeopleTent((old) => old + 1);
     }
   }
-  function decrementCount(ticketType) {
-    if (ticketType === "VIP") {
+  function decrementCount(countType) {
+    if (countType === "VIP") {
       setVipCount((old) => old - 1);
-    } else {
+    } else if (countType === "REGULAR") {
       setRegularCount((old) => old - 1);
+    } else if (countType === "TWOTENT") {
+      setTwoPeopleTent((old) => old - 1);
+    } else if (countType === "THREETENT") {
+      setThreePeopleTent((old) => old - 1);
     }
+  }
+
+  function resetTents() {
+    setTwoPeopleTent(0);
+    setThreePeopleTent(0);
   }
   // function incrementRegularCount() {
   //   setRegularCount((old) => old + 1);
@@ -85,6 +102,7 @@ function App() {
           path="/basket"
           element={
             <Basket
+              availableSpots={availableSpots}
               vipCount={vipCount}
               regularCount={regularCount}
               vipPrice={vipPrice}
@@ -94,6 +112,10 @@ function App() {
               resetTickets={resetTickets}
               resetVipTicket={resetVipTicket}
               resetRegularTicket={resetRegularTicket}
+              twoPeopleTent={twoPeopleTent}
+              threePeopleTent={threePeopleTent}
+              resetTents={resetTents}
+              
             />
           }
         />
