@@ -41,6 +41,7 @@ function Basket(props) {
       };
 
       fetch("https://foofest2022.herokuapp.com/reserve-spot", {
+        headers: { "Content-Type": "application/json" },
         method: "put",
         body: JSON.stringify(obj),
       })
