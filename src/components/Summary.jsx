@@ -24,7 +24,7 @@ function Summary(props) {
         <p>+ Camping fee</p>
         <p>{campingFee}kr</p>
       </div>
-      <div
+      <div 
         className="sumCartRow"
         style={props.twoPeopleTent < 1 ? { display: "none" } : null}
       >

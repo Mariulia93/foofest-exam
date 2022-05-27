@@ -15,14 +15,14 @@ function Basket(props) {
   const [stepCounter, setStepCounter] = useState(1);
   const twoPeopleTentPrice = 299;
   const threePeopleTentPrice = 399;
-  const [greenCampingPrice, setGreenCampingPrice] = useState(0);
+  // const [greenCampingPrice, setGreenCampingPrice] = useState(0);
 
-  function greenCampChange() {
-    if (greenCampingPrice === 0) setGreenCampingPrice(249);
-    else {
-      setGreenCampingPrice(0);
-    }
-  }
+  // function greenCampChange() {
+  //   if (greenCampingPrice === 0) setGreenCampingPrice(249);
+  //   else {
+  //     setGreenCampingPrice(0);
+  //   }
+  // }
   const [selectedArea, setSelectedArea] = useState("");
   function getArea(area) {
     setSelectedArea(area);
@@ -117,22 +117,15 @@ function Basket(props) {
                 twoPeopleTentPrice={twoPeopleTentPrice}
                 threePeopleTentPrice={threePeopleTentPrice}
                 resetTents={props.resetTents}
-                greenCampChange={greenCampChange}
+                greenCampChange={props.greenCampChange}
+                greenCampingPrice={props.greenCampingPrice}
                 disableNextStep={disableNextStep}
                 getArea={getArea}
               />
             ) : null}
-            {stepCounter === 3 ? (
-              <StepPersonalData stepCounter={stepCounter} />
-            ) : null}
-            {stepCounter === 4 ? (
-              <StepPayment stepCounter={stepCounter} />
-            ) : null}
-            <button
-              onClick={showNextStep}
-              disabled={isDisabled}
-              className="primaryCTA"
-            >
+            {stepCounter === 3 ? <StepPersonalData stepCounter={stepCounter} /> : null}
+            {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
+            <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
               Next Step
             </button>
           </div>
@@ -146,7 +139,7 @@ function Basket(props) {
               threePeopleTentPrice={threePeopleTentPrice}
               twoPeopleTent={props.twoPeopleTent}
               threePeopleTent={props.threePeopleTent}
-              greenCampingPrice={greenCampingPrice}
+              greenCampingPrice={props.greenCampingPrice}
             />
           </aside>
         </section>

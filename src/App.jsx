@@ -14,9 +14,7 @@ function App() {
   useEffect(() => {
     async function getData() {
       const res = await fetch("https://foofest2022.herokuapp.com/bands");
-      const res2 = await fetch(
-        "https://foofest2022.herokuapp.com/available-spots"
-      );
+      const res2 = await fetch("https://foofest2022.herokuapp.com/available-spots");
       const data = await res.json();
       const data2 = await res2.json();
       setBands(data);
@@ -31,6 +29,7 @@ function App() {
   let [regularCount, setRegularCount] = useState(0);
   const [twoPeopleTent, setTwoPeopleTent] = useState(0);
   const [threePeopleTent, setThreePeopleTent] = useState(0);
+  const [greenCampingPrice, setGreenCampingPrice] = useState(0);
 
   function incrementCount(countType) {
     if (countType === "VIP") {
@@ -55,6 +54,12 @@ function App() {
     }
   }
 
+  function greenCampChange() {
+    if (greenCampingPrice === 0) setGreenCampingPrice(249);
+    else {
+      setGreenCampingPrice(0);
+    }
+  }
   function resetTents() {
     setTwoPeopleTent(0);
     setThreePeopleTent(0);
@@ -93,6 +98,10 @@ function App() {
               regularCount={regularCount}
               incrementCount={incrementCount}
               decrementCount={decrementCount}
+              twoPeopleTent={twoPeopleTent}
+              threePeopleTent={threePeopleTent}
+              greenCampingPrice={greenCampingPrice}
+              greenCampChange={greenCampChange}
             />
           }
         />
@@ -115,7 +124,8 @@ function App() {
               twoPeopleTent={twoPeopleTent}
               threePeopleTent={threePeopleTent}
               resetTents={resetTents}
-              
+              greenCampingPrice={greenCampingPrice}
+              greenCampChange={greenCampChange}
             />
           }
         />

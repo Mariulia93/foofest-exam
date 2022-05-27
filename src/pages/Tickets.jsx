@@ -37,6 +37,10 @@ export default function Tickets(props) {
           regularCount={props.regularCount}
           vipPrice={props.vipPrice}
           regularPrice={props.regularPrice}
+          twoPeopleTent={props.twoPeopleTent}
+          threePeopleTent={props.threePeopleTent}
+          greenCampChange={props.greenCampChange}
+          greenCampingPrice={props.greenCampingPrice}
         />
         <Link to="/basket" className="primaryCTA">
           Add to cart
