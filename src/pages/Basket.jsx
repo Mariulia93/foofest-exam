@@ -28,7 +28,7 @@ function Basket(props) {
     setSelectedArea(area);
   }
 
-  console.log(stepCounter);
+  console.log("hereeeeeeeeee", stepCounter);
   function showNextStep() {
     console.log(selectedArea);
     setStepCounter((old) => old + 1);
@@ -125,9 +125,11 @@ function Basket(props) {
             ) : null}
             {stepCounter === 3 ? <StepPersonalData stepCounter={stepCounter} /> : null}
             {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
-            <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
-              Next Step
-            </button>
+            {!(props.vipCount === 0 && props.regularCount === 0) && (
+              <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
+                {stepCounter === 4 ? "Confirm & pay" : "Next step"}
+              </button>
+            )} 
           </div>
           <aside>
             {!(props.vipCount === 0 && props.regularCount === 0) && (
