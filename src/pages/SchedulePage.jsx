@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BandCard from "../components/BandCard";
 import BandPopUp from "../components/BandPopUp";
 import Footer from "../components/Footer";
@@ -19,6 +19,7 @@ export default function SchedulePage(props) {
   const [hideSchedules, setHideSchedules] = useState(true);
   const [hiddenPopUp, setHiddenPopUp] = useState(true);
   const [popUpBand, setPopUpBand] = useState({});
+  const [hideInfo, setHideInfo] = useState(false);
 
   useEffect(() => {
     fetch("https://foofest2022.herokuapp.com/schedule")
@@ -35,6 +36,7 @@ export default function SchedulePage(props) {
 
   function filterByDay(day) {
     if (day === "all") {
+      console.log("hello");
       setHideSchedules(true);
       let alldays = [];
       Object.keys(midgard).map((key) => midgard[key].map((item) => alldays.push(item)));
@@ -45,11 +47,13 @@ export default function SchedulePage(props) {
       alldays = [];
       Object.keys(jotunheim).map((key) => jotunheim[key].map((item) => alldays.push(item)));
       setDisplayedJ(alldays);
+      setHideInfo(false);
     } else {
       setHideSchedules(false);
       setDisplayedJ(jotunheim[day]);
       setDisplayedM(midgard[day]);
       setDisplayedV(vanaheim[day]);
+      setHideInfo(true);
     }
   }
 
@@ -94,6 +98,7 @@ export default function SchedulePage(props) {
   return (
     <div>
       <Nav />
+      {!hideInfo && <p>Choose a day to see schedules</p>}
       <div className="scheduleButtons">
         <div className="daysButtons">
           <RadioButton
