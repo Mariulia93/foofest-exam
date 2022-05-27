@@ -4,7 +4,7 @@ import "./sass/App.scss";
 // import NavContainer from "./pages/NavContainer";
 import Home from "./pages/Home";
 import Tickets from "./pages/Tickets";
-import Schedule from "./pages/Schedule";
+import SchedulePage from "./pages/SchedulePage";
 import Info from "./pages/Info";
 import Basket from "./pages/Basket";
 
@@ -14,9 +14,7 @@ function App() {
   useEffect(() => {
     async function getData() {
       const res = await fetch("https://foofest2022.herokuapp.com/bands");
-      const res2 = await fetch(
-        "https://foofest2022.herokuapp.com/available-spots"
-      );
+      const res2 = await fetch("https://foofest2022.herokuapp.com/available-spots");
       const data = await res.json();
       const data2 = await res2.json();
       setBands(data);
@@ -96,7 +94,7 @@ function App() {
             />
           }
         />
-        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/schedule" element={<SchedulePage bands={bands} />} />
         <Route path="/info" element={<Info />} />
         <Route
           path="/basket"
@@ -115,7 +113,6 @@ function App() {
               twoPeopleTent={twoPeopleTent}
               threePeopleTent={threePeopleTent}
               resetTents={resetTents}
-              
             />
           }
         />

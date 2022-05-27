@@ -136,6 +136,12 @@
 
 // SCHEDULE PAGE
 // RADIO BUTTONS
+
+.daysContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 // source: https://codepen.io/phusum/pen/VQrQqy
 .radioButton {
   float: left;
@@ -146,6 +152,14 @@
   background-color: base.$primary-color;
   color: white;
   border-radius: 25px;
+
+  .labelTop {
+    font-size: 1rem;
+  }
+
+  .labelBottom {
+    font-size: 0.8rem;
+  }
 }
 
 .radioButton label,
@@ -160,7 +174,7 @@
 
 .radioButton input[type="radio"] {
   opacity: 0.011;
-  z-index: 100;
+  z-index: 10;
 }
 
 .radioButton input[type="radio"]:checked + label {
@@ -170,14 +184,110 @@
 
 .radioButton label {
   cursor: pointer;
-  z-index: 90;
-  line-height: 1.8em;
+  z-index: 11;
   display: block;
   // width: 8ch;
   text-align: center;
-  padding: 0 1rem;
+  padding: 0.8rem 1rem;
 }
 
+.daysButtons,
+.stagesButtons {
+  @media only screen and (max-width: 760px) {
+    display: none;
+  }
+}
+
+#daysDropdown,
+#stagesDropdown {
+  @media only screen and (min-width: 760px) {
+    display: none;
+  }
+}
+
+//SCHEDULE
+
+.schedule {
+  background-color: #f4f3f2;
+  border-radius: 30px;
+  margin: 3rem 1rem;
+
+  svg {
+    position: relative;
+    top: -0.5rem;
+  }
+  .stageHeader {
+    position: relative;
+    top: -8rem;
+    text-align: center;
+    font-size: 1.8rem;
+    * {
+      font-family: base.$paragraph-font;
+    }
+  }
+
+  //source: https://codepen.io/TajShireen/pen/JjGvVzg
+  .sessions {
+    margin-top: 2rem;
+    border-radius: 12px;
+    position: relative;
+    top: -6rem;
+    padding: 2rem 4rem;
+    li {
+      padding-bottom: 1.5rem;
+      border-left: 4px solid #2f506173;
+      position: relative;
+      padding-left: 20px;
+      margin-left: 10px;
+      &:last-child {
+        border: 0px;
+        position: relative;
+        left: 4px;
+        //padding-bottom: 0;
+      }
+    }
+    .time {
+      font-weight: 100;
+    }
+    p {
+      margin: 0.4rem 1rem 0;
+      display: inline;
+      font-weight: 900;
+    }
+  }
+}
+
+.break {
+  p {
+    font-size: 1rem;
+  }
+  &::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    background: base.$primary-color;
+    border-radius: 50%;
+    position: absolute;
+    left: -0.6rem;
+    top: 0px;
+  }
+}
+
+.band {
+  p {
+    font-size: 1.5rem;
+  }
+  &::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background: base.$primary-color;
+    border-radius: 50%;
+    position: absolute;
+    left: -0.85rem;
+    top: 0px;
+  }
+}
 //BAND CARD
 
 .bandCard {
@@ -227,6 +337,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 100;
 
   img {
     max-height: 500px;

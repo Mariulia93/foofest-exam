@@ -7,7 +7,10 @@ export default function RadioButton(props) {
     <div className="radioButton">
       <input type="radio" id={props.name + props.number} name={props.name} value={props.value} onChange={handleChange} />
       <label htmlFor={props.name + props.number}>
-        {props.labelTop} {props.labelBottom}
+        <p className="labelTop">{props.labelTop}</p>{" "}
+        <p className="labelBottom" style={{ color: props.color }}>
+          {props.labelBottom}
+        </p>
       </label>
     </div>
   );
