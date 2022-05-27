@@ -130,17 +130,19 @@ function Basket(props) {
             </button>
           </div>
           <aside>
-            <Summary
-              vipCount={props.vipCount}
-              regularCount={props.regularCount}
-              vipPrice={props.vipPrice}
-              regularPrice={props.regularPrice}
-              twoPeopleTentPrice={props.twoPeopleTentPrice}
-              threePeopleTentPrice={props.threePeopleTentPrice}
-              twoPeopleTent={props.twoPeopleTent}
-              threePeopleTent={props.threePeopleTent}
-              greenCampingPrice={props.greenCampingPrice}
-            />
+            {!(props.vipCount === 0 && props.regularCount === 0) && (
+              <Summary
+                vipCount={props.vipCount}
+                regularCount={props.regularCount}
+                vipPrice={props.vipPrice}
+                regularPrice={props.regularPrice}
+                twoPeopleTentPrice={props.twoPeopleTentPrice}
+                threePeopleTentPrice={props.threePeopleTentPrice}
+                twoPeopleTent={props.twoPeopleTent}
+                threePeopleTent={props.threePeopleTent}
+                greenCampingPrice={props.greenCampingPrice}
+              />
+            )}
           </aside>
         </section>
       </main>
