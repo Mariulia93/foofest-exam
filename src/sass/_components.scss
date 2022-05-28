@@ -311,12 +311,19 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
+    filter: brightness(0.7);
+  }
+  img:hover {
+    filter: brightness(1);
+    transition: 0.5s;
   }
   h4 {
     position: relative;
     color: white;
-    top: -3rem;
+    top: -5rem;
     left: 1rem;
+    width: 200px;
+    font-size: 1rem;
   }
   &::before {
     content: "";
@@ -507,7 +514,6 @@ h1 {
     height: 300px;
     object-fit: cover;
   }
-
   .campsiteInfo {
     display: flex;
     flex-direction: column;
