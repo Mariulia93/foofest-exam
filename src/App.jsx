@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./sass/App.scss";
-// import NavContainer from "./pages/NavContainer";
 import Home from "./pages/Home";
 import Tickets from "./pages/Tickets";
 import SchedulePage from "./pages/SchedulePage";
@@ -65,13 +64,7 @@ function App() {
     setTwoPeopleTent(0);
     setThreePeopleTent(0);
   }
-  // function incrementRegularCount() {
-  //   setRegularCount((old) => old + 1);
-  // }
 
-  // function decrementVipCount() {
-  //   setVipCount((old) => old - 1);
-  // }
   function resetTickets() {
     setVipCount(0);
     setRegularCount(0);

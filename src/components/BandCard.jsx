@@ -29,5 +29,3 @@ export default function BandCard(props) {
     </button>
   );
 }
-
-// {props.band.logoCredits && <p>{props.band.logoCredits}</p>}

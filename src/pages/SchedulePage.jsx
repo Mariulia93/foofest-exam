@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import BandCard from "../components/BandCard";
 import BandPopUp from "../components/BandPopUp";
 import Footer from "../components/Footer";
@@ -28,9 +28,6 @@ export default function SchedulePage(props) {
         setMidgard(data.Midgard);
         setVanaheim(data.Vanaheim);
         setJotunheim(data.Jotunheim);
-        // console.log(midgard.mon[0].act);
-        // console.log(vanaheim.fri);
-        // Object.keys(jotunheim).map((key) => jotunheim[key].map((item) => console.log(item.act)));
       });
   }, []);
 

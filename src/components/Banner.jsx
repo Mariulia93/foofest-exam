@@ -8,10 +8,7 @@ function Banner(props) {
         <div className="bgBannerFadeOut">
           <Link to={props.name}>
             {props.title}
-            {/* <div className="primaryCTA" style={props.bgColor}> */}
-            <div className={props.buttonText==="Schedule" ? "secondaryCTA" : "primaryCTA"}>
-              {props.buttonText}
-            </div>
+            <div className={props.buttonText === "Schedule" ? "secondaryCTA" : "primaryCTA"}>{props.buttonText}</div>
           </Link>
         </div>
       </div>

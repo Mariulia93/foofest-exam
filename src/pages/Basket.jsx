@@ -44,7 +44,6 @@ function Basket(props) {
 
     return (
       <div className="timer">
-        {/* <div className="text">Remaining</div> */}
         <div className="value">{remainingTime}</div>
         <div className="text">sec</div>
       </div>

@@ -1,5 +1,4 @@
 import Question from "./Question";
-// ...
 
 export default function FAQ() {
   return (

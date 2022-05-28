@@ -8,11 +8,6 @@ import { useEffect, useState } from "react";
 
 export default function Home(props) {
   const [twentyBands, setTwentyBands] = useState([]);
-  // function randomTwentyBands() {
-  //   let shuffled = props.bands.sort(function(){return .5 - Math.random()});
-  //   setTwentyBands(shuffled.slice(0,20));
-  // }
-
   useEffect(() => {
     let shuffled = props.bands.sort(function () {
       return 0.5 - Math.random();

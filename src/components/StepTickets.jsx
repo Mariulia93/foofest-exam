@@ -61,7 +61,6 @@ function StepTickets(props) {
               <p>{props.vipCount === 0 ? "VIP ticket" : props.regularCount === 0 ? "Regular ticket" : null}</p>
               <p>{props.vipCount === 0 ? props.vipPrice : props.regularCount === 0 ? props.regularPrice : null}</p>
             </div>
-            {/* <button className="secondaryCTA">Add to cart</button> */}
             <button
               className="secondaryCTA addToCartBtn"
               onClick={() =>
