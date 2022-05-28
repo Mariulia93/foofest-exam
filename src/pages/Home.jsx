@@ -63,6 +63,7 @@ export default function Home(props) {
             <Band key={band.name} band={band} />
           ))}
         </div>
+        <p className="andMoreLineup">AND MANY MORE!</p>
       </section>
       <Footer />
     </>

@@ -134,6 +134,21 @@
   margin-bottom: 1rem;
 }
 
+.andMoreLineup {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  column-gap: 4px;
+  font-size: 2rem;
+  width: 70%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 // SCHEDULE PAGE
 // RADIO BUTTONS
 
