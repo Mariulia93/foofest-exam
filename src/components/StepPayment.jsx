@@ -35,21 +35,21 @@ function StepPayment(props) {
       >
         <form className="personalData">
           <div>
-            <label for="CCname">Full name</label>
+            <label htmlFor="CCname">Full name</label>
             <input placeholder="Full name" type="text" name="CCname" />
           </div>
           <div>
-            <label for="CCnumber">Card number</label>
+            <label htmlFor="CCnumber">Card number</label>
             <input placeholder="Card number" type="text" name="CCnumber" />
           </div>
 
           <aside className="creditCard">
             <div>
-              <label for="CCexpiry">MM/YY</label>
+              <label htmlFor="CCexpiry">MM/YY</label>
               <input placeholder="MM/YY" type="text" name="CCexpiry" />
             </div>
             <div>
-              <label for="CCcvc">CVC</label>
+              <label htmlFor="CCcvc">CVC</label>
               <input placeholder="CVC" type="text" name="CCcvc" />
             </div>
           </aside>

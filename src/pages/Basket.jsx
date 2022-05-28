@@ -10,27 +10,14 @@ import { useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 function Basket(props) {
-  //   const [step, setStep] = useState(StepTickets);
   const [isDisabled, setIsDisabled] = useState(false);
   const [stepCounter, setStepCounter] = useState(1);
-  // const twoPeopleTentPrice = 299;
-  // const threePeopleTentPrice = 399;
-  // const [greenCampingPrice, setGreenCampingPrice] = useState(0);
-
-  // function greenCampChange() {
-  //   if (greenCampingPrice === 0) setGreenCampingPrice(249);
-  //   else {
-  //     setGreenCampingPrice(0);
-  //   }
-  // }
   const [selectedArea, setSelectedArea] = useState("");
   function getArea(area) {
     setSelectedArea(area);
   }
 
-  console.log(stepCounter);
   function showNextStep() {
-    console.log(selectedArea);
     setStepCounter((old) => old + 1);
     stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
     if (stepCounter === 2) {

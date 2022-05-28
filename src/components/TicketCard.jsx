@@ -9,7 +9,7 @@ function TicketCard(props) {
       </div>
       <ul>
         {props.description.split(";").map((item) => (
-          <li>{item}</li>
+          <li key={item}>{item}</li>
         ))}
       </ul>
       <h4>{props.price}</h4>

@@ -4,11 +4,11 @@ export default function Toggle(props) {
   }
 
   return (
-    <div class="toggleContainer">
-      <div class="switch-button">
-        <input class="switch-button-checkbox" type="checkbox" onChange={handleChange}></input>
-        <label class="switch-button-label" for="">
-          <span class="switch-button-label-span">FAQ</span>
+    <div className="toggleContainer">
+      <div className="switch-button">
+        <input className="switch-button-checkbox" type="checkbox" onChange={handleChange}></input>
+        <label className="switch-button-label" htmlFor="">
+          <span className="switch-button-label-span">FAQ</span>
         </label>
       </div>
     </div>

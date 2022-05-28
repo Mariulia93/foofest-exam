@@ -5,10 +5,13 @@ import { useState, useEffect } from "react";
 
 function StepAccomodation(props) {
   const [ownTent, setOwnTent] = useState(false);
-  useEffect(() => {
-    props.disableNextStep(ownTent);
-  }, [ownTent]);
+  const { twoPeopleTent, threePeopleTent, vipCount, regularCount, disableNextStep } = props;
   const [peopleEqual, setPeopleEqual] = useState(false);
+
+  useEffect(() => {
+    disableNextStep(ownTent);
+  }, [ownTent, disableNextStep]);
+
   function ownTentChange() {
     setOwnTent((oldvalue) => !oldvalue);
     props.resetTents();
@@ -16,20 +19,18 @@ function StepAccomodation(props) {
   }
 
   useEffect(() => {
-    if (
-      props.twoPeopleTent * 2 + props.threePeopleTent * 3 ===
-      props.vipCount + props.regularCount
-    ) {
-      console.log("hi");
-      props.disableNextStep(true);
-      setPeopleEqual(true);
-    } else {
-      setPeopleEqual(false);
-      props.disableNextStep(false);
+    if (!ownTent) {
+      if (twoPeopleTent * 2 + threePeopleTent * 3 === vipCount + regularCount) {
+        disableNextStep(true);
+        setPeopleEqual(true);
+      } else {
+        setPeopleEqual(false);
+        disableNextStep(false);
+      }
     }
-  }, [props.twoPeopleTent, props.threePeopleTent]);
+  }, [ownTent, twoPeopleTent, threePeopleTent, disableNextStep, vipCount, regularCount]);
 
-  function handleAreaChange(evt){
+  function handleAreaChange(evt) {
     props.getArea(evt.target.value);
   }
   return (
@@ -79,12 +80,7 @@ function StepAccomodation(props) {
           <p>{props.threePeopleTentPrice}</p>
         </div>
       </div>
-      {!peopleEqual && (
-        <p>
-          Amount of people in the tents should be equal with the amount of
-          tickets!
-        </p>
-      )}
+      {!peopleEqual && <p>Amount of people in the tents should be equal to the amount of tickets!</p>}
       <div>
         <input type="checkbox" onChange={ownTentChange}></input>
         <label>I have my own tent</label>

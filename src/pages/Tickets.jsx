@@ -57,18 +57,21 @@ export default function Tickets(props) {
       )}
       <h3 className="campingAvailability">Check our camping availability</h3>
       <table>
-        <tr>
-          <th>Camping Site</th>
-          <th>Total spots</th>
-          <th>Spots available</th>
-        </tr>
-
-        {props.availableSpots.map((availableSpot) => (
+        <thead>
           <tr>
-            {" "}
-            <AvailableSpots availableSpot={availableSpot} />
+            <th>Camping Site</th>
+            <th>Total spots</th>
+            <th>Spots available</th>
           </tr>
-        ))}
+        </thead>
+
+        <tbody>
+          {props.availableSpots.map((availableSpot) => (
+            <tr key={availableSpot.area}>
+              <AvailableSpots availableSpot={availableSpot} />
+            </tr>
+          ))}
+        </tbody>
       </table>
 
       <Footer />

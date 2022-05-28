@@ -79,7 +79,6 @@ export default function SchedulePage(props) {
 
   function showPopup(props) {
     setHiddenPopUp(false);
-    console.log(props);
     setPopUpBand(props);
   }
 

@@ -3,7 +3,7 @@ import Question from "./Question";
 
 export default function FAQ() {
   return (
-    <div class="questionsContainer">
+    <div className="questionsContainer">
       <h2>Frequently asked questions</h2>
       <hr />
       <Question
