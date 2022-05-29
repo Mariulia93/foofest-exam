@@ -536,6 +536,7 @@ h1 {
     cursor: pointer;
     p {
       padding: 1rem;
+      max-width: 80ch;
     }
     &:hover {
       background-color: rgba(207, 207, 207, 0.39);
