@@ -191,8 +191,9 @@ h2 {
 .artistsList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
-  padding: 0 5rem;
+  padding: 0 4rem;
   justify-items: center;
+  align-items: flex-start;
 }
 
 // INFO PAGE
@@ -435,6 +436,15 @@ h4 {
     margin: 0 auto;
     width: fit-content;
   }
+  .artistsList {
+    padding: 1rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    justify-content: center;
+  }
+  .bandCard img {
+    width: 250px;
+    height: 250px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -455,6 +465,15 @@ h4 {
   }
   .basketContainer ul {
     justify-content: flex-start;
+  }
+  .artistsList {
+    padding: 1rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    justify-content: center;
+  }
+  .bandCard img {
+    width: 150px;
+    height: 150px;
   }
 }
 //accomodation table

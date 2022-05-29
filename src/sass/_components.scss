@@ -218,8 +218,29 @@
   @media only screen and (min-width: 760px) {
     display: none;
   }
+  padding: 1rem 0.5rem;
+  text-align: center;
+ 
 }
-
+#daysDropdown{
+  background-color: base.$primary-color;
+  border: none;
+  color: white;
+  outline: none;
+}
+#stagesDropdown{
+  background-color: #C1DADD;
+  border: none;
+  color: base.$primary-color;
+  outline: none;
+}
+option{
+  background-color: #C1DADD;
+  color: base.$primary-color;
+  border-style: none;
+  align-items: center;
+  outline: none;
+}
 //SCHEDULE
 
 .schedule {
