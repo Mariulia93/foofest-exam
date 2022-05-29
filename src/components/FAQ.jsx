@@ -2,6 +2,7 @@ import Question from "./Question";
 import faqData from "../faq.json";
 import { useState } from "react";
 
+//searchbar help: https://dev.to/salehmubashar/search-bar-in-react-js-545l
 export default function FAQ() {
   const [searchInput, setSearchInput] = useState("");
   function handleSearch(e) {

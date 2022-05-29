@@ -34,7 +34,7 @@
   {
     "id": 6,
     "question": "How big are your camping sites?",
-    "answer": "Svartheim: 400 spots Nilfheim: 300 spots Helheim: 100 spots Muspelheim: 200 spots Alfheim: 250 spots"
+    "answer": ["Svartheim: 400 spots", "Nilfheim: 300 spots", "Helheim: 100 spots", "Muspelheim: 200 spots", "Alfheim: 250 spots"]
   },
 
   {

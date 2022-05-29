@@ -25,7 +25,15 @@ export default function Question(props) {
         </svg>
       </button>
       <Collapse isOpened={isOpened}>
-        <p>{props.answer}</p>
+        {Array.isArray(props.answer) ? (
+          <p>
+            {props.answer.map((el) => (
+              <span>{el}</span>
+            ))}
+          </p>
+        ) : (
+          <p>{props.answer}</p>
+        )}
       </Collapse>
       <hr />
     </div>
