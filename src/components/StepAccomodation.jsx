@@ -4,7 +4,6 @@ import CountTicket from "./CountTicket";
 import { useState, useEffect } from "react";
 
 function StepAccomodation(props) {
-  // const [props.ownTent, setOwnTent] = useState(false);
   const { twoPeopleTent, threePeopleTent, vipCount, regularCount, disableNextStep, ownTent } =
     props;
   const [peopleEqual, setPeopleEqual] = useState(false);
