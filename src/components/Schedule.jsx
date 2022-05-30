@@ -30,7 +30,7 @@ export default function Schedule(props) {
 
   return (
     <div className="schedule">
-      <div>
+      <div className="waveDiv">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="none" viewBox="0 0 475 140">
           <path
             fill={props.color}

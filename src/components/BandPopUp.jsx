@@ -1,8 +1,18 @@
 // import SShareComponent from "coffeekraken-s-share-component";
+import { useState } from "react";
+
 export default function BandPopUp(props) {
+  const [readMore, setReadMore] = useState(false);
+
+  console.log("hey");
   let logoUrl = "";
   function handleClose() {
     props.hidePopUp();
+  }
+
+  function showReadMore() {
+    setReadMore((old) => !old);
+    console.log(readMore, "read somethign");
   }
 
   function handleLogo(logoString) {
@@ -59,10 +69,20 @@ export default function BandPopUp(props) {
       <div>
         <div className="popUpName">
           <h2>{props.band.name}</h2>
-          <h4>Genre: {props.band.genre}</h4>
+          <h5>Genre: {props.band.genre}</h5>
         </div>
         <h4 className="members">{props.band.members.join(", ")}</h4>
-        <p>{props.band.bio}</p>
+
+        <div>
+          <p>{props.band.bio.substring(0, props.band.bio.indexOf(".") + 1)}</p>
+          {readMore && (
+            <p>{props.band.bio.substring(props.band.bio.indexOf(".") + 1)}</p>
+          )}
+          <button onClick={showReadMore}>
+            {readMore ? "Show less" : "Read more"}
+          </button>
+        </div>
+
         <p>
           time: {props.band.time} stage: {props.band.stage}
         </p>
