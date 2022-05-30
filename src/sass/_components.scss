@@ -220,22 +220,21 @@
   }
   padding: 1rem 0.5rem;
   text-align: center;
- 
 }
-#daysDropdown{
+#daysDropdown {
   background-color: base.$primary-color;
   border: none;
   color: white;
   outline: none;
 }
-#stagesDropdown{
-  background-color: #C1DADD;
+#stagesDropdown {
+  background-color: #c1dadd;
   border: none;
   color: base.$primary-color;
   outline: none;
 }
-option{
-  background-color: #C1DADD;
+option {
+  background-color: #c1dadd;
   color: base.$primary-color;
   border-style: none;
   align-items: center;
@@ -325,6 +324,17 @@ option{
     top: 0px;
   }
 }
+
+.cancelled {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.cancelledText {
+  position: relative;
+  color: red;
+}
+
 //BAND CARD
 
 .bandCard {
