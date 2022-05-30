@@ -94,7 +94,7 @@ export default function SchedulePage(props) {
   return (
     <div>
       <Nav />
-      {!hideInfo && <p>Choose a day to see schedules</p>}
+      {!hideInfo && <p className="styledPar">Choose a day to see schedules</p>}
       <div className="scheduleButtons">
         <div className="daysButtons">
           <RadioButton

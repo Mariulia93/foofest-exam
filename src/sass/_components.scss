@@ -247,6 +247,7 @@ option{
   background-color: #f4f3f2;
   border-radius: 30px;
   margin: 3rem 1rem;
+  max-width: 350px;
 
   svg {
     position: relative;
@@ -254,9 +255,9 @@ option{
   }
   .stageHeader {
     position: relative;
-    top: -8rem;
+    top: -6.5rem;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     * {
       font-family: base.$paragraph-font;
     }
