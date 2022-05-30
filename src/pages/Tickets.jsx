@@ -71,7 +71,7 @@ export default function Tickets(props) {
 
         <tbody>
           {props.availableSpots.map((availableSpot) => (
-            <tr key={availableSpot.area}>
+            <tr key={availableSpot.area} style={availableSpot.available < 1 ? { opacity: "0.5" } : null}>
               <AvailableSpots availableSpot={availableSpot} />
             </tr>
           ))}
