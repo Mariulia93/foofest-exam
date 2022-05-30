@@ -5,7 +5,7 @@ import FAQ from "../components/FAQ";
 import AccomodationInfo from "../components/AccomodationInfo";
 import Footer from "../components/Footer";
 
-export default function Info() {
+export default function Info(props) {
   const [toggle, setToggle] = useState(false);
 
   function toggleSwitch() {
@@ -14,7 +14,7 @@ export default function Info() {
 
   return (
     <div>
-      <Nav />
+      <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
       <h1>INFORMATION</h1>
       <Toggle toggleSwitchFunction={toggleSwitch} />
       {!toggle ? <AccomodationInfo /> : <FAQ />}

@@ -101,8 +101,8 @@ function App() {
             />
           }
         />
-        <Route path="/schedule" element={<SchedulePage bands={bands} />} />
-        <Route path="/info" element={<Info />} />
+        <Route path="/schedule" element={<SchedulePage bands={bands} regularCount={regularCount} vipCount={vipCount} />} />
+        <Route path="/info" element={<Info regularCount={regularCount} vipCount={vipCount} />} />
         <Route
           path="/basket"
           element={
