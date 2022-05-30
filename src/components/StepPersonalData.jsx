@@ -1,6 +1,22 @@
-import React from "react";
+import { useState } from "react";
 
-function StepPersonalData() {
+function StepPersonalData(props) {
+  const [isEmailTheSame, setIsEmailTheSame] = useState(false);
+
+  function addToArray() {
+    // props.getTicketOwners(owner)
+    // e.target.value
+  }
+  function handleEmail(e) {
+    props.getEmail(e);
+  }
+
+  function validateEmail(e) {
+    if (e.target.value === props.email) {
+      setIsEmailTheSame(true);
+      console.log("email matches", isEmailTheSame);
+    } else setIsEmailTheSame(false);
+  }
   return (
     <>
       <h4>Contact information</h4>
@@ -13,20 +29,36 @@ function StepPersonalData() {
           <legend>Where to send tickets</legend>
           <div>
             <label for="email">Your email</label>
-            <input type="email" id="email" name="email" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              email={props.email}
+              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+              onChange={handleEmail}
+            />
           </div>
           <div>
+            {!isEmailTheSame && <p>Emails are not matching!</p>}
             <label for="email">Repeat your email</label>
-            <input type="email" id="email" name="email" />
+            <input
+              type="email"
+              id="repeatEmail"
+              name="repeatEmail"
+              required
+              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+              onChange={validateEmail}
+            />
           </div>
         </fieldset>
 
         <fieldset>
           <legend>Ticket owners</legend>
           <label for="fname">First name</label>
-          <input type="text" id="fname" name="fname" />
+          <input type="text" id="fname" name="fname" onChange={addToArray} />
           <label for="lname">Last name</label>
-          <input type="text" id="lname" name="lname" />
+          <input type="text" id="lname" name="lname" onChange={addToArray} />
         </fieldset>
       </form>
     </>

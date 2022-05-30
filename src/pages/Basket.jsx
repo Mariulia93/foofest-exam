@@ -13,36 +13,46 @@ function Basket(props) {
   //   const [step, setStep] = useState(StepTickets);
   const [isDisabled, setIsDisabled] = useState(false);
   const [stepCounter, setStepCounter] = useState(1);
-  // const twoPeopleTentPrice = 299;
-  // const threePeopleTentPrice = 399;
-  // const [greenCampingPrice, setGreenCampingPrice] = useState(0);
+  const [email, setEmail] = useState("");
+  const [ticketOwners, setTicketOwner] = useState([]);
+  
 
-  // function greenCampChange() {
-  //   if (greenCampingPrice === 0) setGreenCampingPrice(249);
-  //   else {
-  //     setGreenCampingPrice(0);
-  //   }
-  // }
   const [selectedArea, setSelectedArea] = useState("");
   function getArea(area) {
     setSelectedArea(area);
   }
 
-  // POST
-  // function postData() {
-  //   const personalData = {
-  //     email: "email",
-  //     repeatEmail: "email 2",
-  //     ticketOwner: ["Agatka, Marienka, Zuzanka"]
-  //   };
-  //   fetch("https://mydogs-0e30.restdb.io/rest/foofest", {
-  //     method: "POST",
-  //     headers: {"Content-Type": "application/json"},
-  //   body: JSON.stringify(personalData)
-  //   })
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data));
-  // }
+  function getEmail(e) {
+    setEmail(e.target.value);
+    console.log("email", email);
+  }
+
+  function getTicketOwners(e) {
+    setTicketOwner(e);
+  }
+  const apikey = "62949817c4d5c3756d35a345";
+  //POST
+  function postData() {
+    const personalData = {
+      email: email,
+      ticketOwners: "Agatka, Marienka, Zuzanka",
+      numberOfTickets: 9,
+      numberOfTents: 5,
+      ownTent: true,
+      green: true,
+      reservationID: "AGATKA",
+    };
+    fetch("https://mydogs-0e30.restdb.io/rest/foofest2022", {
+      method: "POST",
+      headers: {
+        "x-apikey": apikey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(personalData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
 
   console.log("hereeeeeeeeee", stepCounter);
   function showNextStep() {
@@ -63,6 +73,11 @@ function Basket(props) {
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
+    }
+
+    if (stepCounter === 4) {
+      postData();
+      console.log("HOLA");
     }
   }
 
@@ -139,7 +154,15 @@ function Basket(props) {
                 getArea={getArea}
               />
             ) : null}
-            {stepCounter === 3 ? <StepPersonalData stepCounter={stepCounter} /> : null}
+            {stepCounter === 3 ? (
+              <StepPersonalData
+                stepCounter={stepCounter}
+                email={email}
+                ticketOwners={ticketOwners}
+                getEmail={getEmail}
+                getTicketOwners={getTicketOwners}
+              />
+            ) : null}
             {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
             {!(props.vipCount === 0 && props.regularCount === 0) && (
               <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
