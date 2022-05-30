@@ -17,6 +17,7 @@ export default function BandPopUp(props) {
   return (
     <div className="popUp">
       <img src={logoUrl} alt={props.band.name} />
+      <p className="logoCredits">{props.band.logoCredits}</p>
       <button className="closeButton" onClick={handleClose}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -63,9 +64,7 @@ export default function BandPopUp(props) {
         </div>
         <h4 className="members">{props.band.members.join(", ")}</h4>
         <p>{props.band.bio}</p>
-        <p>
-          time: {props.band.time} stage: {props.band.stage}
-        </p>
+        <p>stage: {props.band.stage}</p>
       </div>
     </div>
   );

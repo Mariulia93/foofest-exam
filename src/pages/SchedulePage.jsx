@@ -223,7 +223,7 @@ export default function SchedulePage(props) {
         {!hideM && !hideSchedules && (
           <Schedule
             bands={props.bands}
-            displayedV={displayedM}
+            displayed={displayedM}
             showPopup={showPopup}
             stageNumber="1"
             stageName="MIDGARD"
@@ -233,7 +233,7 @@ export default function SchedulePage(props) {
         {!hideV && !hideSchedules && (
           <Schedule
             bands={props.bands}
-            displayedV={displayedV}
+            displayed={displayedV}
             showPopup={showPopup}
             stageNumber="2"
             stageName="VANAHEIM"
@@ -243,7 +243,7 @@ export default function SchedulePage(props) {
         {!hideJ && !hideSchedules && (
           <Schedule
             bands={props.bands}
-            displayedV={displayedJ}
+            displayed={displayedJ}
             showPopup={showPopup}
             stageNumber="3"
             stageName="JOTUNHEIM"

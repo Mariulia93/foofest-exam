@@ -52,7 +52,7 @@ export default function Schedule(props) {
           <h3>{props.stageName}</h3>
         </div>
       </div>
-      <ul className="sessions">{props.displayedV.map((item) => displaySchedule(item))}</ul>
+      <ul className="sessions">{props.displayed.map((item) => displaySchedule(item))}</ul>
     </div>
   );
 }
