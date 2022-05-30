@@ -5,10 +5,14 @@ import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 export default function Tickets(props) {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <div>
-        <Nav />
+        <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
       </div>
       <h1>CHOOSE YOUR TICKETS</h1>
       <div className="ticketsBox">
@@ -67,13 +71,15 @@ export default function Tickets(props) {
 
         <tbody>
           {props.availableSpots.map((availableSpot) => (
-            <tr key={availableSpot.area}>
+            <tr key={availableSpot.area} style={availableSpot.available < 1 ? { opacity: "0.5" } : null}>
               <AvailableSpots availableSpot={availableSpot} />
             </tr>
           ))}
         </tbody>
       </table>
-
+      <Link to="/info" className="readMore" onClick={scrollToTop}>
+        Read more about out camping sites
+      </Link>
       <Footer />
     </>
   );

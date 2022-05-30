@@ -47,9 +47,15 @@ function StepAccomodation(props) {
         </thead>
         <tbody>
           {props.availableSpots.map((availableSpot) => (
-            <tr key={availableSpot.area}>
+            <tr key={availableSpot.area} style={availableSpot.available < 1 ? { opacity: "0.6" } : null}>
               <td>
-                <input type="radio" name="campsites" value={availableSpot.area} onChange={handleAreaChange}></input>
+                <input
+                  type="radio"
+                  name="campsites"
+                  value={availableSpot.area}
+                  onChange={handleAreaChange}
+                  disabled={availableSpot.available < 1}
+                ></input>
               </td>
               <AvailableSpots availableSpot={availableSpot} />
             </tr>

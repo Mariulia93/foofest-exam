@@ -12,11 +12,47 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 function Basket(props) {
   const [isDisabled, setIsDisabled] = useState(false);
   const [stepCounter, setStepCounter] = useState(1);
+  const [email, setEmail] = useState("");
+  const [ticketOwners, setTicketOwner] = useState([]);
+
   const [selectedArea, setSelectedArea] = useState("");
   function getArea(area) {
     setSelectedArea(area);
   }
 
+  function getEmail(e) {
+    setEmail(e.target.value);
+    console.log("email", email);
+  }
+
+  function getTicketOwners(e) {
+    setTicketOwner(e);
+  }
+  const apikey = "62949817c4d5c3756d35a345";
+  //POST
+  function postData() {
+    const personalData = {
+      email: email,
+      ticketOwners: "Agatka, Marienka, Zuzanka",
+      numberOfTickets: 9,
+      numberOfTents: 5,
+      ownTent: true,
+      green: true,
+      reservationID: "AGATKA",
+    };
+    fetch("https://mydogs-0e30.restdb.io/rest/foofest2022", {
+      method: "POST",
+      headers: {
+        "x-apikey": apikey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(personalData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
+  console.log("hereeeeeeeeee", stepCounter);
   function showNextStep() {
     setStepCounter((old) => old + 1);
     stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
@@ -34,6 +70,11 @@ function Basket(props) {
       })
         .then((res) => res.json())
         .then((data) => console.log(data));
+    }
+
+    if (stepCounter === 4) {
+      postData();
+      console.log("HOLA");
     }
   }
 
@@ -55,7 +96,7 @@ function Basket(props) {
   }
   return (
     <div className="basketPageContainer">
-      <Nav />
+      <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
       <div className="timer-wrapper">
         <p>Your purchase will expire in:</p>
         <CountdownCircleTimer
@@ -114,18 +155,18 @@ function Basket(props) {
                 stepCounter={stepCounter}
                 vipCount={props.vipCount}
                 regularCount={props.regularCount}
+                email={email}
+                ticketOwners={ticketOwners}
+                getEmail={getEmail}
+                getTicketOwners={getTicketOwners}
               />
             ) : null}
-            {stepCounter === 4 ? (
-              <StepPayment stepCounter={stepCounter} />
-            ) : null}
-            <button
-              onClick={showNextStep}
-              disabled={isDisabled}
-              className="primaryCTA"
-            >
-              Next Step
-            </button>
+            {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
+            {!(props.vipCount === 0 && props.regularCount === 0) && (
+              <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
+                {stepCounter === 4 ? "Confirm & pay" : "Next step"}
+              </button>
+            )}
           </div>
           <aside>
             {!(props.vipCount === 0 && props.regularCount === 0) && (

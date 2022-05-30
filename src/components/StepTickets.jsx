@@ -9,6 +9,7 @@ function StepTickets(props) {
   return (
     <>
       <h4>Your shopping cart</h4>
+      {props.vipCount === 0 && props.regularCount === 0 && <p>Your shopping cart is empty</p>}
       {/* VIP */}
       <div className="cartRow" style={props.vipCount < 1 ? { display: "none" } : null}>
         <p>VIP ticket</p>
