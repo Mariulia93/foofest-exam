@@ -182,17 +182,26 @@ h2 {
 .scheduleButtons {
   display: flex;
   flex-direction: column;
+  padding: 0 4rem;
 }
 
 .schedules {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
   gap: 2rem;
 }
 
 .artistsList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  padding: 0 4rem;
+  justify-items: center;
+  align-items: flex-start;
+}
+.styledPar {
+  margin: 0 5rem;
 }
 
 // INFO PAGE
@@ -435,6 +444,15 @@ h4 {
     margin: 0 auto;
     width: fit-content;
   }
+  .artistsList {
+    padding: 1rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    justify-content: center;
+  }
+  .bandCard img {
+    width: 250px;
+    height: 250px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -455,6 +473,15 @@ h4 {
   }
   .basketContainer ul {
     justify-content: flex-start;
+  }
+  .artistsList {
+    padding: 1rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    justify-content: center;
+  }
+  .bandCard img {
+    width: 150px;
+    height: 150px;
   }
 }
 //accomodation table

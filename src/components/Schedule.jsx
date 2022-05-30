@@ -17,9 +17,13 @@ export default function Schedule(props) {
               }
             : null
         }
-        className={item.act === "break" ? "break" : "band"}
+        className={`${item.act === "break" ? "break" : "band"} `}
       >
-        <span className="time">{item.start}</span> <p>{item.act}</p>
+        <div>
+          <span className={`${item.cancelled ? "cancelled" : null} time} `}>{item.start}</span>{" "}
+          {item.cancelled && <p className="cancelledText">CANCELLED</p>}
+        </div>
+        <p className={`${item.cancelled ? "cancelled" : null}`}>{item.act}</p>
       </li>
     );
 
@@ -30,7 +34,7 @@ export default function Schedule(props) {
 
   return (
     <div className="schedule">
-      <div>
+      <div className="waveDiv">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="none" viewBox="0 0 475 140">
           <path
             fill={props.color}
@@ -48,7 +52,7 @@ export default function Schedule(props) {
           <h3>{props.stageName}</h3>
         </div>
       </div>
-      <ul className="sessions">{props.displayedV.map((item) => displaySchedule(item))}</ul>
+      <ul className="sessions">{props.displayed.map((item) => displaySchedule(item))}</ul>
     </div>
   );
 }

@@ -218,27 +218,51 @@
   @media only screen and (min-width: 760px) {
     display: none;
   }
+  padding: 1rem 0.5rem;
+  text-align: center;
 }
-
+#daysDropdown {
+  background-color: base.$primary-color;
+  border: none;
+  color: white;
+  outline: none;
+}
+#stagesDropdown {
+  background-color: #c1dadd;
+  border: none;
+  color: base.$primary-color;
+  outline: none;
+}
+option {
+  background-color: #c1dadd;
+  color: base.$primary-color;
+  border-style: none;
+  align-items: center;
+  outline: none;
+}
 //SCHEDULE
 
 .schedule {
   background-color: #f4f3f2;
   border-radius: 30px;
   margin: 3rem 1rem;
+  width: 400px;
 
-  svg {
-    position: relative;
-    top: -0.5rem;
-  }
+  // svg {
+  //   // position: relative;
+  //   // top: -0.5rem;
+  // }
   .stageHeader {
     position: relative;
-    top: -8rem;
+    top: -5.5rem;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     * {
       font-family: base.$paragraph-font;
     }
+  }
+  .waveDiv {
+    height: 6rem;
   }
 
   //source: https://codepen.io/TajShireen/pen/JjGvVzg
@@ -246,8 +270,8 @@
     margin-top: 2rem;
     border-radius: 12px;
     position: relative;
-    top: -6rem;
-    padding: 2rem 4rem;
+    // top: -6rem;
+    padding: 1rem 2rem;
     li {
       padding-bottom: 1.5rem;
       border-left: 4px solid #2f506173;
@@ -268,14 +292,18 @@
       margin: 0.4rem 1rem 0;
       display: inline;
       font-weight: 900;
+      font-family: base.$paragraph-font;
+      font-size: 1.25rem;
+    }
+    .break {
+      p {
+        font-size: 1rem;
+      }
     }
   }
 }
 
 .break {
-  p {
-    font-size: 1rem;
-  }
   &::before {
     content: "";
     width: 1rem;
@@ -289,9 +317,6 @@
 }
 
 .band {
-  p {
-    font-size: 1.5rem;
-  }
   &::before {
     content: "";
     width: 1.5rem;
@@ -303,6 +328,17 @@
     top: 0px;
   }
 }
+
+.cancelled {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.cancelledText {
+  position: relative;
+  color: red;
+}
+
 //BAND CARD
 
 .bandCard {
@@ -311,12 +347,19 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
+    filter: brightness(0.7);
+  }
+  img:hover {
+    filter: brightness(1);
+    transition: 0.5s;
   }
   h4 {
     position: relative;
     color: white;
-    top: -3rem;
+    top: -5rem;
     left: 1rem;
+    width: 200px;
+    font-size: 1rem;
   }
   &::before {
     content: "";
@@ -353,9 +396,17 @@
   flex-direction: column;
   align-items: center;
   z-index: 100;
+  max-width: 80vh;
+  overflow: scroll;
 
   img {
-    max-height: 500px;
+    height: 30vh;
+  }
+
+  .logoCredits {
+    font-size: 0.5rem;
+    width: 120ch;
+    text-align: center;
   }
 
   .closeButton {
@@ -378,10 +429,21 @@
         padding-bottom: 0;
       }
     }
-    h2,
+    h2{
+      font-size: 1.4rem;
+      padding: 0.5rem 0;
+    }
     .members {
       padding-bottom: 1rem;
+      font-size: 1rem;
+      font-weight: 100;
     }
+  }
+  .bioP{
+    font-size: 0.8rem;
+  }
+  .readMore{
+    border-bottom: 1px solid base.$primary-color;
   }
 }
 
@@ -507,7 +569,6 @@ h1 {
     height: 300px;
     object-fit: cover;
   }
-
   .campsiteInfo {
     display: flex;
     flex-direction: column;
@@ -621,6 +682,7 @@ h1 {
   .timer-wrapper {
     top: 50px;
   }
+ 
 }
 
 @media screen and (max-width: 600px) {

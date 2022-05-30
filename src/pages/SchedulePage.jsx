@@ -36,13 +36,19 @@ export default function SchedulePage(props) {
       console.log("hello");
       setHideSchedules(true);
       let alldays = [];
-      Object.keys(midgard).map((key) => midgard[key].map((item) => alldays.push(item)));
+      Object.keys(midgard).map((key) =>
+        midgard[key].map((item) => alldays.push(item))
+      );
       setDisplayedM(alldays);
       alldays = [];
-      Object.keys(vanaheim).map((key) => vanaheim[key].map((item) => alldays.push(item)));
+      Object.keys(vanaheim).map((key) =>
+        vanaheim[key].map((item) => alldays.push(item))
+      );
       setDisplayedV(alldays);
       alldays = [];
-      Object.keys(jotunheim).map((key) => jotunheim[key].map((item) => alldays.push(item)));
+      Object.keys(jotunheim).map((key) =>
+        jotunheim[key].map((item) => alldays.push(item))
+      );
       setDisplayedJ(alldays);
       setHideInfo(false);
     } else {
@@ -94,7 +100,8 @@ export default function SchedulePage(props) {
   return (
     <div>
       <Nav />
-      {!hideInfo && <p>Choose a day to see schedules</p>}
+      <h1>SCHEDULE</h1>
+      {!hideInfo && <p className="styledPar">Choose a day to see schedules</p>}
       <div className="scheduleButtons">
         <div className="daysButtons">
           <RadioButton
@@ -202,7 +209,11 @@ export default function SchedulePage(props) {
           />
         </div>
 
-        <select name="day" id="daysDropdown" onChange={handleDaysDropdownChange}>
+        <select
+          name="day"
+          id="daysDropdown"
+          onChange={handleDaysDropdownChange}
+        >
           <option value="all">All days</option>
           <option value="mon">Day 1 (10/07)</option>
           <option value="tue">Day 2 (11/07)</option>
@@ -212,7 +223,11 @@ export default function SchedulePage(props) {
           <option value="say">Day 6 (15/07)</option>
           <option value="sun">Day 7 (16/07)</option>
         </select>
-        <select name="stage" id="stagesDropdown" onChange={handleStagesDropdownChange}>
+        <select
+          name="stage"
+          id="stagesDropdown"
+          onChange={handleStagesDropdownChange}
+        >
           <option value="all">All stages</option>
           <option value="midgard">Stage 1 MIDGARD</option>
           <option value="vanaheim">Stage 2 VANAHEIM</option>
@@ -223,7 +238,7 @@ export default function SchedulePage(props) {
         {!hideM && !hideSchedules && (
           <Schedule
             bands={props.bands}
-            displayedV={displayedM}
+            displayed={displayedM}
             showPopup={showPopup}
             stageNumber="1"
             stageName="MIDGARD"
@@ -233,7 +248,7 @@ export default function SchedulePage(props) {
         {!hideV && !hideSchedules && (
           <Schedule
             bands={props.bands}
-            displayedV={displayedV}
+            displayed={displayedV}
             showPopup={showPopup}
             stageNumber="2"
             stageName="VANAHEIM"
@@ -243,7 +258,7 @@ export default function SchedulePage(props) {
         {!hideJ && !hideSchedules && (
           <Schedule
             bands={props.bands}
-            displayedV={displayedJ}
+            displayed={displayedJ}
             showPopup={showPopup}
             stageNumber="3"
             stageName="JOTUNHEIM"
@@ -301,6 +316,7 @@ export default function SchedulePage(props) {
         )}
       </div>
       {!hiddenPopUp && <BandPopUp band={popUpBand} hidePopUp={hidePopUp} />}
+      
       <Footer />
     </div>
   );
