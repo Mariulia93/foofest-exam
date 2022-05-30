@@ -328,6 +328,17 @@ option {
     top: 0px;
   }
 }
+
+.cancelled {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.cancelledText {
+  position: relative;
+  color: red;
+}
+
 //BAND CARD
 
 .bandCard {
@@ -390,6 +401,12 @@ option {
 
   img {
     height: 30vh;
+  }
+
+  .logoCredits {
+    font-size: 0.5rem;
+    width: 120ch;
+    text-align: center;
   }
 
   .closeButton {

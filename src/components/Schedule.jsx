@@ -17,9 +17,13 @@ export default function Schedule(props) {
               }
             : null
         }
-        className={item.act === "break" ? "break" : "band"}
+        className={`${item.act === "break" ? "break" : "band"} `}
       >
-        <span className="time">{item.start}</span> <p>{item.act}</p>
+        <div>
+          <span className={`${item.cancelled ? "cancelled" : null} time} `}>{item.start}</span>{" "}
+          {item.cancelled && <p className="cancelledText">CANCELLED</p>}
+        </div>
+        <p className={`${item.cancelled ? "cancelled" : null}`}>{item.act}</p>
       </li>
     );
 
@@ -48,7 +52,7 @@ export default function Schedule(props) {
           <h3>{props.stageName}</h3>
         </div>
       </div>
-      <ul className="sessions">{props.displayedV.map((item) => displaySchedule(item))}</ul>
+      <ul className="sessions">{props.displayed.map((item) => displaySchedule(item))}</ul>
     </div>
   );
 }
