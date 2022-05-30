@@ -73,12 +73,15 @@ export default function BandPopUp(props) {
         </div>
         <h4 className="members">{props.band.members.join(", ")}</h4>
 
-        <div>
+        <div className="bioP">
           <p>{props.band.bio.substring(0, props.band.bio.indexOf(".") + 1)}</p>
-          {readMore && (
-            <p>{props.band.bio.substring(props.band.bio.indexOf(".") + 1)}</p>
-          )}
-          <button onClick={showReadMore}>
+          <p
+            style={!readMore ? { display: "none" } : null}
+          >
+            {" "}
+            {props.band.bio.substring(props.band.bio.indexOf(".") + 1)}
+          </p>
+          <button className="readMore" onClick={showReadMore}>
             {readMore ? "Show less" : "Read more"}
           </button>
         </div>
