@@ -8,6 +8,7 @@ import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { Link } from "react-router-dom";
 
 function Basket(props) {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -162,27 +163,40 @@ function Basket(props) {
               />
             ) : null}
             {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
-            {!(props.vipCount === 0 && props.regularCount === 0) && (
+            {!(props.vipCount === 0 && props.regularCount === 0) && stepCounter < 5 && (
               <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
                 {stepCounter === 4 ? "Confirm & pay" : "Next step"}
               </button>
             )}
           </div>
-          <aside>
-            {!(props.vipCount === 0 && props.regularCount === 0) && (
-              <Summary
-                vipCount={props.vipCount}
-                regularCount={props.regularCount}
-                vipPrice={props.vipPrice}
-                regularPrice={props.regularPrice}
-                twoPeopleTentPrice={props.twoPeopleTentPrice}
-                threePeopleTentPrice={props.threePeopleTentPrice}
-                twoPeopleTent={props.twoPeopleTent}
-                threePeopleTent={props.threePeopleTent}
-                greenCampingPrice={props.greenCampingPrice}
-              />
-            )}
-          </aside>
+          {stepCounter < 5 ? (
+            <aside>
+              {!(props.vipCount === 0 && props.regularCount === 0) && (
+                <Summary
+                  vipCount={props.vipCount}
+                  regularCount={props.regularCount}
+                  vipPrice={props.vipPrice}
+                  regularPrice={props.regularPrice}
+                  twoPeopleTentPrice={props.twoPeopleTentPrice}
+                  threePeopleTentPrice={props.threePeopleTentPrice}
+                  twoPeopleTent={props.twoPeopleTent}
+                  threePeopleTent={props.threePeopleTent}
+                  greenCampingPrice={props.greenCampingPrice}
+                />
+              )}
+            </aside>
+          ) : null}
+
+          {/* thank you page */}
+          {stepCounter === 5 && (
+            <div className="thankyou">
+              <h2>Thank you for your order</h2>
+              <p>Your tickets have been sent to {email}</p>
+              <Link to="/">Click here to go back to home page</Link>
+              <Link to="/schedule">Click here to check out the bands playing on FOOFEST 2022</Link>
+              <h3>We can’t wait to see you at FOOFEST 2022!</h3>
+            </div>
+          )}
         </section>
       </main>
       <Footer />
