@@ -162,27 +162,36 @@ function Basket(props) {
               />
             ) : null}
             {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
-            {!(props.vipCount === 0 && props.regularCount === 0) && (
+            {!(props.vipCount === 0 && props.regularCount === 0) && stepCounter < 5 && (
               <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
                 {stepCounter === 4 ? "Confirm & pay" : "Next step"}
               </button>
             )}
           </div>
-          <aside>
-            {!(props.vipCount === 0 && props.regularCount === 0) && (
-              <Summary
-                vipCount={props.vipCount}
-                regularCount={props.regularCount}
-                vipPrice={props.vipPrice}
-                regularPrice={props.regularPrice}
-                twoPeopleTentPrice={props.twoPeopleTentPrice}
-                threePeopleTentPrice={props.threePeopleTentPrice}
-                twoPeopleTent={props.twoPeopleTent}
-                threePeopleTent={props.threePeopleTent}
-                greenCampingPrice={props.greenCampingPrice}
-              />
-            )}
-          </aside>
+          {stepCounter < 5 ? (
+            <aside>
+              {!(props.vipCount === 0 && props.regularCount === 0) && (
+                <Summary
+                  vipCount={props.vipCount}
+                  regularCount={props.regularCount}
+                  vipPrice={props.vipPrice}
+                  regularPrice={props.regularPrice}
+                  twoPeopleTentPrice={props.twoPeopleTentPrice}
+                  threePeopleTentPrice={props.threePeopleTentPrice}
+                  twoPeopleTent={props.twoPeopleTent}
+                  threePeopleTent={props.threePeopleTent}
+                  greenCampingPrice={props.greenCampingPrice}
+                />
+              )}
+            </aside>
+          ) : null}
+
+          {/* thank you page */}
+          {stepCounter === 5 && (
+            <div>
+              <h2>Thank you for your order</h2>
+            </div>
+          )}
         </section>
       </main>
       <Footer />
