@@ -189,7 +189,7 @@ function Basket(props) {
 
           {/* thank you page */}
           {stepCounter === 5 && (
-            <div>
+            <div className="thankyou">
               <h2>Thank you for your order</h2>
               <p>Your tickets have been sent to {email}</p>
               <Link to="/">Click here to go back to home page</Link>
