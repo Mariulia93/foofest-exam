@@ -6,7 +6,7 @@ import AccomodationInfo from "../components/AccomodationInfo";
 import Footer from "../components/Footer";
 
 export default function Info() {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   function toggleSwitch() {
     setToggle((state) => !state);

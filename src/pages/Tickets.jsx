@@ -5,6 +5,10 @@ import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 export default function Tickets(props) {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <div>
@@ -73,7 +77,9 @@ export default function Tickets(props) {
           ))}
         </tbody>
       </table>
-
+      <Link to="/info" className="readMore" onClick={scrollToTop}>
+        Read more about out camping sites
+      </Link>
       <Footer />
     </>
   );

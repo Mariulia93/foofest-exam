@@ -417,6 +417,20 @@ h1 {
   text-align: center;
   font-family: base.$headers-font;
 }
+
+.readMore {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1rem;
+  font-size: 1rem;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .ticketsBox {
   display: grid;
   grid-template-columns: 1fr 1fr;

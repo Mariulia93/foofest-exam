@@ -8,7 +8,7 @@ export default function Toggle(props) {
       <div className="switch-button">
         <input className="switch-button-checkbox" type="checkbox" onChange={handleChange}></input>
         <label className="switch-button-label" htmlFor="">
-          <span className="switch-button-label-span">FAQ</span>
+          <span className="switch-button-label-span">Accomodation</span>
         </label>
       </div>
     </div>
