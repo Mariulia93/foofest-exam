@@ -109,9 +109,21 @@ function Basket(props) {
                 getArea={getArea}
               />
             ) : null}
-            {stepCounter === 3 ? <StepPersonalData stepCounter={stepCounter} /> : null}
-            {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
-            <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
+            {stepCounter === 3 ? (
+              <StepPersonalData
+                stepCounter={stepCounter}
+                vipCount={props.vipCount}
+                regularCount={props.regularCount}
+              />
+            ) : null}
+            {stepCounter === 4 ? (
+              <StepPayment stepCounter={stepCounter} />
+            ) : null}
+            <button
+              onClick={showNextStep}
+              disabled={isDisabled}
+              className="primaryCTA"
+            >
               Next Step
             </button>
           </div>

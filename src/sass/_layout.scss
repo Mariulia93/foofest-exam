@@ -126,7 +126,11 @@ h2 {
     .primaryCTA {
       margin-top: 2rem;
     }
-
+    .personalData {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
     .personalData div,
     fieldset {
       all: unset;
