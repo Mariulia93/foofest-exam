@@ -4,8 +4,9 @@ import CountTicket from "./CountTicket";
 import { useState, useEffect } from "react";
 
 function StepAccomodation(props) {
-  const [ownTent, setOwnTent] = useState(false);
-  const { twoPeopleTent, threePeopleTent, vipCount, regularCount, disableNextStep } = props;
+  // const [props.ownTent, setOwnTent] = useState(false);
+  const { twoPeopleTent, threePeopleTent, vipCount, regularCount, disableNextStep, ownTent } =
+    props;
   const [peopleEqual, setPeopleEqual] = useState(false);
 
   useEffect(() => {
@@ -13,13 +14,13 @@ function StepAccomodation(props) {
   }, [ownTent, disableNextStep]);
 
   function ownTentChange() {
-    setOwnTent((oldvalue) => !oldvalue);
+    props.setOwnTent((oldvalue) => !oldvalue);
     props.resetTents();
-    props.disableNextStep(ownTent);
+    props.disableNextStep(props.ownTent);
   }
 
   useEffect(() => {
-    if (!ownTent) {
+    if (!props.ownTent) {
       if (twoPeopleTent * 2 + threePeopleTent * 3 === vipCount + regularCount) {
         disableNextStep(true);
         setPeopleEqual(true);
@@ -28,7 +29,7 @@ function StepAccomodation(props) {
         disableNextStep(false);
       }
     }
-  }, [ownTent, twoPeopleTent, threePeopleTent, disableNextStep, vipCount, regularCount]);
+  }, [props.ownTent, twoPeopleTent, threePeopleTent, disableNextStep, vipCount, regularCount]);
 
   function handleAreaChange(evt) {
     props.getArea(evt.target.value);
@@ -49,7 +50,12 @@ function StepAccomodation(props) {
           {props.availableSpots.map((availableSpot) => (
             <tr key={availableSpot.area}>
               <td>
-                <input type="radio" name="campsites" value={availableSpot.area} onChange={handleAreaChange}></input>
+                <input
+                  type="radio"
+                  name="campsites"
+                  value={availableSpot.area}
+                  onChange={handleAreaChange}
+                ></input>
               </td>
               <AvailableSpots availableSpot={availableSpot} />
             </tr>
@@ -64,7 +70,7 @@ function StepAccomodation(props) {
             incrementCount={props.incrementCount}
             decrementCount={props.decrementCount}
             title="TWOTENT"
-            ownTent={ownTent}
+            ownTent={props.ownTent}
           />
           <p>{props.twoPeopleTentPrice}</p>
         </div>
@@ -75,12 +81,14 @@ function StepAccomodation(props) {
             decrementCount={props.decrementCount}
             title="THREETENT"
             priceThreeTent={props.threePeopleTentPrice}
-            ownTent={ownTent}
+            ownTent={props.ownTent}
           />
           <p>{props.threePeopleTentPrice}</p>
         </div>
       </div>
-      {!peopleEqual && <p>Amount of people in the tents should be equal to the amount of tickets!</p>}
+      {!peopleEqual && (
+        <p>Amount of people in the tents should be equal to the amount of tickets!</p>
+      )}
       <div>
         <input type="checkbox" onChange={ownTentChange}></input>
         <label>I have my own tent</label>

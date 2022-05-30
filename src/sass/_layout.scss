@@ -153,8 +153,37 @@ h2 {
         padding: 0.3rem 0.5rem;
         width: 300px;
       }
+
       legend {
         margin-bottom: 0.2rem;
+      }
+      .flex {
+        display: flex;
+        position: relative;
+        input + span {
+          position: absolute;
+          right: 2rem;
+        }
+
+        input + span::before {
+          position: absolute;
+          right: -20px;
+          top: 5px;
+        }
+
+        input:invalid {
+          border: 2px solid red;
+        }
+
+        input:invalid + span::before {
+          content: "✖";
+          color: red;
+        }
+
+        input:valid + span::before {
+          content: "✓";
+          color: green;
+        }
       }
     }
 
