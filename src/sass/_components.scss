@@ -35,6 +35,23 @@
     display: flex;
     gap: 1rem;
   }
+  .basketCount {
+    position: relative;
+    svg {
+      margin: 0.5rem;
+    }
+    p {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #fff;
+      color: base.$primary-color;
+
+      background-color: #87acbe;
+      border-radius: 25px;
+      padding: 2px 6px;
+    }
+  }
 }
 
 // FOOTER

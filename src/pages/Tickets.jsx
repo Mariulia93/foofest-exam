@@ -8,7 +8,7 @@ export default function Tickets(props) {
   return (
     <>
       <div>
-        <Nav />
+        <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
       </div>
       <h1>CHOOSE YOUR TICKETS</h1>
       <div className="ticketsBox">

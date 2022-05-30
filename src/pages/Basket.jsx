@@ -28,6 +28,22 @@ function Basket(props) {
     setSelectedArea(area);
   }
 
+  // POST
+  // function postData() {
+  //   const personalData = {
+  //     email: "email",
+  //     repeatEmail: "email 2",
+  //     ticketOwner: ["Agatka, Marienka, Zuzanka"]
+  //   };
+  //   fetch("https://mydogs-0e30.restdb.io/rest/foofest", {
+  //     method: "POST",
+  //     headers: {"Content-Type": "application/json"},
+  //   body: JSON.stringify(personalData)
+  //   })
+  //   .then((res) => res.json())
+  //   .then((data) => console.log(data));
+  // }
+
   console.log("hereeeeeeeeee", stepCounter);
   function showNextStep() {
     console.log(selectedArea);
@@ -69,7 +85,7 @@ function Basket(props) {
   }
   return (
     <div className="basketPageContainer">
-      <Nav />
+      <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
       <div className="timer-wrapper">
         <p>Your purchase will expire in:</p>
         <CountdownCircleTimer
@@ -129,7 +145,7 @@ function Basket(props) {
               <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
                 {stepCounter === 4 ? "Confirm & pay" : "Next step"}
               </button>
-            )} 
+            )}
           </div>
           <aside>
             {!(props.vipCount === 0 && props.regularCount === 0) && (
