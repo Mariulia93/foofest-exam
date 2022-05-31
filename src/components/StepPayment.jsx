@@ -4,7 +4,7 @@ import CardReactFormContainer from "card-react";
 function StepPayment(props) {
   return (
     <>
-      <h4>Payment method{props.count}</h4>
+      <h4 className="stepTitle">Payment method{props.count}</h4>
       <CardReactFormContainer
         // the id of the container element where you want to render the card element.
         // the card component can be rendered anywhere (doesn't have to be in ReactCardFormContainer).

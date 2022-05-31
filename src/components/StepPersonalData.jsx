@@ -3,10 +3,27 @@ import ordinal from "ordinal";
 
 function StepPersonalData(props) {
   const [isEmailTheSame, setIsEmailTheSame] = useState(false);
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
 
-  function addToArray() {
-    // props.getTicketOwners(owner)
-    // e.target.value
+  function joinOwnerName(e) {
+    // let fullname = [firstname + lastname];
+    if (e.target.name === "fname") {
+      setFirstname(e.target.value);
+      console.log("fname", e.target.name);
+      console.log("lname", e.target.lastname);
+    } else setLastname(e.target.value);
+
+    if (firstname !== "" && lastname !== "") {
+      addToArray(firstname + " " + lastname);
+      setFirstname("");
+      setLastname("");
+    }
+    console.log("ticketowners", props.ticketOwners);
+  }
+  function addToArray(fullname) {
+    console.log(fullname);
+    props.getTicketOwners((oldArray) => oldArray.concat(fullname));
   }
   function handleEmail(e) {
     props.getEmail(e);
@@ -20,7 +37,7 @@ function StepPersonalData(props) {
   }
   return (
     <>
-      <h4>Contact information</h4>
+      <h4 className="stepTitle">Contact information</h4>
       <form
         className="personalData"
         method="post"
@@ -30,27 +47,33 @@ function StepPersonalData(props) {
           <legend>Where to send tickets</legend>
           <div>
             <label for="email">Your email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              email={props.email}
-              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
-              onChange={handleEmail}
-            />
+            <div className="flex">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                email={props.email}
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                onChange={handleEmail}
+              />
+              <span></span>
+            </div>
           </div>
           <div>
             {!isEmailTheSame && <p>Emails are not matching!</p>}
             <label for="email">Repeat your email</label>
-            <input
-              type="email"
-              id="repeatEmail"
-              name="repeatEmail"
-              required
-              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
-              onChange={validateEmail}
-            />
+            <div className="flex">
+              <input
+                type="email"
+                id="repeatEmail"
+                name="repeatEmail"
+                required
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                onChange={validateEmail}
+              />
+              <span></span>
+            </div>
           </div>
         </fieldset>
 
@@ -58,9 +81,9 @@ function StepPersonalData(props) {
           <div>
             <p> {ordinal(i + 1)} Ticket owner</p>
             <label htmlFor="fname">First name</label>
-            <input type="text" id="fname" name="fname" onChange={addToArray} />
+            <input type="text" id="fname" name="fname" onBlur={joinOwnerName} />
             <label htmlFor="lname">Last name</label>
-            <input type="text" id="lname" name="lname" onChange={addToArray} />
+            <input type="text" id="lname" name="lname" onBlur={joinOwnerName} />
           </div>
         ))}
       </form>

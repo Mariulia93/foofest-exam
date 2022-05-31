@@ -14,8 +14,9 @@ function Basket(props) {
   const [isDisabled, setIsDisabled] = useState(false);
   const [stepCounter, setStepCounter] = useState(1);
   const [email, setEmail] = useState("");
-  const [ticketOwners, setTicketOwner] = useState([]);
-
+  const [ticketOwners, setTicketOwners] = useState([]);
+  const [reservationID, setReservationID] = useState("");
+  const [ownTent, setOwnTent] = useState(false);
   const [selectedArea, setSelectedArea] = useState("");
   function getArea(area) {
     setSelectedArea(area);
@@ -27,19 +28,19 @@ function Basket(props) {
   }
 
   function getTicketOwners(e) {
-    setTicketOwner(e);
+    setTicketOwners(e);
   }
   const apikey = "62949817c4d5c3756d35a345";
   //POST
   function postData() {
     const personalData = {
       email: email,
-      ticketOwners: "Agatka, Marienka, Zuzanka",
-      numberOfTickets: 9,
-      numberOfTents: 5,
-      ownTent: true,
-      green: true,
-      reservationID: "AGATKA",
+      ticketOwners: ticketOwners,
+      numberOfTickets: props.vipCount + props.regularCount,
+      numberOfTents: props.twoPeopleTent + props.threePeopleTent,
+      ownTent: ownTent,
+      green: props.greenCampingPrice,
+      reservationID: reservationID,
     };
     fetch("https://mydogs-0e30.restdb.io/rest/foofest2022", {
       method: "POST",
@@ -70,7 +71,7 @@ function Basket(props) {
         body: JSON.stringify(obj),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => setReservationID(data.id));
     }
 
     if (stepCounter === 4) {
@@ -149,6 +150,8 @@ function Basket(props) {
                 greenCampingPrice={props.greenCampingPrice}
                 disableNextStep={disableNextStep}
                 getArea={getArea}
+                ownTent={ownTent}
+                setOwnTent={setOwnTent}
               />
             ) : null}
             {stepCounter === 3 ? (
