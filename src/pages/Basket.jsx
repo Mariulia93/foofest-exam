@@ -53,7 +53,6 @@ function Basket(props) {
       .then((data) => console.log(data));
   }
 
-  console.log("hereeeeeeeeee", stepCounter);
   function showNextStep() {
     setStepCounter((old) => old + 1);
     stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
