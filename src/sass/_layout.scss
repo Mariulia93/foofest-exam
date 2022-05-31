@@ -138,12 +138,14 @@ h2 {
       place-self: center;
     }
     .primaryCTA {
-      margin-top: 2rem;
+      margin: 1.5rem 0;
     }
     .personalData {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      // align-items: center;
+      // justify-content: center;
+      gap: 0.5rem;
     }
     .personalData div,
     fieldset {
@@ -184,17 +186,23 @@ h2 {
           right: -20px;
           top: 5px;
         }
+        input[type="email"] {
+          border: 2px solid rgba(129, 129, 129, 0.4588235294);
+        }
 
-        input:invalid {
+        // input:not(:focus):invalid {
+        //   border: 2px solid red;
+        // }
+        input:not(:focus, :placeholder-shown):invalid {
           border: 2px solid red;
         }
 
-        input:invalid + span::before {
+        input:not(:focus, :placeholder-shown):invalid + span::before {
           content: "✖";
           color: red;
         }
 
-        input:valid + span::before {
+        input:not(:focus):valid + span::before {
           content: "✓";
           color: green;
         }
@@ -202,8 +210,10 @@ h2 {
     }
 
     .creditCard {
+      place-self: flex-start;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       align-items: flex-start;
       justify-content: flex-start;
       gap: 10px;
@@ -405,6 +415,12 @@ h4 {
     color: red;
   }
 }
+.emtyCart {
+  margin: 1.5rem 0;
+}
+.noMatch {
+  color: red;
+}
 .sumCartRow,
 .sumTotal {
   display: flex;
@@ -425,10 +441,14 @@ h4 {
 
 .cartRow {
   display: flex;
+  justify-content: space-around;
   gap: 1rem;
   border-bottom: 1px solid #2f506177;
-  p {
+  p:first-child {
     width: 98px;
+  }
+  p:nth-child(3) {
+    width: 52px;
   }
 }
 
@@ -481,8 +501,12 @@ h4 {
   span.logo {
     font-size: 4rem;
   }
+  .opacityContainer {
+    height: fit-content;
+  }
   #welcomeImageBackground {
     background-size: cover;
+    height: fit-content;
     #countdownContainer *:first-child {
       font-size: 4rem;
     }
@@ -525,6 +549,9 @@ h4 {
   .toggleContainer {
     transform: scale(0.8);
   }
+  .schedules {
+    gap: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -540,11 +567,21 @@ h4 {
       font-size: 1rem;
     }
   }
-  .opacityContainer {
-    height: fit-content;
+  .basketContainer section {
+    padding: 0.5rem;
+  }
+  .basketContainer section .personalData div input,
+  .basketContainer section fieldset input {
+    width: 250px;
   }
   .basketContainer ul {
     justify-content: flex-start;
+  }
+  .basketContainer .chooseTentContainer {
+    padding: 0;
+  }
+  .stepTitle {
+    margin: 1rem 0;
   }
   .toggleContainer .switch-button {
     padding-right: 150px;
@@ -553,6 +590,9 @@ h4 {
   .toggleContainer .switch-button:before {
     padding-right: 25px;
     justify-content: flex-end;
+  }
+  .schedules {
+    gap: 2rem;
   }
 }
 //accomodation table
@@ -583,6 +623,6 @@ td {
   text-align: left;
   width: 87px;
 }
-tr td:first-child {
+#radioCampsites {
   width: 15px;
 }

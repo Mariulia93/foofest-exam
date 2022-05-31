@@ -215,18 +215,17 @@ function Basket(props) {
               )}
             </aside>
           ) : null}
-
-          {/* thank you page */}
-          {stepCounter === 5 && (
-            <div className="thankyou">
-              <h2>Thank you for your order</h2>
-              <p>Your tickets have been sent to {email}</p>
-              <Link to="/">Click here to go back to home page</Link>
-              <Link to="/schedule">Click here to check out the bands playing on FOOFEST 2022</Link>
-              <h3>We can’t wait to see you at FOOFEST 2022!</h3>
-            </div>
-          )}
         </section>
+        {/* thank you page */}
+        {stepCounter === 5 && (
+          <div className="thankyou">
+            <h2>Thank you for your order</h2>
+            <p>Your tickets have been sent to {email}</p>
+            <Link to="/">Click here to go back to home page</Link>
+            <Link to="/schedule">Click here to check out the bands playing on FOOFEST 2022</Link>
+            <h3>We can’t wait to see you at FOOFEST 2022!</h3>
+          </div>
+        )}
       </main>
       <Footer />
     </div>

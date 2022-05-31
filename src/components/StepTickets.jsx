@@ -19,7 +19,7 @@ function StepTickets(props) {
       <h4 className="stepTitle">Your shopping cart</h4>
       {props.vipCount === 0 && props.regularCount === 0 && (
         <div>
-          <p>Your shopping cart is empty</p>
+          <p className="emtyCart">Your shopping cart is empty</p>
           <Link to="/tickets">Click here to buy tickets</Link>
         </div>
       )}
@@ -38,7 +38,14 @@ function StepTickets(props) {
         <p>{props.vipPrice}kr</p>
 
         <button onClick={props.resetVipTicket}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className="bi bi-trash" viewBox="0 0 16 16">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="red"
+            className="bi bi-trash"
+            viewBox="0 0 16 16"
+          >
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
             <path
               fillRule="evenodd"
@@ -61,7 +68,14 @@ function StepTickets(props) {
         <p>{props.regularPrice}kr</p>
 
         <button onClick={props.resetRegularTicket}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className="bi bi-trash" viewBox="0 0 16 16">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="red"
+            className="bi bi-trash"
+            viewBox="0 0 16 16"
+          >
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
             <path
               fillRule="evenodd"
@@ -70,26 +84,43 @@ function StepTickets(props) {
           </svg>
         </button>
       </div>
-      {(props.vipCount === 0 || props.regularCount === 0) && !(props.vipCount === 0 && props.regularCount === 0) && (
-        <div>
-          <span>Add more</span>
-          <article>
-            <div>
-              <p>{props.vipCount === 0 ? "VIP ticket" : props.regularCount === 0 ? "Regular ticket" : null}</p>
-              <p>{props.vipCount === 0 ? props.vipPrice : props.regularCount === 0 ? props.regularPrice : null}</p>
-            </div>
-            <button
-              disabled={props.soldout}
-              className="secondaryCTA addToCartBtn"
-              onClick={() =>
-                props.vipCount === 0 ? handleAddToBasket("VIP") : props.regularCount === 0 ? handleAddToBasket("REGULAR") : null
-              }
-            >
-              Add to cart
-            </button>
-          </article>
-        </div>
-      )}
+      {(props.vipCount === 0 || props.regularCount === 0) &&
+        !(props.vipCount === 0 && props.regularCount === 0) && (
+          <div>
+            <span>Add more</span>
+            <article>
+              <div>
+                <p>
+                  {props.vipCount === 0
+                    ? "VIP ticket"
+                    : props.regularCount === 0
+                    ? "Regular ticket"
+                    : null}
+                </p>
+                <p>
+                  {props.vipCount === 0
+                    ? props.vipPrice
+                    : props.regularCount === 0
+                    ? props.regularPrice
+                    : null}
+                </p>
+              </div>
+              <button
+                disabled={props.soldout}
+                className="secondaryCTA addToCartBtn"
+                onClick={() =>
+                  props.vipCount === 0
+                    ? handleAddToBasket("VIP")
+                    : props.regularCount === 0
+                    ? handleAddToBasket("REGULAR")
+                    : null
+                }
+              >
+                Add to cart
+              </button>
+            </article>
+          </div>
+        )}
     </>
   );
 }
