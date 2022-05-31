@@ -411,9 +411,6 @@ h4 {
 }
 .stepTitle {
   font-size: 1.4rem;
-  ~ p {
-    color: red;
-  }
 }
 .emtyCart {
   margin: 1.5rem 0;
@@ -421,6 +418,7 @@ h4 {
 .noMatch {
   color: red;
 }
+ 
 .sumCartRow,
 .sumTotal {
   display: flex;
