@@ -522,16 +522,18 @@ h1 {
 .campsiteContainer {
   display: flex;
   flex-direction: row;
-  margin: 2rem 20rem;
+  margin: 2rem auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   border-radius: 25px;
   padding: 1rem;
+  max-width: 650px;
 
   img {
     min-width: 250px;
     max-width: 250px;
     height: 300px;
     object-fit: cover;
+    margin: 0 auto;
   }
 
   .campsiteInfo {
@@ -581,8 +583,8 @@ h1 {
     align-items: center;
     cursor: pointer;
     p {
-      padding: 1rem;
-      max-width: 80ch;
+      padding: 1rem 0;
+      width: 95%;
     }
     &:hover {
       background-color: rgba(207, 207, 207, 0.39);
@@ -626,6 +628,9 @@ h1 {
     margin: 0 auto;
   }
 }
+// @media screen and (max-width: 1200px) {
+
+// }
 
 @media screen and (max-width: 1000px) {
   h1,
@@ -672,6 +677,9 @@ h1 {
   .timer-wrapper {
     top: 50px;
   }
+  .questionsContainer {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -693,6 +701,16 @@ h1 {
   .defaultLineup {
     font-size: 1.5rem;
     width: 100%;
+  }
+  .questionsContainer {
+    width: 90%;
+  }
+  .singleQuestion button p {
+    padding: 0.6rem 0;
+    font-size: 0.8rem;
+  }
+  .campsiteContainer {
+    flex-wrap: wrap;
   }
 }
 
