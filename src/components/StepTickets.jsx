@@ -23,7 +23,9 @@ function StepTickets(props) {
           <Link to="/tickets">Click here to buy tickets</Link>
         </div>
       )}
-      {props.soldout && <p>YOU CANNOT ADD MORE TICKETS - NO CAMPING SPOTS AVAILABLE</p>}
+      {props.soldout && (
+        <p className="soldoutTickets">YOU CANNOT ADD MORE TICKETS - NO CAMPING SPOTS AVAILABLE</p>
+      )}
       {/* VIP */}
       <div className="cartRow" style={props.vipCount < 1 ? { display: "none" } : null}>
         <p>VIP ticket</p>
