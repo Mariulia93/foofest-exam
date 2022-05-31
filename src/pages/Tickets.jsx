@@ -4,10 +4,17 @@ import TicketCard from "../components/TicketCard";
 import Summary from "../components/Summary";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 export default function Tickets(props) {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  const { checkIfSoldout } = props;
+
+  useEffect(() => {
+    checkIfSoldout();
+  }, [checkIfSoldout]);
 
   return (
     <>
@@ -15,6 +22,7 @@ export default function Tickets(props) {
         <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
       </div>
       <h1>CHOOSE YOUR TICKETS</h1>
+      {props.soldout && <p>NO MORE TICKETS AVAILABLE</p>}
       <div className="ticketsBox">
         <TicketCard
           title="VIP"
@@ -24,6 +32,7 @@ export default function Tickets(props) {
           count={props.vipCount}
           incrementCount={props.incrementCount}
           decrementCount={props.decrementCount}
+          soldout={props.soldout}
         />
         <TicketCard
           title="REGULAR"
@@ -33,6 +42,7 @@ export default function Tickets(props) {
           count={props.regularCount}
           incrementCount={props.incrementCount}
           decrementCount={props.decrementCount}
+          soldout={props.soldout}
         />
       </div>
       {!(props.vipCount === 0 && props.regularCount === 0) && (

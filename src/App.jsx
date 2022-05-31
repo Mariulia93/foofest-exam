@@ -10,6 +10,7 @@ import Basket from "./pages/Basket";
 function App() {
   const [bands, setBands] = useState([]);
   const [availableSpots, setAvailableSpots] = useState([]);
+  const [soldout, setSoldout] = useState(false);
   useEffect(() => {
     async function getData() {
       const res = await fetch("https://foofest2022.herokuapp.com/bands");
@@ -22,13 +23,23 @@ function App() {
     getData();
   }, []);
 
+  function checkIfSoldout() {
+    let spots = 0;
+    availableSpots.forEach((area) => {
+      spots = spots + area.available;
+    });
+    if (spots === vipCount + regularCount) {
+      setSoldout(true);
+    } else setSoldout(false);
+  }
+
   function fetchAvailableSpots(data) {
     setAvailableSpots(data);
   }
 
   const vipPrice = 1299;
   const regularPrice = 799;
-  let [vipCount, setVipCount] = useState(0);
+  let [vipCount, setVipCount] = useState(360);
   let [regularCount, setRegularCount] = useState(0);
   const [twoPeopleTent, setTwoPeopleTent] = useState(0);
   const [threePeopleTent, setThreePeopleTent] = useState(0);
@@ -102,6 +113,8 @@ function App() {
               greenCampChange={greenCampChange}
               twoPeopleTentPrice={twoPeopleTentPrice}
               threePeopleTentPrice={threePeopleTentPrice}
+              soldout={soldout}
+              checkIfSoldout={checkIfSoldout}
             />
           }
         />

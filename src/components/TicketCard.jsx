@@ -19,6 +19,7 @@ function TicketCard(props) {
         count={props.count}
         incrementCount={props.incrementCount}
         decrementCount={props.decrementCount}
+        soldout={props.soldout}
       />
     </div>
   );
