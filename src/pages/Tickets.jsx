@@ -22,7 +22,7 @@ export default function Tickets(props) {
         <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
       </div>
       <h1>CHOOSE YOUR TICKETS</h1>
-      {props.soldout && <p>NO MORE TICKETS AVAILABLE</p>}
+      {props.soldout && <p className="soldout">NO MORE TICKETS AVAILABLE</p>}
       <div className="ticketsBox">
         <TicketCard
           title="VIP"
@@ -81,7 +81,10 @@ export default function Tickets(props) {
 
         <tbody>
           {props.availableSpots.map((availableSpot) => (
-            <tr key={availableSpot.area} style={availableSpot.available < 1 ? { opacity: "0.5" } : null}>
+            <tr
+              key={availableSpot.area}
+              style={availableSpot.available < 1 ? { opacity: "0.5" } : null}
+            >
               <AvailableSpots availableSpot={availableSpot} />
             </tr>
           ))}

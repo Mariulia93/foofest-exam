@@ -401,6 +401,9 @@ h4 {
 }
 .stepTitle {
   font-size: 1.4rem;
+  ~ p {
+    color: red;
+  }
 }
 .sumCartRow,
 .sumTotal {
