@@ -143,7 +143,9 @@ h2 {
     .personalData {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      // align-items: center;
+      // justify-content: center;
+      gap: 0.5rem;
     }
     .personalData div,
     fieldset {
@@ -202,6 +204,7 @@ h2 {
     }
 
     .creditCard {
+      place-self: flex-start;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
