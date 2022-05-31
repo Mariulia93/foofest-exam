@@ -186,17 +186,23 @@ h2 {
           right: -20px;
           top: 5px;
         }
+        input[type="email"] {
+          border: 2px solid rgba(129, 129, 129, 0.4588235294);
+        }
 
-        input:invalid {
+        // input:not(:focus):invalid {
+        //   border: 2px solid red;
+        // }
+        input:not(:focus, :placeholder-shown):invalid {
           border: 2px solid red;
         }
 
-        input:invalid + span::before {
+        input:not(:focus, :placeholder-shown):invalid + span::before {
           content: "✖";
           color: red;
         }
 
-        input:valid + span::before {
+        input:not(:focus):valid + span::before {
           content: "✓";
           color: green;
         }
@@ -408,6 +414,9 @@ h4 {
 }
 .emtyCart {
   margin: 1.5rem 0;
+}
+.noMatch {
+  color: red;
 }
 .sumCartRow,
 .sumTotal {

@@ -41,7 +41,11 @@ function StepPersonalData(props) {
   return (
     <>
       <h4 className="stepTitle">Contact information</h4>
-      <form className="personalData" method="post" action="https://mydogs-0e30.restdb.io/rest/foofest">
+      <form
+        className="personalData"
+        method="post"
+        action="https://mydogs-0e30.restdb.io/rest/foofest"
+      >
         <fieldset>
           <legend>Where to send tickets</legend>
           <div>
@@ -51,6 +55,7 @@ function StepPersonalData(props) {
                 type="email"
                 id="email"
                 name="email"
+                placeholder="email"
                 required
                 email={props.email}
                 pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
@@ -60,13 +65,14 @@ function StepPersonalData(props) {
             </div>
           </div>
           <div>
-            {!isEmailTheSame && <p>Emails are not matching!</p>}
+            {!isEmailTheSame && <p className="noMatch">Emails are not matching!</p>}
             <label for="email">Repeat your email</label>
             <div className="flex">
               <input
                 type="email"
                 id="repeatEmail"
                 name="repeatEmail"
+                placeholder="email"
                 required
                 pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
                 onChange={validateEmail}
