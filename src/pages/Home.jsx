@@ -7,13 +7,13 @@ import PrimaryCTA from "../components/PrimaryCTA";
 import { useEffect, useState } from "react";
 
 export default function Home(props) {
-  const [twentyBands, setTwentyBands] = useState([]);
+  const [fortyBands, setFortyBands] = useState([]);
   useEffect(() => {
     let shuffled = props.bands.sort(function () {
       return 0.5 - Math.random();
     });
-    setTwentyBands(shuffled.slice(0, 20));
-  }, [props.bands, setTwentyBands]);
+    setFortyBands(shuffled.slice(0, 40));
+  }, [props.bands, setFortyBands]);
 
   return (
     <>
@@ -59,7 +59,7 @@ export default function Home(props) {
           NIRVANA
         </p>
         <div className="lineupBand">
-          {twentyBands.map((band) => (
+          {fortyBands.map((band) => (
             <Band key={band.name} band={band} />
           ))}
         </div>
