@@ -50,6 +50,19 @@ function Basket(props) {
       body: JSON.stringify(personalData),
     })
       .then((res) => res.json())
+      .then((data) => finalizeReservation());
+  }
+
+  function finalizeReservation() {
+    const idObj = {
+      id: reservationID,
+    };
+    fetch("https://foofest2022.herokuapp.com/fullfill-reservation", {
+      headers: { "Content-Type": "application/json" },
+      method: "post",
+      body: JSON.stringify(idObj),
+    })
+      .then((res) => res.json())
       .then((data) => console.log(data));
   }
 
@@ -74,7 +87,6 @@ function Basket(props) {
 
     if (stepCounter === 4) {
       postData();
-      console.log("HOLA");
     }
   }
 
