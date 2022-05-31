@@ -155,6 +155,8 @@ function Basket(props) {
                 decrementCount={props.decrementCount}
                 resetVipTicket={props.resetVipTicket}
                 resetRegularTicket={props.resetRegularTicket}
+                soldout={props.soldout}
+                checkIfSoldout={props.checkIfSoldout}
               />
             ) : null}
             {stepCounter === 2 ? (

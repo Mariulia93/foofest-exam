@@ -39,7 +39,7 @@ function App() {
 
   const vipPrice = 1299;
   const regularPrice = 799;
-  let [vipCount, setVipCount] = useState(360);
+  let [vipCount, setVipCount] = useState(0);
   let [regularCount, setRegularCount] = useState(0);
   const [twoPeopleTent, setTwoPeopleTent] = useState(0);
   const [threePeopleTent, setThreePeopleTent] = useState(0);
@@ -142,6 +142,8 @@ function App() {
               twoPeopleTentPrice={twoPeopleTentPrice}
               threePeopleTentPrice={threePeopleTentPrice}
               fetchAvailableSpots={fetchAvailableSpots}
+              soldout={soldout}
+              checkIfSoldout={checkIfSoldout}
             />
           }
         />

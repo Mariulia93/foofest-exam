@@ -1,11 +1,18 @@
 import React from "react";
 import CountTicket from "./CountTicket";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 function StepTickets(props) {
   function handleAddToBasket(type) {
     props.incrementCount(type);
   }
+
+  const { checkIfSoldout } = props;
+
+  useEffect(() => {
+    checkIfSoldout();
+  }, [checkIfSoldout]);
 
   return (
     <>
@@ -16,6 +23,7 @@ function StepTickets(props) {
           <Link to="/tickets">Click here to buy tickets</Link>
         </div>
       )}
+      {props.soldout && <p>YOU CANNOT ADD MORE TICKETS - NO CAMPING SPOTS AVAILABLE</p>}
       {/* VIP */}
       <div className="cartRow" style={props.vipCount < 1 ? { display: "none" } : null}>
         <p>VIP ticket</p>
@@ -25,6 +33,7 @@ function StepTickets(props) {
           price={props.vipPrice}
           incrementCount={props.incrementCount}
           decrementCount={props.decrementCount}
+          soldout={props.soldout}
         />
         <p>{props.vipPrice}kr</p>
 
@@ -47,6 +56,7 @@ function StepTickets(props) {
           price={props.regularPrice}
           incrementCount={props.incrementCount}
           decrementCount={props.decrementCount}
+          soldout={props.soldout}
         />
         <p>{props.regularPrice}kr</p>
 
@@ -69,6 +79,7 @@ function StepTickets(props) {
               <p>{props.vipCount === 0 ? props.vipPrice : props.regularCount === 0 ? props.regularPrice : null}</p>
             </div>
             <button
+              disabled={props.soldout}
               className="secondaryCTA addToCartBtn"
               onClick={() =>
                 props.vipCount === 0 ? handleAddToBasket("VIP") : props.regularCount === 0 ? handleAddToBasket("REGULAR") : null
