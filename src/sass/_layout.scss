@@ -138,7 +138,7 @@ h2 {
       place-self: center;
     }
     .primaryCTA {
-      margin-top: 2rem;
+      margin: 1.5rem 0;
     }
     .personalData {
       display: flex;
@@ -204,6 +204,7 @@ h2 {
     .creditCard {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       align-items: flex-start;
       justify-content: flex-start;
       gap: 10px;
@@ -402,6 +403,9 @@ h4 {
 .stepTitle {
   font-size: 1.4rem;
 }
+.emtyCart {
+  margin: 1.5rem 0;
+}
 .sumCartRow,
 .sumTotal {
   display: flex;
@@ -422,10 +426,14 @@ h4 {
 
 .cartRow {
   display: flex;
+  justify-content: space-around;
   gap: 1rem;
   border-bottom: 1px solid #2f506177;
-  p {
+  p:first-child {
     width: 98px;
+  }
+  p:nth-child(3) {
+    width: 52px;
   }
 }
 
@@ -478,8 +486,12 @@ h4 {
   span.logo {
     font-size: 4rem;
   }
+  .opacityContainer {
+    height: fit-content;
+  }
   #welcomeImageBackground {
     background-size: cover;
+    height: fit-content;
     #countdownContainer *:first-child {
       font-size: 4rem;
     }
@@ -522,6 +534,9 @@ h4 {
   .toggleContainer {
     transform: scale(0.8);
   }
+  .schedules {
+    gap: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -537,11 +552,21 @@ h4 {
       font-size: 1rem;
     }
   }
-  .opacityContainer {
-    height: fit-content;
+  .basketContainer section {
+    padding: 0.5rem;
+  }
+  .basketContainer section .personalData div input,
+  .basketContainer section fieldset input {
+    width: 250px;
   }
   .basketContainer ul {
     justify-content: flex-start;
+  }
+  .basketContainer .chooseTentContainer {
+    padding: 0;
+  }
+  .stepTitle {
+    margin: 1rem 0;
   }
   .toggleContainer .switch-button {
     padding-right: 150px;
@@ -550,6 +575,9 @@ h4 {
   .toggleContainer .switch-button:before {
     padding-right: 25px;
     justify-content: flex-end;
+  }
+  .schedules {
+    gap: 2rem;
   }
 }
 //accomodation table
@@ -580,6 +608,6 @@ td {
   text-align: left;
   width: 87px;
 }
-tr td:first-child {
+#radioCampsites {
   width: 15px;
 }

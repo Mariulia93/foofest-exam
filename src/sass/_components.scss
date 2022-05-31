@@ -212,7 +212,6 @@
   cursor: pointer;
   z-index: 11;
   display: block;
-  // width: 8ch;
   text-align: center;
   padding: 0.4rem 1rem;
 }
@@ -265,10 +264,6 @@ option {
   margin: 3rem 1rem;
   width: 400px;
 
-  // svg {
-  //   // position: relative;
-  //   // top: -0.5rem;
-  // }
   .stageHeader {
     position: relative;
     top: -5.5rem;
@@ -287,7 +282,6 @@ option {
     margin-top: 2rem;
     border-radius: 12px;
     position: relative;
-    // top: -6rem;
     padding: 1rem 0 1rem 2rem;
     li {
       border-left: 4px solid #2f506173;
@@ -306,27 +300,28 @@ option {
         gap: 0.5rem;
         flex-wrap: wrap;
       }
+      span {
+        align-self: flex-end;
+      }
     }
     .time {
       font-weight: 100;
     }
     p {
-      // margin: 0.4rem 1rem 0;
-      // display: inline;
       font-weight: 900;
       font-family: base.$paragraph-font;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
     }
     .break {
       p {
         font-size: 1rem;
+        font-weight: 400;
       }
     }
   }
 }
 @media screen and (max-width: 400px) {
   .schedule {
-    margin: 0;
     .sessions {
       margin: 0;
       padding: 0;
@@ -743,6 +738,7 @@ h1 {
   h1,
   .homeTitle {
     padding: 2rem;
+    font-size: 2.5rem;
   }
 
   .navComponent {
@@ -809,6 +805,9 @@ h1 {
     font-size: 1.5rem;
     width: 100%;
   }
+  .timer-wrapper {
+    top: 70px;
+  }
   .questionsContainer {
     width: 90%;
   }
@@ -818,6 +817,9 @@ h1 {
   }
   .campsiteContainer {
     flex-wrap: wrap;
+  }
+  .schedule {
+    margin: 1rem;
   }
 }
 
@@ -835,20 +837,36 @@ h1 {
   .bandCard h4 {
     font-size: 0.8rem;
   }
+  .ticketsBox .ticketContainer {
+    margin-bottom: 0;
+  }
   table {
     padding: 0;
-    margin: 0 auto;
+    margin: 1rem auto;
     align-self: center;
     th {
-      margin: 0.5rem;
-      font-size: 0.7rem;
+      margin: 0.2rem;
+      font-size: 0.8rem;
     }
     td {
       font-size: 0.7rem;
       width: 60px;
     }
+    .jp-card {
+      width: 240px;
+    }
+  }
+  .timer-wrapper {
+    top: 100px;
+    right: -50px;
   }
   .ticketContainer {
     transform: scale(0.8);
+  }
+  .schedule {
+    margin: 0;
+  }
+  .counter {
+    margin: 1rem 0;
   }
 }
