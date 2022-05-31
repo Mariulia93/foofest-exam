@@ -22,6 +22,10 @@ function App() {
     getData();
   }, []);
 
+  function fetchAvailableSpots(data) {
+    setAvailableSpots(data);
+  }
+
   const vipPrice = 1299;
   const regularPrice = 799;
   let [vipCount, setVipCount] = useState(0);
@@ -124,6 +128,7 @@ function App() {
               greenCampChange={greenCampChange}
               twoPeopleTentPrice={twoPeopleTentPrice}
               threePeopleTentPrice={threePeopleTentPrice}
+              fetchAvailableSpots={fetchAvailableSpots}
             />
           }
         />

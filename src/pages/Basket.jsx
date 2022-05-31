@@ -88,7 +88,20 @@ function Basket(props) {
 
     if (stepCounter === 4) {
       postData();
+      props.resetTickets();
+      props.resetTents();
+      refetchSpots();
     }
+  }
+
+  function fetchAvailableSpots(data) {
+    props.fetchAvailableSpots(data);
+  }
+
+  function refetchSpots() {
+    fetch("https://foofest2022.herokuapp.com/available-spots")
+      .then((res) => res.json())
+      .then((data) => fetchAvailableSpots(data));
   }
 
   const renderTime = ({ remainingTime }) => {
