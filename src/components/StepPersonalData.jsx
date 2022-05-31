@@ -37,7 +37,7 @@ function StepPersonalData(props) {
   }
   return (
     <>
-      <h4>Contact information</h4>
+      <h4 className="stepTitle">Contact information</h4>
       <form
         className="personalData"
         method="post"

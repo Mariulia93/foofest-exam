@@ -29,6 +29,10 @@ nav ul {
   }
 }
 
+nav a {
+  font-size: 1.3rem;
+}
+
 #welcomeImageBackground {
   background-image: url("./beach-header.jpg");
   background-repeat: no-repeat;
@@ -41,7 +45,7 @@ nav ul {
 
 .opacityContainer {
   height: 100vh;
-  background-color: #ffffff7d;
+  background-color: rgb(255 255 255 / 58%);
 }
 
 .logo {
@@ -66,7 +70,7 @@ h1 {
 
 h2 {
   padding: 2rem 0 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -112,6 +116,16 @@ h2 {
         padding: 0.4rem 0.9rem;
       }
     }
+  }
+  .marginBottom {
+    margin-bottom: 2rem;
+  }
+
+  .chooseTentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
   }
   section {
     display: grid;
@@ -370,6 +384,9 @@ h4 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
+.stepTitle {
+  font-size: 1.4rem;
+}
 .sumCartRow,
 .sumTotal {
   display: flex;
@@ -391,7 +408,7 @@ h4 {
 .cartRow {
   display: flex;
   gap: 1rem;
-  border-top: 1px solid #2f506177;
+  border-bottom: 1px solid #2f506177;
   p {
     width: 98px;
   }
@@ -422,6 +439,23 @@ h4 {
   }
 }
 
+@media screen and (min-width: 1400px) {
+  .landingHeader {
+    padding: 10rem 0;
+  }
+  nav a {
+    font-size: 1.5rem;
+  }
+  .logo {
+    font-size: 4rem;
+  }
+  span.logo {
+    font-size: 7rem;
+  }
+  .primaryCTA {
+    padding: 0.5rem;
+  }
+}
 @media screen and (max-width: 1000px) {
   .logo {
     font-size: 2rem;
@@ -500,8 +534,8 @@ h4 {
 table {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 25px;
-  padding: 1rem;
-  margin: 0 auto;
+  padding: 0.5rem;
+  margin: 1rem auto;
 }
 
 tr {
@@ -512,11 +546,14 @@ tr {
 th {
   white-space: nowrap;
   text-align: right;
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   font-weight: 600;
 }
 td {
   margin: 0.5rem;
   text-align: left;
   width: 87px;
+}
+tr td:first-child {
+  width: 15px;
 }
