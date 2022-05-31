@@ -36,19 +36,13 @@ export default function SchedulePage(props) {
       console.log("hello");
       setHideSchedules(true);
       let alldays = [];
-      Object.keys(midgard).map((key) =>
-        midgard[key].map((item) => alldays.push(item))
-      );
+      Object.keys(midgard).map((key) => midgard[key].map((item) => alldays.push(item)));
       setDisplayedM(alldays);
       alldays = [];
-      Object.keys(vanaheim).map((key) =>
-        vanaheim[key].map((item) => alldays.push(item))
-      );
+      Object.keys(vanaheim).map((key) => vanaheim[key].map((item) => alldays.push(item)));
       setDisplayedV(alldays);
       alldays = [];
-      Object.keys(jotunheim).map((key) =>
-        jotunheim[key].map((item) => alldays.push(item))
-      );
+      Object.keys(jotunheim).map((key) => jotunheim[key].map((item) => alldays.push(item)));
       setDisplayedJ(alldays);
       setHideInfo(false);
     } else {
@@ -209,11 +203,7 @@ export default function SchedulePage(props) {
           />
         </div>
 
-        <select
-          name="day"
-          id="daysDropdown"
-          onChange={handleDaysDropdownChange}
-        >
+        <select name="day" id="daysDropdown" onChange={handleDaysDropdownChange}>
           <option value="all">All days</option>
           <option value="mon">Day 1 (10/07)</option>
           <option value="tue">Day 2 (11/07)</option>
@@ -223,11 +213,7 @@ export default function SchedulePage(props) {
           <option value="say">Day 6 (15/07)</option>
           <option value="sun">Day 7 (16/07)</option>
         </select>
-        <select
-          name="stage"
-          id="stagesDropdown"
-          onChange={handleStagesDropdownChange}
-        >
+        <select name="stage" id="stagesDropdown" onChange={handleStagesDropdownChange}>
           <option value="all">All stages</option>
           <option value="midgard">Stage 1 MIDGARD</option>
           <option value="vanaheim">Stage 2 VANAHEIM</option>
@@ -316,7 +302,7 @@ export default function SchedulePage(props) {
         )}
       </div>
       {!hiddenPopUp && <BandPopUp band={popUpBand} hidePopUp={hidePopUp} />}
-      
+
       <Footer />
     </div>
   );

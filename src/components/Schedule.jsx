@@ -21,9 +21,9 @@ export default function Schedule(props) {
       >
         <div>
           <span className={`${item.cancelled ? "cancelled" : null} time} `}>{item.start}</span>{" "}
+          <p className={`${item.cancelled ? "cancelled" : null}`}>{item.act}</p>
           {item.cancelled && <p className="cancelledText">CANCELLED</p>}
         </div>
-        <p className={`${item.cancelled ? "cancelled" : null}`}>{item.act}</p>
       </li>
     );
 
