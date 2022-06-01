@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TicketOwner from "./TicketOwner";
 
 function StepPersonalData(props) {
   const [isEmailTheSame, setIsEmailTheSame] = useState(false);
+  const [repeatedEmail, setRepeatedEmail] = useState("");
 
   function addToArray(owner) {
     let noId = props.ticketOwners.filter((el) => el.id !== owner.id); //remove duplicated ids
@@ -13,13 +14,20 @@ function StepPersonalData(props) {
     props.getEmail(e);
   }
 
-  function validateEmail(e) {
-    e.preventDefault();
-    console.log(isEmailTheSame);
-    if (e.target.value === props.email) {
-      setIsEmailTheSame(true);
-    } else setIsEmailTheSame(false);
+  function handleRepeat(e) {
+    setRepeatedEmail(e.target.value.toLowerCase());
   }
+
+  const { email } = props;
+
+  useEffect(() => {
+    function validateEmail() {
+      if (repeatedEmail === email) {
+        setIsEmailTheSame(true);
+      } else setIsEmailTheSame(false);
+    }
+    validateEmail();
+  }, [repeatedEmail, email]);
 
   return (
     <>
@@ -38,6 +46,7 @@ function StepPersonalData(props) {
                 required
                 email={props.email}
                 onChange={handleEmail}
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
               />
               <span></span>
             </div>
@@ -46,7 +55,7 @@ function StepPersonalData(props) {
             {!isEmailTheSame && props.email !== "" && <p className="noMatch">Emails are not matching!</p>}
             <label htmlFor="email">Repeat your email</label>
             <div className="flex">
-              <input type="text" id="repeatEmail" name="repeatEmail" placeholder="email" required onChange={validateEmail} />
+              <input type="text" id="repeatEmail" name="repeatEmail" placeholder="email" required onChange={handleRepeat} />
               <span></span>
             </div>
           </div>

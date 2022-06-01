@@ -23,7 +23,7 @@ function Basket(props) {
   }
 
   function getEmail(e) {
-    setEmail(e.target.value);
+    setEmail(e.target.value.toLowerCase());
   }
 
   function getTicketOwners(e) {
