@@ -43,8 +43,17 @@ export default function Home(props) {
           <Header />
         </div>
       </div>
-      <h1 className="homeTitle">THE BIGGEST FESTIVAL IN EUROPE 2022</h1>
-      <Banner title="Get your ticket now!" name="/tickets" buttonText="Buy Tickets" style={{ backgroundPosition: "top" }} />
+      <h1 className="homeTitle">THE BIGGEST BEACH FESTIVAL IN EUROPE 2022</h1>
+      <p>
+        Come and join us to celebrate our 2nd edition of FooFest - beach music festival where fun is
+        guaranteed. You can expect great music, summer beach vibes, mixed coctails and much more.
+      </p>
+      <Banner
+        title="Get your ticket now!"
+        name="/tickets"
+        buttonText="Buy Tickets"
+        style={{ backgroundPosition: "top" }}
+      />
       <Banner
         title="Check out the artists playing!"
         name="/schedule"
@@ -55,8 +64,8 @@ export default function Home(props) {
         <h2>Line-up</h2>
 
         <p className="defaultLineup">
-          TERMINALIST * LED ZEPPELIN * THE BEATLES * PINK FLOYD * QUEEN * METALLICA * AC/DC * THE ROLLING STONES * GUNS N' ROSES *
-          NIRVANA
+          TERMINALIST * LED ZEPPELIN * THE BEATLES * PINK FLOYD * QUEEN * METALLICA * AC/DC * THE
+          ROLLING STONES * GUNS N' ROSES * NIRVANA
         </p>
         <div className="lineupBand">
           {fortyBands.map((band) => (

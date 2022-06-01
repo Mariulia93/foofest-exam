@@ -91,7 +91,7 @@ export default function Tickets(props) {
         </tbody>
       </table>
       <Link to="/info" className="readMore" onClick={scrollToTop}>
-        Read more about out camping sites
+        Read more about our camping sites
       </Link>
       <Footer />
     </>

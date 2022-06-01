@@ -17,7 +17,13 @@ li {
   font-family: base.$headers-font;
 }
 .homeTitle {
-  padding: 4rem 0 2rem 0;
+  padding: 4rem 0 0 0;
+  ~ p {
+    text-align: center;
+    max-width: 50vw;
+    font-size: 1.5rem;
+    margin: 1rem auto;
+  }
 }
 nav ul {
   display: flex;
@@ -32,16 +38,20 @@ nav ul {
 nav a {
   font-size: 1.3rem;
 }
-a:hover:not(.primaryCTA) {
+a.logo:hover,
+.navFlexWrapper a:hover,
+.navComponent a:hover,
+.readMore:hover,
+.thankyou a:hover {
   color: base.$accent-color;
 }
-.radioButton:hover {
-  background-color: #20b8be;
+.primaryCTA a:hover {
   color: white;
 }
 
-.scheduleButtons #welcomeImageBackground {
+#welcomeImageBackground {
   background-image: url("./beach-header.jpg");
+  background-image: url("./fest1.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   height: 100vh;
@@ -52,7 +62,7 @@ a:hover:not(.primaryCTA) {
 
 .opacityContainer {
   height: 100vh;
-  background-color: rgb(255 255 255 / 58%);
+  background-color: rgb(255 255 255 / 69%);
 }
 
 .logo {

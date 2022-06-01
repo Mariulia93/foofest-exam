@@ -91,6 +91,7 @@
 }
 .bannerImage {
   background-image: url("./banner.webp");
+  background-image: url("./fest8.jpg");
   width: 90%;
   max-width: 100%;
   margin: 0 auto;
@@ -753,10 +754,12 @@ h1 {
 }
 
 @media screen and (max-width: 1000px) {
-  h1,
-  .homeTitle {
+  h1 {
     padding: 2rem;
     font-size: 2.5rem;
+  }
+  .homeTitle ~ p {
+    max-width: 90%;
   }
 
   .navComponent {
@@ -807,6 +810,14 @@ h1 {
   h1 {
     font-size: 1.8rem;
   }
+
+  .homeTitle {
+    padding-top: 2rem;
+  }
+  .homeTitle ~ p {
+    font-size: 1rem;
+  }
+
   .bannerImage {
     height: 20vh;
     .primaryCTA,
