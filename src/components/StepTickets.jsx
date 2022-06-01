@@ -1,4 +1,3 @@
-import React from "react";
 import CountTicket from "./CountTicket";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";

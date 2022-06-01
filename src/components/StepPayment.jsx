@@ -1,4 +1,3 @@
-import React from "react";
 import "../card.css";
 import CardReactFormContainer from "card-react";
 function StepPayment(props) {

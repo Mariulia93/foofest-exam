@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function Banner(props) {
@@ -8,7 +7,9 @@ function Banner(props) {
         <div className="bgBannerFadeOut">
           <Link to={props.name}>
             {props.title}
-            <div className={props.buttonText === "Schedule" ? "secondaryCTA" : "primaryCTA"}>{props.buttonText}</div>
+            <div className={props.buttonText === "Schedule" ? "secondaryCTA" : "primaryCTA"}>
+              {props.buttonText}
+            </div>
           </Link>
         </div>
       </div>

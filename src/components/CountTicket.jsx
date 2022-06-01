@@ -1,5 +1,3 @@
-import React from "react";
-
 function CountTicket(props) {
   function handleDecrement() {
     props.decrementCount(props.title);
@@ -10,7 +8,11 @@ function CountTicket(props) {
 
   return (
     <div className="counter">
-      <button className="plusminus" onClick={handleDecrement} disabled={props.count < 1 ? "disabled" : null}>
+      <button
+        className="plusminus"
+        onClick={handleDecrement}
+        disabled={props.count < 1 ? "disabled" : null}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -23,7 +25,11 @@ function CountTicket(props) {
         </svg>
       </button>
       <div>{props.count}</div>
-      <button className="plusminus" onClick={handleIncrement} disabled={props.ownTent || props.soldout}>
+      <button
+        className="plusminus"
+        onClick={handleIncrement}
+        disabled={props.ownTent || props.soldout}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

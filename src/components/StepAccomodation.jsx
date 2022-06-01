@@ -1,4 +1,3 @@
-import React from "react";
 import AvailableSpots from "./AvailableSpots";
 import CountTicket from "./CountTicket";
 import { useState, useEffect } from "react";
