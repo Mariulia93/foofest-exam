@@ -32,8 +32,15 @@ nav ul {
 nav a {
   font-size: 1.3rem;
 }
+a:hover:not(.primaryCTA) {
+  color: base.$accent-color;
+}
+.radioButton:hover {
+  background-color: #20b8be;
+  color: white;
+}
 
-#welcomeImageBackground {
+.scheduleButtons #welcomeImageBackground {
   background-image: url("./beach-header.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -119,6 +126,7 @@ h2 {
   }
   .marginBottom {
     margin-bottom: 2rem;
+    max-width: 400px;
   }
 
   .chooseTentContainer {
@@ -266,7 +274,8 @@ h2 {
   align-items: flex-start;
 }
 .styledPar {
-  margin: 0 5rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 // INFO PAGE

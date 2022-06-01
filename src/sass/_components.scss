@@ -40,6 +40,9 @@
     svg {
       margin: 0.5rem;
     }
+    svg:hover {
+      fill: base.$primary-color;
+    }
     p {
       position: absolute;
       right: 0;
@@ -118,6 +121,7 @@
     height: 30vh;
     padding: 1rem;
   }
+
   .primaryCTA,
   .secondaryCTA {
     width: 150px;
