@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function BandPopUp(props) {
   const [readMore, setReadMore] = useState(false);
 
-  console.log("hey");
   let logoUrl = "";
   function handleClose() {
     props.hidePopUp();
@@ -11,7 +10,6 @@ export default function BandPopUp(props) {
 
   function showReadMore() {
     setReadMore((old) => !old);
-    console.log(readMore, "read somethign");
   }
 
   function handleLogo(logoString) {
@@ -47,17 +45,12 @@ export default function BandPopUp(props) {
           <h4 className="members">{props.band.members.join(", ")}</h4>
           <div className="bioP">
             <p>{props.band.bio.substring(0, props.band.bio.indexOf(".") + 1)}</p>
-            <p style={!readMore ? { display: "none" } : null}>
-              {" "}
-              {props.band.bio.substring(props.band.bio.indexOf(".") + 1)}
-            </p>
+            <p style={!readMore ? { display: "none" } : null}> {props.band.bio.substring(props.band.bio.indexOf(".") + 1)}</p>
             <button className="readMore" onClick={showReadMore}>
               {readMore ? "Show less" : "Read more"}
             </button>
           </div>
-          {props.band.logoCredits && (
-            <p className="logoCredits">Image Source:{props.band.logoCredits}</p>
-          )}
+          {props.band.logoCredits && <p className="logoCredits">Image Source:{props.band.logoCredits}</p>}
         </div>
       </div>
     </div>

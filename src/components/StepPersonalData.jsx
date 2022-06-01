@@ -3,6 +3,7 @@ import TicketOwner from "./TicketOwner";
 
 function StepPersonalData(props) {
   const [isEmailTheSame, setIsEmailTheSame] = useState(false);
+
   function addToArray(owner) {
     let noId = props.ticketOwners.filter((el) => el.id !== owner.id);
     props.getTicketOwners(noId.concat(owner));
