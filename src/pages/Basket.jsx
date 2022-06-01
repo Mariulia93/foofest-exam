@@ -24,7 +24,6 @@ function Basket(props) {
 
   function getEmail(e) {
     setEmail(e.target.value);
-    console.log("email", email);
   }
 
   function getTicketOwners(e) {

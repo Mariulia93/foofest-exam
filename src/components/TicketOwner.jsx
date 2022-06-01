@@ -11,9 +11,11 @@ export default function TicketOwner(props) {
     setOwner((prevState) => ({ ...prevState, lastname: e.target.value }));
   }
 
+  const { addToArray } = props;
+
   useEffect(() => {
-    props.addToArray(owner);
-  }, [owner, props]);
+    addToArray(owner);
+  }, [owner]);
 
   return (
     <div>

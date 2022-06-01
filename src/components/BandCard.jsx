@@ -2,14 +2,7 @@ export default function BandCard(props) {
   let logoUrl = "";
 
   function handleClick() {
-    let stageObject = {
-      stage: props.stage,
-    };
-    let timeObject = {
-      time: props.time,
-    };
-    let popUpData = { ...props.band, ...stageObject, ...timeObject };
-    props.showPopUpFunction(popUpData);
+    props.showPopUpFunction(props.band);
   }
 
   function handleLogo(logoString) {

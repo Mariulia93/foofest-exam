@@ -3,29 +3,9 @@ import TicketOwner from "./TicketOwner";
 
 function StepPersonalData(props) {
   const [isEmailTheSame, setIsEmailTheSame] = useState(false);
-  // const [firstname, setFirstname] = useState("");
-  // const [lastname, setLastname] = useState("");
-
-  // function joinOwnerName(e) {
-  //   // let fullname = [firstname + lastname];
-  //   if (e.target.name === "fname") {
-  //     setFirstname(e.target.value);
-  //   } else setLastname(e.target.value);
-
-  //   if (firstname !== "" && lastname !== "") {
-  //     addToArray(firstname + " " + lastname);
-  //     setFirstname("");
-  //     setLastname("");
-  //     console.log("im inside");
-  //   }
-  //   console.log("ticketowners", firstname);
-  //   console.log("ticketowners", lastname);
-  // }
-
   function addToArray(owner) {
     let noId = props.ticketOwners.filter((el) => el.id !== owner.id);
-    props.getTicketOwners(noId);
-    props.getTicketOwners((oldArray) => oldArray.concat(owner));
+    props.getTicketOwners(noId.concat(owner));
   }
 
   function handleEmail(e) {
@@ -35,21 +15,17 @@ function StepPersonalData(props) {
   function validateEmail(e) {
     if (e.target.value === props.email) {
       setIsEmailTheSame(true);
-      console.log("email matches", isEmailTheSame);
     } else setIsEmailTheSame(false);
   }
+
   return (
     <>
       <h4 className="stepTitle">Contact information</h4>
-      <form
-        className="personalData"
-        method="post"
-        action="https://mydogs-0e30.restdb.io/rest/foofest"
-      >
+      <form className="personalData" method="post" action="https://mydogs-0e30.restdb.io/rest/foofest">
         <fieldset>
           <legend>Where to send tickets</legend>
           <div>
-            <label for="email">Your email</label>
+            <label htmlFor="email">Your email</label>
             <div className="flex">
               <input
                 type="email"
@@ -65,8 +41,8 @@ function StepPersonalData(props) {
             </div>
           </div>
           <div>
-            {!isEmailTheSame && <p className="noMatch">Emails are not matching!</p>}
-            <label for="email">Repeat your email</label>
+            {!isEmailTheSame && props.email !== "" && <p className="noMatch">Emails are not matching!</p>}
+            <label htmlFor="email">Repeat your email</label>
             <div className="flex">
               <input
                 type="email"
@@ -74,7 +50,7 @@ function StepPersonalData(props) {
                 name="repeatEmail"
                 placeholder="email"
                 required
-                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                // pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
                 onChange={validateEmail}
               />
               <span></span>
@@ -83,7 +59,7 @@ function StepPersonalData(props) {
         </fieldset>
 
         {[...Array(props.vipCount + props.regularCount)].map((e, i) => (
-          <TicketOwner i={i} addToArray={addToArray}></TicketOwner>
+          <TicketOwner key={i} i={i} addToArray={addToArray}></TicketOwner>
         ))}
       </form>
     </>

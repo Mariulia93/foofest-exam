@@ -33,7 +33,6 @@ export default function SchedulePage(props) {
 
   function filterByDay(day) {
     if (day === "all") {
-      console.log("hello");
       setHideSchedules(true);
       let alldays = [];
       Object.keys(midgard).map((key) => midgard[key].map((item) => alldays.push(item)));
@@ -262,7 +261,6 @@ export default function SchedulePage(props) {
                 <BandCard
                   key={item.act}
                   stage={"midgard"}
-                  time={item.start}
                   showPopUpFunction={showPopup}
                   band={props.bands.find((band) => band.name === item.act)}
                 />
@@ -277,7 +275,6 @@ export default function SchedulePage(props) {
                 <BandCard
                   key={item.act}
                   stage={"vanaheim"}
-                  time={item.start}
                   showPopUpFunction={showPopup}
                   band={props.bands.find((band) => band.name === item.act)}
                 />
@@ -292,7 +289,6 @@ export default function SchedulePage(props) {
                 <BandCard
                   key={item.act}
                   stage={"jotunheim"}
-                  time={item.start}
                   showPopUpFunction={showPopup}
                   band={props.bands.find((band) => band.name === item.act)}
                 />
