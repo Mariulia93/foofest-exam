@@ -202,7 +202,7 @@ h2 {
           color: red;
         }
 
-        input:not(:focus):valid + span::before {
+        input[type="email"]:not(:focus):valid + span::before {
           content: "✓";
           color: green;
         }
@@ -418,7 +418,7 @@ h4 {
 .noMatch {
   color: red;
 }
- 
+
 .sumCartRow,
 .sumTotal {
   display: flex;
