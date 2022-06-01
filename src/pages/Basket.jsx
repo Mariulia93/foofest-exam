@@ -50,7 +50,10 @@ function Basket(props) {
       body: JSON.stringify(personalData),
     })
       .then((res) => res.json())
-      .then((data) => finalizeReservation());
+      .then((data) => {
+        console.log(data);
+        finalizeReservation();
+      });
   }
 
   function finalizeReservation() {

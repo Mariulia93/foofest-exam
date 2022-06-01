@@ -5,7 +5,7 @@ function StepPersonalData(props) {
   const [isEmailTheSame, setIsEmailTheSame] = useState(false);
 
   function addToArray(owner) {
-    let noId = props.ticketOwners.filter((el) => el.id !== owner.id);
+    let noId = props.ticketOwners.filter((el) => el.id !== owner.id); //remove duplicated ids
     props.getTicketOwners(noId.concat(owner));
   }
 
@@ -24,7 +24,7 @@ function StepPersonalData(props) {
   return (
     <>
       <h4 className="stepTitle">Contact information</h4>
-      <form className="personalData" action={validateEmail}>
+      <form className="personalData">
         <fieldset>
           <legend>Where to send tickets</legend>
           <div>
