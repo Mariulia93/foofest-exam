@@ -3,6 +3,7 @@ export default function Header() {
   return (
     <div className="landingHeader">
       <span className="logo">FOOFEST</span>
+      <p className="logo">music beach festival</p>
       <div id="countdownContainer">
         <CountDownTimer
           dateTime="2022-07-10T20:00:00+02:00"
