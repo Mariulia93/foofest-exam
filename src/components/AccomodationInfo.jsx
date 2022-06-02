@@ -1,9 +1,9 @@
 import Campsite from "./Campsite";
-import svartheim from "../sass/svartheim.jpg";
-import nilfheim from "../sass/nilfheim.jpg";
-import helheim from "../sass/helheim.jpg";
-import muspelheim from "../sass/muspelheim.jpg";
-import alfheim from "../sass/alfheim.jpg";
+import svartheim from "../sass/svartheim.webp";
+import nilfheim from "../sass/nilfheim.webp";
+import helheim from "../sass/helheim.webp";
+import muspelheim from "../sass/muspelheim.webp";
+import alfheim from "../sass/alfheim.webp";
 
 export default function AccomodationInfo() {
   return (
@@ -21,7 +21,11 @@ export default function AccomodationInfo() {
           "Closest to the stages;A great number of food stalls around the campsite;Shopping facilities including camping gear, groceries, pharmacies and a whole bunch of fun festival accessories;Cloakrooms;Showers both cold (free) and warm;Toilet facilities"
         }
       ></Campsite>
-      <Campsite name={"Helheim"} img={helheim} desc={"Cloakrooms;Showers both cold (free) and warm;Toilet facilities"}></Campsite>
+      <Campsite
+        name={"Helheim"}
+        img={helheim}
+        desc={"Cloakrooms;Showers both cold (free) and warm;Toilet facilities"}
+      ></Campsite>
       <Campsite
         name={"Muspelheim"}
         img={muspelheim}
@@ -29,7 +33,11 @@ export default function AccomodationInfo() {
           "A great number of food stalls around the campsite;Shopping facilities including camping gear, groceries, pharmacies and a whole bunch of fun festival accessories;Cloakrooms;Showers both cold (free) and warm;Toilet facilities"
         }
       ></Campsite>
-      <Campsite name={"Alfheim"} img={alfheim} desc={"Showers both cold (free) and warm;Toilet facilities"}></Campsite>
+      <Campsite
+        name={"Alfheim"}
+        img={alfheim}
+        desc={"Showers both cold (free) and warm;Toilet facilities"}
+      ></Campsite>
     </div>
   );
 }
