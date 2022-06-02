@@ -194,7 +194,7 @@ function Basket(props) {
                 disableNextStep={disableNextStep}
               />
             ) : null}
-            {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
+            {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} disableNextStep={disableNextStep} /> : null}
             {!(props.vipCount === 0 && props.regularCount === 0) && stepCounter < 5 && (
               <button onClick={showNextStep} disabled={isDisabled} className="primaryCTA">
                 {stepCounter === 4 ? "Confirm & pay" : "Next step"}

@@ -40,14 +40,13 @@ function StepPersonalData(props) {
       if (e.target.checkValidity()) {
         let sum = 0;
         for (const element of dataForm.current.elements) {
-          console.log(element.checkValidity(), element);
           if (element.checkValidity()) sum++;
         }
-        if (sum < dataForm.current.elements.length - 1) {
+        if (sum < dataForm.current.elements.length) {
           props.disableNextStep(false);
         } else props.disableNextStep(true);
-      }
-    }
+      } else props.disableNextStep(false);
+    } else props.disableNextStep(false);
   }
 
   return (
