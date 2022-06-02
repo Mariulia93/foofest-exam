@@ -46,7 +46,7 @@ export default function Home(props) {
       <h1 className="homeTitle">THE BIGGEST BEACH FESTIVAL IN EUROPE 2022</h1>
       <p>
         Come and join us to celebrate our 2nd edition of FooFest - beach music festival where fun is
-        guaranteed. You can expect great music, summer beach vibes, mixed coctails and much more.
+        guaranteed. You can expect great music, summer beach vibes, mixed cocktails and much more.
       </p>
       <Banner
         title="Get your ticket now!"
