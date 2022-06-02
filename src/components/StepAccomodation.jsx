@@ -3,12 +3,12 @@ import CountTicket from "./CountTicket";
 import { useState, useEffect } from "react";
 
 function StepAccomodation(props) {
-  const { twoPeopleTent, threePeopleTent, vipCount, regularCount, disableNextStep, ownTent } = props;
+  const { twoPeopleTent, threePeopleTent, vipCount, regularCount, disableNextStep, ownTent, selectedArea } = props;
   const [peopleEqual, setPeopleEqual] = useState(false);
 
   useEffect(() => {
-    disableNextStep(ownTent);
-  }, [ownTent, disableNextStep]);
+    if (selectedArea !== "") disableNextStep(ownTent);
+  }, [ownTent, disableNextStep, selectedArea]);
 
   function ownTentChange() {
     props.setOwnTent((oldvalue) => !oldvalue);
@@ -19,14 +19,14 @@ function StepAccomodation(props) {
   useEffect(() => {
     if (!props.ownTent) {
       if (twoPeopleTent * 2 + threePeopleTent * 3 === vipCount + regularCount) {
-        disableNextStep(true);
+        if (selectedArea !== "") disableNextStep(true);
         setPeopleEqual(true);
       } else {
         setPeopleEqual(false);
         disableNextStep(false);
       }
     }
-  }, [props.ownTent, twoPeopleTent, threePeopleTent, disableNextStep, vipCount, regularCount]);
+  }, [props.ownTent, twoPeopleTent, threePeopleTent, disableNextStep, vipCount, regularCount, selectedArea]);
 
   function handleAreaChange(evt) {
     props.getArea(evt.target.value);
@@ -54,6 +54,7 @@ function StepAccomodation(props) {
                   value={availableSpot.area}
                   onChange={handleAreaChange}
                   disabled={availableSpot.available < vipCount + regularCount}
+                  required
                 ></input>
               </td>
               <AvailableSpots availableSpot={availableSpot} />
@@ -87,6 +88,7 @@ function StepAccomodation(props) {
           <p>{props.threePeopleTentPrice}kr</p>
         </div>
       </div>
+      {selectedArea === "" && <p>Choose a campsite</p>}
       {!peopleEqual && <p>Amount of people in the tents should be equal to the amount of tickets!</p>}
       <div>
         <input type="checkbox" onChange={ownTentChange}></input>

@@ -18,6 +18,7 @@ function Basket(props) {
   const [reservationID, setReservationID] = useState("");
   const [ownTent, setOwnTent] = useState(false);
   const [selectedArea, setSelectedArea] = useState("");
+
   function getArea(area) {
     setSelectedArea(area);
   }
@@ -182,6 +183,7 @@ function Basket(props) {
                 getArea={getArea}
                 ownTent={ownTent}
                 setOwnTent={setOwnTent}
+                selectedArea={selectedArea}
               />
             ) : null}
             {stepCounter === 3 ? (
@@ -226,8 +228,12 @@ function Basket(props) {
           <div className="thankyou">
             <h2>Thank you for your order</h2>
             <p>Your tickets have been sent to {email}</p>
-            <Link to="/">Click here to go back to home page</Link>
-            <Link to="/schedule">Click here to check out the bands playing on FOOFEST 2022</Link>
+            <Link to="/" className="link">
+              Click here to go back to home page
+            </Link>
+            <Link to="/schedule" className="link">
+              Click here to check out the bands playing on FOOFEST 2022
+            </Link>
             <h3>We can’t wait to see you at FOOFEST 2022!</h3>
           </div>
         )}
