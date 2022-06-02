@@ -76,7 +76,15 @@ function StepPersonalData(props) {
             {!isEmailTheSame && props.email !== "" && <p className="noMatch">Emails are not matching!</p>}
             <label htmlFor="email">Repeat your email</label>
             <div className="flex">
-              <input type="text" id="repeatEmail" name="repeatEmail" placeholder="email" required onChange={handleRepeat} />
+              <input
+                type="text"
+                id="repeatEmail"
+                name="repeatEmail"
+                placeholder="email"
+                required
+                onChange={handleRepeat}
+                onPaste={(e) => e.preventDefault()}
+              />
               <span></span>
             </div>
           </div>
