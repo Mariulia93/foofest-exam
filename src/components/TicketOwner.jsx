@@ -21,9 +21,9 @@ export default function TicketOwner(props) {
     <div>
       <p> {ordinal(props.i + 1)} Ticket owner</p>
       <label htmlFor="fname">First name</label>
-      <input type="text" id="fname" name="fname" onBlur={handleFirstname} />
+      <input type="text" id="fname" name="fname" onBlur={handleFirstname} required />
       <label htmlFor="lname">Last name</label>
-      <input type="text" id="lname" name="lname" onBlur={handleLastname} />
+      <input type="text" id="lname" name="lname" onBlur={handleLastname} required />
     </div>
   );
 }

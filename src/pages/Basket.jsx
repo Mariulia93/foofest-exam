@@ -18,6 +18,7 @@ function Basket(props) {
   const [reservationID, setReservationID] = useState("");
   const [ownTent, setOwnTent] = useState(false);
   const [selectedArea, setSelectedArea] = useState("");
+
   function getArea(area) {
     setSelectedArea(area);
   }
@@ -71,7 +72,6 @@ function Basket(props) {
 
   function showNextStep() {
     setStepCounter((old) => old + 1);
-    stepCounter === 4 ? setIsDisabled(true) : setIsDisabled(false);
     if (stepCounter === 2) {
       let ticketTotal = props.vipCount + props.regularCount;
       const obj = {
@@ -119,9 +119,10 @@ function Basket(props) {
     );
   };
 
-  function disableNextStep(iHaveTent) {
-    setIsDisabled(!iHaveTent);
+  function disableNextStep(state) {
+    setIsDisabled(!state);
   }
+
   return (
     <div className="basketPageContainer">
       <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
@@ -191,6 +192,7 @@ function Basket(props) {
                 ticketOwners={ticketOwners}
                 getEmail={getEmail}
                 getTicketOwners={getTicketOwners}
+                disableNextStep={disableNextStep}
               />
             ) : null}
             {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}
