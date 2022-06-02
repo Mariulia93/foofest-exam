@@ -500,6 +500,11 @@ option {
   .bgImageFadeOut {
     background-color: rgba(216, 216, 216, 0.553);
   }
+  .contactIcons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+  }
 }
 //tickets-page styling
 h1 {
