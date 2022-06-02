@@ -871,4 +871,20 @@ h1 {
   .counter {
     margin: 1rem 0;
   }
+  // popup
+  .popUp .closeButton {
+    right: 10px;
+  }
+
+  .popUp {
+    position: absolute;
+    width: 100vw;
+    max-width: 100vw;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    max-height: 100vh;
+    height: 100vh;
+    overflow: scroll;
+  }
 }

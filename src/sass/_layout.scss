@@ -69,6 +69,10 @@ a.logo:hover,
   color: base.$primary-color;
   font-size: 3rem;
 }
+p.logo {
+  font-family: "Cuprum";
+  text-transform: uppercase;
+}
 span.logo {
   font-size: 6rem;
 }
@@ -92,6 +96,9 @@ h2 {
 
 #countdownContainer {
   text-align: center;
+  ~ p {
+    margin-top: 1rem;
+  }
   *:first-child {
     font-size: 6rem;
     word-spacing: 30px;
