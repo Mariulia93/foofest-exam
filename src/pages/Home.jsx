@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 export default function Home(props) {
   const [fortyBands, setFortyBands] = useState([]);
   useEffect(() => {
-    let shuffled = props.bands.sort(function () {
+    let shuffled = props.bands.slice(11).sort(function () {
       return 0.5 - Math.random();
     });
     setFortyBands(shuffled.slice(0, 40));
