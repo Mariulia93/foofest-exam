@@ -125,18 +125,20 @@ function Basket(props) {
   return (
     <div className="basketPageContainer">
       <Nav vipCount={props.vipCount} regularCount={props.regularCount} />
-      <div className="timer-wrapper">
-        <p>Your purchase will expire in:</p>
-        <CountdownCircleTimer
-          isPlaying
-          duration={300}
-          colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-          colorsTime={[15, 10, 5, 0]}
-          onComplete={() => ({ shouldRepeat: false })}
-        >
-          {renderTime}
-        </CountdownCircleTimer>
-      </div>
+      {stepCounter < 5 && (
+        <div className="timer-wrapper">
+          <p>Your purchase will expire in:</p>
+          <CountdownCircleTimer
+            isPlaying
+            duration={300}
+            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+            colorsTime={[15, 10, 5, 0]}
+            onComplete={() => ({ shouldRepeat: false })}
+          >
+            {renderTime}
+          </CountdownCircleTimer>
+        </div>
+      )}
       <main className="basketContainer">
         <ul>
           <StepItem stepNumber={1} name="Tickets" count={stepCounter} />
