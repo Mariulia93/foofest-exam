@@ -119,8 +119,8 @@ function Basket(props) {
     );
   };
 
-  function disableNextStep(iHaveTent) {
-    setIsDisabled(!iHaveTent);
+  function disableNextStep(state) {
+    setIsDisabled(!state);
   }
   return (
     <div className="basketPageContainer">
@@ -191,6 +191,7 @@ function Basket(props) {
                 ticketOwners={ticketOwners}
                 getEmail={getEmail}
                 getTicketOwners={getTicketOwners}
+                disableNextStep={disableNextStep}
               />
             ) : null}
             {stepCounter === 4 ? <StepPayment stepCounter={stepCounter} /> : null}

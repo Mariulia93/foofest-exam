@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TicketOwner from "./TicketOwner";
 
 function StepPersonalData(props) {
@@ -29,10 +29,31 @@ function StepPersonalData(props) {
     validateEmail();
   }, [repeatedEmail, email]);
 
+  useEffect(() => {
+    props.disableNextStep(false);
+  }, []);
+
+  const dataForm = useRef();
+
+  function checkValidity(e) {
+    if (isEmailTheSame) {
+      if (e.target.checkValidity()) {
+        let sum = 0;
+        for (const element of dataForm.current.elements) {
+          console.log(element.checkValidity(), element);
+          if (element.checkValidity()) sum++;
+        }
+        if (sum < dataForm.current.elements.length - 1) {
+          props.disableNextStep(false);
+        } else props.disableNextStep(true);
+      }
+    }
+  }
+
   return (
     <>
       <h4 className="stepTitle">Contact information</h4>
-      <form className="personalData">
+      <form className="personalData" onChange={checkValidity} ref={dataForm}>
         <fieldset>
           <legend>Where to send tickets</legend>
           <div>
