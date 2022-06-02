@@ -409,7 +409,7 @@ option {
 .popUp {
   position: fixed;
   width: 60vw;
-  max-width: 70vw;
+  max-width: 600px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -422,14 +422,11 @@ option {
   align-items: center;
   z-index: 100;
   max-height: 80vh;
-  // overflow: scroll;
+  overflow: scroll;
   padding: 1rem 0.5rem;
   img {
     height: 30vh;
     border-radius: 5px;
-  }
-  svg {
-    margin-top: 0.5rem;
   }
 
   .logoCredits {
@@ -438,8 +435,8 @@ option {
 
   .closeButton {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     width: 5%;
     height: 7%;
     cursor: pointer;
@@ -872,10 +869,6 @@ h1 {
     margin: 1rem 0;
   }
   // popup
-  .popUp .closeButton {
-    right: 10px;
-  }
-
   .popUp {
     position: absolute;
     width: 100vw;
@@ -885,6 +878,5 @@ h1 {
     transform: translate(0, 0);
     max-height: 100vh;
     height: 100vh;
-    overflow: scroll;
   }
 }

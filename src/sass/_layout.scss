@@ -267,6 +267,11 @@ h2 {
   flex-direction: column;
   padding: 0.5rem 3rem;
 }
+
+.radioButton:hover {
+  background-color: #20b8be;
+}
+
 @media screen and (min-width: 1000px) {
   .scheduleButtons {
     align-items: center;
