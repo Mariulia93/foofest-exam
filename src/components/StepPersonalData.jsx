@@ -31,6 +31,7 @@ function StepPersonalData(props) {
 
   useEffect(() => {
     props.disableNextStep(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const dataForm = useRef();

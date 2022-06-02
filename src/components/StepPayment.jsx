@@ -6,6 +6,7 @@ function StepPayment(props) {
 
   useEffect(() => {
     props.disableNextStep(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function checkValidity(e) {

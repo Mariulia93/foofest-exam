@@ -15,6 +15,7 @@ export default function TicketOwner(props) {
 
   useEffect(() => {
     addToArray(owner);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [owner]);
 
   return (
