@@ -62,6 +62,7 @@ function StepAccomodation(props) {
           ))}
         </tbody>
       </table>
+      {selectedArea === "" && <p className="accomodationFeedback">*Choose a campsite</p>}
       <h4>Tents</h4>
       <div className="marginBottom">
         <div className="chooseTentContainer">
@@ -88,15 +89,17 @@ function StepAccomodation(props) {
           <p>{props.threePeopleTentPrice}kr</p>
         </div>
       </div>
-      {selectedArea === "" && <p>Choose a campsite</p>}
-      {!peopleEqual && <p>Amount of people in the tents should be equal to the amount of tickets!</p>}
+
+      {!peopleEqual && (
+        <p className="accomodationFeedback">*Amount of people in the tents should be equal to the amount of tickets!</p>
+      )}
       <div>
-        <input type="checkbox" onChange={ownTentChange}></input>
-        <label>I have my own tent</label>
+        <input type="checkbox" onChange={ownTentChange} id="ownTentCheck"></input>
+        <label htmlFor="ownTentCheck">I have my own tent</label>
       </div>
       <div>
-        <input type="checkbox" onChange={props.greenCampChange}></input>
-        <label>Green Camping Option 249kr</label>
+        <input type="checkbox" onChange={props.greenCampChange} id="greenOptionCheck"></input>
+        <label htmlFor="greenOptionCheck">Green Camping Option 249kr</label>
       </div>
     </>
   );
