@@ -81,16 +81,13 @@ export default function Tickets(props) {
 
         <tbody>
           {props.availableSpots.map((availableSpot) => (
-            <tr
-              key={availableSpot.area}
-              style={availableSpot.available < 1 ? { opacity: "0.5" } : null}
-            >
+            <tr key={availableSpot.area} style={availableSpot.available < 1 ? { opacity: "0.5" } : null}>
               <AvailableSpots availableSpot={availableSpot} />
             </tr>
           ))}
         </tbody>
       </table>
-      <Link to="/info" className="readMore" onClick={scrollToTop}>
+      <Link to="/info" className="readMore link" onClick={scrollToTop}>
         Read more about our camping sites
       </Link>
       <Footer />
