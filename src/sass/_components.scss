@@ -141,6 +141,27 @@
 .testimonialContainer{
   max-width: 1400px;
   margin: 0rem auto;
+  h2{
+    margin-top: 2rem;
+  }
+  .testimonialCarousel{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: space-between;
+    margin: 0 1rem;
+  }
+  .arrow{
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+  }
+  .arrowLeft{
+    position: absolute;
+    top: 50%;
+    left: 98%;
+    cursor: pointer;
+  }
 }
 .testContainer{
   padding: 2rem;
@@ -155,6 +176,48 @@
   }
   p{
     padding: 0.5rem 5rem;
+  }
+}
+
+//SUSTAINABLE SECTION
+.sustainableSection{
+  max-width: 1400px;
+  margin: 0rem 7rem;
+  padding: 2rem 4rem;
+  border-radius: 25px;
+  background-color: #EEF2E9;
+  
+  .firstDescription{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12rem;
+    .parSus{
+      line-height: 1.65rem;
+    }
+  }
+  .middleDescription{
+    border-top: 1px solid #FEF6E4;
+    margin-top: 4rem;
+    h4{
+      margin-top: 1rem;
+    text-align: center;
+    }
+  }
+  .lastPart{
+    display: flex;
+    gap: 6rem;
+    margin: 4rem 0;
+    
+  }
+  .sustAlign{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .spanText{
+    font-family: base.$headers-font;
+    font-size: 24px;
   }
 }
 // SCHEDULE PAGE

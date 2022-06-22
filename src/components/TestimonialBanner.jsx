@@ -1,16 +1,16 @@
 import React from "react";
 
-function TestimonialBanner(props) {
+function TestimonialBanner({data}) {
   
   return (
     <div className="testContainer">
       <div className="testImg">
-        <img src={props.icon} alt="something"></img>
+        <img src={data.icon} alt="something"></img>
       </div>
       <div className="testText">
       <h2>My Foofest Story</h2>
-      <p>{props.description}</p>
-      <h4>{props.name}</h4>
+      <p>{data.description}</p>
+      <h4>{data.name}</h4>
       </div>
     </div>
   );
