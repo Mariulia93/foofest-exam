@@ -30,7 +30,7 @@ export default function Home(props) {
     },
     1: {
       description:
-        "It is unimaginable how few hours gives you that good energy you need for the whole year, Only good vibes. I will miss catching the sun with my favorite artist. Foofest is a part of my life.",
+        "It is unimaginable how few hours gives you that good energy you need for the whole year. Only good vibes. I will miss catching the sun with my favorite artist. Foofest is a part of my life.",
       name: "Gabriela Got",
       icon: secondImage,
     },
@@ -172,26 +172,35 @@ export default function Home(props) {
         </div>
         <div className="lastPart">
           <div className="sustAlign">
-            <h1>1.</h1>
-            <p>
-              Our bottled water comes from a local source and you can get
-              branded reusable cups, that you can keep as a souvenir.
-            </p>
+            <div className="smallIcon1"></div>
+            <div className="sustBox">
+              <h1>1.</h1>
+              <p>
+                Our bottled water comes from a local source and you can get
+                branded reusable cups, that you can keep as a souvenir.
+              </p>
+            </div>
           </div>
           <div className="sustAlign">
-            <h1>2.</h1>
-            <p>
-              We’ve created an Eco Zone where nearly a dozen eco-related
-              nonprofit exhibitors are teaching festival goers about ocean
-              protection and sustainability.
-            </p>
+            <div className="smallIcon2"></div>
+            <div className="sustBox">
+              <h1>2.</h1>
+              <p>
+                We’ve created an Eco Zone where nearly a dozen eco-related
+                nonprofit exhibitors are teaching festival goers about ocean
+                protection and sustainability.
+              </p>
+            </div>
           </div>
           <div className="sustAlign">
-            <h1>3.</h1>
-            <p>
-              Our food suppliers are using biodegradable bioplastic packaging
-              that reduces carbon footprint.
-            </p>
+            <div className="smallIcon3"></div>
+            <div className="sustBox">
+              <h1>3.</h1>
+              <p>
+                Our food suppliers are using biodegradable bioplastic packaging
+                that reduces carbon footprint.
+              </p>
+            </div>
           </div>
         </div>
       </section>
