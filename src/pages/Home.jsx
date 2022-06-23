@@ -30,7 +30,7 @@ export default function Home(props) {
     },
     1: {
       description:
-        "It is unimaginable how few hours gives you that good energy you need for the whole year. Only good vibes. I will miss catching the sun with my favorite artist. Foofest is a part of my life.",
+        "It is unbelievable how few hours give you that good energy you need for the whole year. Only good vibes. I will miss catching the sun with my favorite artist. Foofest is a part of my life.",
       name: "Gabriela Got",
       icon: secondImage,
     },
